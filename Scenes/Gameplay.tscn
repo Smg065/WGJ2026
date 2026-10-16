@@ -5,20 +5,28 @@
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_mofsa"]
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
+[ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "dayLabel", "wagonLabel", "timeLabel", "energyBar", "moneyLabel", "yesButton", "noButton", "charPort", "charDialogue")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
 dayLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/DayLabel")
 wagonLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/WagonLabel")
 timeLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/TimeHBox/TimeLabel")
+timeCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/TimeCost")
 energyBar = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/EnergyHBox/EnergyBar")
+energyCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/EnergyCost")
 moneyLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/MoneyHBox/MoneyLabel")
+moneyCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/MoneyCost")
 yesButton = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton")
 noButton = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton")
+nosCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/NoCost")
 charPort = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharPort")
 charDialogue = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharText")
+
+[node name="Cam" type="Camera3D" parent="." unique_id=351483388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="TrainRoot" type="Node3D" parent="." unique_id=815444279]
 
@@ -27,6 +35,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -79,6 +91,8 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 text = "timeerr"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnergyHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox" unique_id=1702255590]
 layout_mode = 2
@@ -109,6 +123,8 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 text = "moneyerr"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CharPanel" type="Panel" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox" unique_id=251231962]
 layout_mode = 2
@@ -124,13 +140,39 @@ grow_vertical = 2
 
 [node name="CharPort" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox" unique_id=1309747447]
 layout_mode = 2
+texture = ExtResource("3_mofsa")
+expand_mode = 3
 
 [node name="CharText" type="RichTextLabel" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox" unique_id=94070010]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "ERR:NO TEXT FOUND!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CostsHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox" unique_id=1419342397]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TimeCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=158322431 instance=ExtResource("4_u8j7u")]
+layout_mode = 2
+gainIcon = ExtResource("3_mofsa")
+defaultText = "%s Hours"
+
+[node name="EnergyCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=489055750 instance=ExtResource("4_u8j7u")]
+layout_mode = 2
+gainIcon = ExtResource("3_mofsa")
+defaultText = "%s%% Energy"
+
+[node name="MoneyCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=1529150854 instance=ExtResource("4_u8j7u")]
+layout_mode = 2
+gainIcon = ExtResource("3_mofsa")
+defaultText = "%s$"
+
+[node name="NoCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=229806842 instance=ExtResource("4_u8j7u")]
+layout_mode = 2
+gainIcon = ExtResource("3_mofsa")
+defaultText = "%s NO!s"
 
 [node name="Control" type="Control" parent="MainUI/UIVBox" unique_id=1653157402]
 layout_mode = 2
@@ -179,3 +221,6 @@ text = "X1"
 icon = ExtResource("4_mofsa")
 alignment = 2
 icon_alignment = 1
+
+[connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
+[connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
