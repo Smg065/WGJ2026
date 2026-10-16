@@ -95,7 +95,6 @@ func start_new_day():
 	#Update UIs
 	update_day_vis()
 	update_wagon_vis()
-	hide_costs()
 
 func end_day():
 	#Each unused no is worth 5 dollars
@@ -115,9 +114,8 @@ func hide_costs():
 	nosCost.hide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("DebugNext"):
-		spawn_next_wagon()
 	if moveTrain:
+		print("AAAA")
 		move_train(delta)
 
 func move_train(delta):
@@ -126,8 +124,8 @@ func move_train(delta):
 	if slideProgress == 1:
 		moveTrain = false
 		slideProgress = 0
+		render_request()
 		if wagonsLeft >= 0:
-			render_request()
 			yesButton.disabled = false
 			noButton.disabled = nos <= 0
 		else:

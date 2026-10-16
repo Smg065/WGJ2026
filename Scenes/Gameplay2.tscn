@@ -1,0 +1,390 @@
+[gd_scene format=3 uid="uid://cpcivpx8267fr"]
+
+[ext_resource type="Script" uid="uid://dekgij180bomd" path="res://Scripts/Gameplay.gd" id="1_cys54"]
+[ext_resource type="PackedScene" uid="uid://nbdomxpui5yx" path="res://Resources/TrainWagon.tscn" id="2_t2vuj"]
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_08h15"]
+[ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_bnfms"]
+[ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="5_iutte"]
+[ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="6_pvoyb"]
+[ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_iqagc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
+font_size = 48
+
+[node name="Gameplay" type="Node3D" unique_id=1761436915 node_paths=PackedStringArray("trainRoot", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue")]
+script = ExtResource("1_cys54")
+trainRoot = NodePath("TrainRoot")
+wagonPrefab = ExtResource("2_t2vuj")
+dayLabel = NodePath("MainUI/BottomUI/DayWagonCounter/DayLabel")
+wagonLabel = NodePath("MainUI/BottomUI/DayWagonCounter/WagonLabel")
+timeLabel = NodePath("MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/TimeHBox/TimeLabel")
+timeCost = NodePath("MainUI/TopUI/ResourceCostDisplay/TimeCost")
+energyBar = NodePath("MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/EnergyHBox/EnergyBar")
+energyCost = NodePath("MainUI/TopUI/ResourceCostDisplay/EnergyCost")
+moneyLabel = NodePath("MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/MoneyHBox/MoneyLabel")
+moneyCost = NodePath("MainUI/TopUI/ResourceCostDisplay/MoneyCost")
+yesButton = NodePath("MainUI/BottomUI/YesNo/YesButton")
+noButton = NodePath("MainUI/BottomUI/YesNo/NoButton")
+nosCost = NodePath("MainUI/TopUI/ResourceCostDisplay/NoCost")
+charPort = NodePath("MainUI/TopUI/DialogueAndResources/CharPanel/CharHBox/CharIcon")
+charDialogue = NodePath("MainUI/TopUI/DialogueAndResources/CharPanel/CharHBox/CharDialogue")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=74145123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="MainUI" type="Control" parent="." unique_id=205668262]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopUI" type="VBoxContainer" parent="MainUI" unique_id=841141684]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25833333
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueAndResources" type="HBoxContainer" parent="MainUI/TopUI" unique_id=2056097143]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourcesPanel" type="Panel" parent="MainUI/TopUI/DialogueAndResources" unique_id=1034354476]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourceVBox" type="VBoxContainer" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel" unique_id=686009406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeHBox" type="HBoxContainer" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox" unique_id=1152682306]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TimeIcon" type="TextureRect" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/TimeHBox" unique_id=1664416490]
+layout_mode = 2
+texture = ExtResource("3_08h15")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TimeLabel" type="Label" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/TimeHBox" unique_id=91597489]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyHBox" type="HBoxContainer" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox" unique_id=1989469006]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnergyIcon" type="TextureRect" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/EnergyHBox" unique_id=1630213508]
+layout_mode = 2
+texture = ExtResource("3_08h15")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="EnergyBar" type="ProgressBar" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/EnergyHBox" unique_id=447962347]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+value = 100.0
+
+[node name="MoneyHBox" type="HBoxContainer" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox" unique_id=459604879]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MoneyIcon" type="TextureRect" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/MoneyHBox" unique_id=365560360]
+layout_mode = 2
+texture = ExtResource("3_08h15")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="MainUI/TopUI/DialogueAndResources/ResourcesPanel/ResourceVBox/MoneyHBox" unique_id=1900198857]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "100$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPanel" type="Panel" parent="MainUI/TopUI/DialogueAndResources" unique_id=1720073153]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CharHBox" type="HBoxContainer" parent="MainUI/TopUI/DialogueAndResources/CharPanel" unique_id=1964744336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharIcon" type="TextureRect" parent="MainUI/TopUI/DialogueAndResources/CharPanel/CharHBox" unique_id=975486131]
+layout_mode = 2
+texture = ExtResource("3_08h15")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CharDialogue" type="RichTextLabel" parent="MainUI/TopUI/DialogueAndResources/CharPanel/CharHBox" unique_id=79007273]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LORIM IPSUM THE BROWN FOX JUMPED OVER THE LAZY BROWN DOG THERE IS A LIMITED NUMBER OF CHARACTERS TO BE FIT INTO THIS MENU!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResourceCostDisplay" type="HBoxContainer" parent="MainUI/TopUI" unique_id=1671206243]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="TimeCost" parent="MainUI/TopUI/ResourceCostDisplay" unique_id=158322431 instance=ExtResource("4_bnfms")]
+layout_mode = 2
+gainIcon = ExtResource("3_08h15")
+loseIcon = ExtResource("3_08h15")
+defaultText = "%s Hours"
+
+[node name="EnergyCost" parent="MainUI/TopUI/ResourceCostDisplay" unique_id=602759411 instance=ExtResource("4_bnfms")]
+layout_mode = 2
+gainIcon = ExtResource("3_08h15")
+loseIcon = ExtResource("3_08h15")
+defaultText = "%s%% Energy"
+
+[node name="MoneyCost" parent="MainUI/TopUI/ResourceCostDisplay" unique_id=1309182646 instance=ExtResource("4_bnfms")]
+layout_mode = 2
+gainIcon = ExtResource("3_08h15")
+loseIcon = ExtResource("3_08h15")
+defaultText = "%s$"
+
+[node name="NoCost" parent="MainUI/TopUI/ResourceCostDisplay" unique_id=1415779557 instance=ExtResource("4_bnfms")]
+layout_mode = 2
+gainIcon = ExtResource("3_08h15")
+loseIcon = ExtResource("3_08h15")
+defaultText = "%s NO!s"
+
+[node name="BottomUI" type="VBoxContainer" parent="MainUI" unique_id=157166069]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="DayWagonCounter" type="HBoxContainer" parent="MainUI/BottomUI" unique_id=182886988]
+layout_mode = 2
+alignment = 1
+
+[node name="DayLabel" type="Label" parent="MainUI/BottomUI/DayWagonCounter" unique_id=1976419968]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Day %s,"
+horizontal_alignment = 2
+
+[node name="WagonLabel" type="Label" parent="MainUI/BottomUI/DayWagonCounter" unique_id=567225408]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wagon %s"
+
+[node name="YesNo" type="HBoxContainer" parent="MainUI/BottomUI" unique_id=1026955349]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="YesButton" type="Button" parent="MainUI/BottomUI/YesNo" unique_id=212453432]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("5_iutte")
+icon_alignment = 1
+expand_icon = true
+
+[node name="NoButton" type="Button" parent="MainUI/BottomUI/YesNo" unique_id=1074917782]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "x1"
+icon = ExtResource("6_pvoyb")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="ShopUI" type="Control" parent="." unique_id=1287150607]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopVBox" type="VBoxContainer" parent="ShopUI" unique_id=607256951]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShopUI/ShopVBox" unique_id=1473090360]
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_ir5nv")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="ShopUI/ShopVBox" unique_id=614098948]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainShopInfo" type="HBoxContainer" parent="ShopUI/ShopVBox" unique_id=1068955112]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="SidePanel" type="Panel" parent="ShopUI/ShopVBox/MainShopInfo" unique_id=1009490592]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="SidePanelVBox" type="VBoxContainer" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel" unique_id=287771185]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopkeepDialogueBox" type="Panel" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel/SidePanelVBox" unique_id=818078218]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopkeepLabel" type="Label" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel/SidePanelVBox/ShopkeepDialogueBox" unique_id=1703103723]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "What can I get you?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RerollHBox" type="HBoxContainer" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel/SidePanelVBox" unique_id=2051917613]
+layout_mode = 2
+alignment = 1
+
+[node name="RerollLabel" type="Label" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel/SidePanelVBox/RerollHBox" unique_id=2021942502]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reroll:"
+horizontal_alignment = 1
+
+[node name="RerollButton" type="Button" parent="ShopUI/ShopVBox/MainShopInfo/SidePanel/SidePanelVBox/RerollHBox" unique_id=1597124679]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1$"
+
+[node name="ShopPanel" type="Panel" parent="ShopUI/ShopVBox/MainShopInfo" unique_id=863537527]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShopGrid" type="GridContainer" parent="ShopUI/ShopVBox/MainShopInfo/ShopPanel" unique_id=684095337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="TextureRect" parent="ShopUI/ShopVBox/MainShopInfo/ShopPanel/ShopGrid" unique_id=944179756 instance=ExtResource("7_iqagc")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ShopUI/ShopVBox/MainShopInfo/ShopPanel/ShopGrid" unique_id=902307573]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_08h15")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ShopUI/ShopVBox/MainShopInfo/ShopPanel/ShopGrid" unique_id=233029916]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_08h15")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="ShopUI/ShopVBox/MainShopInfo/ShopPanel/ShopGrid" unique_id=2079124380]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_08h15")
+expand_mode = 1
+
+[node name="BottomButtons" type="HBoxContainer" parent="ShopUI/ShopVBox" unique_id=1143163796]
+layout_mode = 2
+alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="ShopUI/ShopVBox/BottomButtons" unique_id=511802495]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Purchase"
+
+[node name="NextDayButton" type="Button" parent="ShopUI/ShopVBox/BottomButtons" unique_id=815976502]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next Day"
+
+[node name="Label" type="Label" parent="ShopUI/ShopVBox/BottomButtons" unique_id=1352267163]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Money: %s$"
+horizontal_alignment = 1
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1511306992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.396, -1.0425466, -7)
+texture = ExtResource("3_08h15")
+
+[node name="SunAnchor" type="Node3D" parent="." unique_id=2139783038]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Sunlight" type="DirectionalLight3D" parent="SunAnchor" unique_id=361431663]
+transform = Transform3D(0.49999994, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999994, 0, 0, 0)
+light_color = Color(0.9835, 1, 0.90999997, 1)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SunAnchor" unique_id=140038758]
+transform = Transform3D(0.9659258, -4.141523e-08, -0.25881895, 3.6977966e-08, 1, -1.2634317e-08, 0.25881904, 1.6735943e-10, 0.9659258, 0, 0, 0)
+sky_mode = 1
+
+[node name="TrainRoot" type="Node3D" parent="." unique_id=719800352]
+
+[connection signal="pressed" from="MainUI/BottomUI/YesNo/YesButton" to="." method="yes_pressed"]
+[connection signal="pressed" from="MainUI/BottomUI/YesNo/NoButton" to="." method="no_pressed"]
