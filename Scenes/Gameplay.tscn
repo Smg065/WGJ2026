@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://5ic7ywarmlh7"]
+
+[ext_resource type="Script" uid="uid://dekgij180bomd" path="res://Scripts/Gameplay.gd" id="1_r5ka5"]
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_yijg0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ir5nv"]
+size = Vector2(8, 8)
+
+[node name="Gameplay" type="Node3D" unique_id=1761436915 node_paths=PackedStringArray("timeLabel", "moneyLabel", "energyBar")]
+script = ExtResource("1_r5ka5")
+timeLabel = NodePath("Control/Panel/ResourceVBox/TimeHBox/Label")
+moneyLabel = NodePath("Control/Panel/ResourceVBox/TimeHBox3/Label3")
+energyBar = NodePath("Control/Panel/ResourceVBox/TimeHBox2/ProgressBar")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=74145123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Control" type="Control" parent="." unique_id=205668262]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=456894887]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/HBoxContainer" unique_id=144283997]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("1_yijg0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Control/HBoxContainer" unique_id=977537713]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("1_yijg0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Panel2" type="Panel" parent="Control" unique_id=1720073153]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19965278
+anchor_right = 1.0002778
+anchor_bottom = 0.2
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel2" unique_id=79007273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LORIM IPSUM THE BROWN FOX JUMPED OVER THE LAZY BROWN DOG THERE IS A LIMITED NUMBER OF CHARACTERS TO BE FIT INTO THIS MENU!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1034354476]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.2
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourceVBox" type="VBoxContainer" parent="Control/Panel" unique_id=686009406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeHBox" type="HBoxContainer" parent="Control/Panel/ResourceVBox" unique_id=1152682306]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/ResourceVBox/TimeHBox" unique_id=1664416490]
+layout_mode = 2
+texture = ExtResource("1_yijg0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Panel/ResourceVBox/TimeHBox" unique_id=91597489]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeHBox2" type="HBoxContainer" parent="Control/Panel/ResourceVBox" unique_id=1989469006]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/ResourceVBox/TimeHBox2" unique_id=1630213508]
+layout_mode = 2
+texture = ExtResource("1_yijg0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Panel/ResourceVBox/TimeHBox2" unique_id=447962347]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 100.0
+
+[node name="TimeHBox3" type="HBoxContainer" parent="Control/Panel/ResourceVBox" unique_id=459604879]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/ResourceVBox/TimeHBox3" unique_id=365560360]
+layout_mode = 2
+texture = ExtResource("1_yijg0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="Control/Panel/ResourceVBox/TimeHBox3" unique_id=1900198857]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "100$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=348664423]
+visible = false
+size = Vector3(4, 4, 4.6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=855640887]
+operation = 2
+size = Vector3(3.5, 3.5, 4.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=1509549371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0947876, -0.888916, -0.50927734)
+operation = 2
+size = Vector3(1.55896, 1.722168, 5.5185547)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=710002069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_ir5nv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=20841665]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, -1)
+mesh = SubResource("PlaneMesh_ir5nv")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1989994478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0)
+texture = ExtResource("1_yijg0")
+
+[node name="SunAnchor" type="Node3D" parent="." unique_id=2139783038]
+
+[node name="Sunlight" type="DirectionalLight3D" parent="SunAnchor" unique_id=361431663]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.9835, 1, 0.90999997, 1)
+shadow_enabled = true
+
+[node name="Moonlight" type="DirectionalLight3D" parent="SunAnchor" unique_id=1207680076]
+transform = Transform3D(-4.371139e-08, -8.742278e-08, -1, 0, -1, 8.742278e-08, -1, 3.821371e-15, 4.371139e-08, 0, 0, 0)
+light_color = Color(0.8936667, 0.89, 1, 1)
+light_energy = 0.1

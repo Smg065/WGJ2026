@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://omcdkcc7cmn"]
+
+[ext_resource type="Script" uid="uid://latfd4nk00rj" path="res://Scripts/MainMenu.gd" id="1_853f1"]
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_tt5f1"]
+[ext_resource type="PackedScene" uid="uid://5ic7ywarmlh7" path="res://Scenes/Gameplay.tscn" id="2_8saeu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_8saeu"]
+font_size = 24
+
+[node name="MainMenu" type="Control" unique_id=1574445414]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_853f1")
+playScene = ExtResource("2_8saeu")
+
+[node name="TitleScreen" type="Control" parent="." unique_id=453448449]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="TitleScreen" unique_id=1358001615]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TitleScreen/VBox" unique_id=1015748396]
+layout_mode = 2
+texture = ExtResource("1_tt5f1")
+stretch_mode = 5
+
+[node name="PlayButton" type="Button" parent="TitleScreen/VBox" unique_id=324134981]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="TitleScreen/VBox" unique_id=404736943]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="TitleScreen/VBox" unique_id=1609266199]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="Settings" type="Control" parent="." unique_id=1169452471]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Settings" unique_id=572213110]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SettingsLabel" type="Label" parent="Settings/VBox" unique_id=375716013]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_ir5nv")
+horizontal_alignment = 1
+
+[node name="MainLabel" type="Label" parent="Settings/VBox" unique_id=775091949]
+layout_mode = 2
+text = "Main Volume"
+label_settings = SubResource("LabelSettings_8saeu")
+horizontal_alignment = 1
+
+[node name="MainSlider" type="HSlider" parent="Settings/VBox" unique_id=796894334]
+layout_mode = 2
+value = 50.0
+
+[node name="MusicLabel" type="Label" parent="Settings/VBox" unique_id=204052903]
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_8saeu")
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Settings/VBox" unique_id=1299081220]
+layout_mode = 2
+value = 100.0
+
+[node name="SFXLabel" type="Label" parent="Settings/VBox" unique_id=894095154]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_8saeu")
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="Settings/VBox" unique_id=235410958]
+layout_mode = 2
+value = 100.0
+
+[node name="BackButton" type="Button" parent="Settings/VBox" unique_id=517785263]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="QuitConfirm" type="Control" parent="." unique_id=943024617]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="QuitConfirm" unique_id=638721707]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="QuitLabel" type="Label" parent="QuitConfirm/VBox" unique_id=326752355]
+layout_mode = 2
+text = "Do you want to Quit?"
+label_settings = SubResource("LabelSettings_ir5nv")
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="QuitConfirm/VBox" unique_id=1620479914]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitYes" type="Button" parent="QuitConfirm/VBox/HBox" unique_id=796774043]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Yes"
+
+[node name="QuitNo" type="Button" parent="QuitConfirm/VBox/HBox" unique_id=635664265]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "No"
+
+[connection signal="pressed" from="TitleScreen/VBox/PlayButton" to="." method="play_pressed"]
+[connection signal="pressed" from="TitleScreen/VBox/SettingsButton" to="TitleScreen" method="hide"]
+[connection signal="pressed" from="TitleScreen/VBox/SettingsButton" to="Settings" method="show"]
+[connection signal="pressed" from="TitleScreen/VBox/QuitButton" to="TitleScreen" method="hide"]
+[connection signal="pressed" from="TitleScreen/VBox/QuitButton" to="QuitConfirm" method="show"]
+[connection signal="drag_ended" from="Settings/VBox/MainSlider" to="." method="sound_slider_drag_ended" binds= [0]]
+[connection signal="drag_started" from="Settings/VBox/MainSlider" to="." method="sound_slider_drag_started" binds= [0]]
+[connection signal="value_changed" from="Settings/VBox/MainSlider" to="." method="slider_value_changed" binds= [0]]
+[connection signal="drag_ended" from="Settings/VBox/MusicSlider" to="." method="sound_slider_drag_ended" binds= [1]]
+[connection signal="drag_started" from="Settings/VBox/MusicSlider" to="." method="sound_slider_drag_started" binds= [1]]
+[connection signal="value_changed" from="Settings/VBox/MusicSlider" to="." method="slider_value_changed" binds= [1]]
+[connection signal="drag_ended" from="Settings/VBox/SFXSlider" to="." method="sound_slider_drag_ended" binds= [2]]
+[connection signal="drag_started" from="Settings/VBox/SFXSlider" to="." method="sound_slider_drag_started" binds= [2]]
+[connection signal="value_changed" from="Settings/VBox/SFXSlider" to="." method="slider_value_changed" binds= [2]]
+[connection signal="pressed" from="Settings/VBox/BackButton" to="TitleScreen" method="show"]
+[connection signal="pressed" from="Settings/VBox/BackButton" to="Settings" method="hide"]
+[connection signal="pressed" from="QuitConfirm/VBox/HBox/QuitYes" to="." method="quit_pressed"]
+[connection signal="pressed" from="QuitConfirm/VBox/HBox/QuitNo" to="TitleScreen" method="show"]
+[connection signal="pressed" from="QuitConfirm/VBox/HBox/QuitNo" to="QuitConfirm" method="hide"]
