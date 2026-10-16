@@ -21,23 +21,31 @@ var moveTrain : bool
 @export var renderedWagons : Array[TrainWagon] = [null, null, null, null]
 
 @export_category("UI")
+@export var mainUI : Control
 @export var dayLabel : Label
 @export var wagonLabel : Label
 @export var timeLabel : Label
 @export var timeCost : ResourceModPanel
-@export var timeMoneyBonus : Label
 @export var energyBar : ProgressBar
 @export var energyCost : ResourceModPanel
-@export var energyMoneyBonus : Label
 @export var moneyLabel : Label
 @export var moneyCost : ResourceModPanel
 @export var yesButton : Button
 @export var noButton : Button
-@export var noMoneyBonus : Label
 @export var nosCost : ResourceModPanel
 
 @export var charPort : TextureRect
 @export var charDialogue : RichTextLabel
+
+@export_category("Day End UI")
+@export var earningsUI : Control
+@export var dayCompleteLabel : Label
+@export var timeMoneyBonus : Label
+@export var energyMoneyBonus : Label
+@export var noMoneyBonus : Label
+@export var dailyWageLabel : Label
+@export var dayEndTotalLabel : Label
+@export var dayEndUIButton : Button
 
 @export var day : int = 0:
 	get:
@@ -63,7 +71,7 @@ var endingTime : int = 18
 	get:
 		return energy
 	set(newEnergy):
-		energy = newEnergy
+		energy = clampi(newEnergy, 0, 100)
 		update_energy_vis()
 @export var money : int = 100:
 	get:
@@ -97,15 +105,42 @@ func start_new_day():
 	update_wagon_vis()
 
 func end_day():
+	mainUI.hide()
+	earningsUI.show()
+	dayCompleteLabel.text = "Day %s Complete!\n" % str(day)
 	#Each unused no is worth 5 dollars
-	var nosBonus : int = 5
+	var nosBonus : int = nos * 5
 	nos = 0
 	#20% of your energy is worth 1 dollar
-	var energyBonus : float = 0.05
+	var energyBonus := floori(0.05 * energy)
 	energy = 0
 	#1 hour is worth a dollar
 	var timeBonus : int = endingTime - time
-	money += (nosBonus * nos) + floori(energyBonus * energy) + timeBonus
+	#Daily Wage
+	var dailyWage : int = 5
+	var earnedMoney = nosBonus + energyBonus + timeBonus
+	money += earnedMoney
+	if timeBonus != 0:
+		timeMoneyBonus.show()
+		timeMoneyBonus.text = "Time Bonus: %s$" % timeBonus
+	else:
+		timeMoneyBonus.hide()
+	if energyBonus != 0:
+		energyMoneyBonus.show()
+		energyMoneyBonus.text = "Energy Bonus: %s$" % energyBonus
+	else:
+		energyMoneyBonus.hide()
+	if nosBonus != 0:
+		noMoneyBonus.show()
+		noMoneyBonus.text = "Unused NO!s Bonus: %s$" % nosBonus
+	else:
+		noMoneyBonus.hide()
+	if dailyWage != 0:
+		dailyWageLabel.show()
+		dailyWageLabel.text = "Daily Wage: %s$" % dailyWage
+	else:
+		dailyWageLabel.hide()
+	dayEndTotalLabel.text = "Total Earnings: %s$" % earnedMoney
 
 func hide_costs():
 	timeCost.hide()
@@ -115,7 +150,6 @@ func hide_costs():
 
 func _process(delta: float) -> void:
 	if moveTrain:
-		print("AAAA")
 		move_train(delta)
 
 func move_train(delta):
@@ -129,7 +163,7 @@ func move_train(delta):
 			yesButton.disabled = false
 			noButton.disabled = nos <= 0
 		else:
-			print("End of day!")
+			end_day()
 
 func spawn_next_wagon() -> void:
 	wagonsLeft -= 1
@@ -155,7 +189,6 @@ func spawn_next_wagon() -> void:
 	yesButton.disabled = true
 	noButton.disabled = true
 	if renderedWagons[2] != null:
-		print(renderedWagons[2].name)
 		curRequest = renderedWagons[2].request
 
 ##Updates the request info

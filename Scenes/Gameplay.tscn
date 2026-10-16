@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
+mainUI = NodePath("MainUI")
 dayLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/DayLabel")
 wagonLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/WagonLabel")
 timeLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/TimeHBox/TimeLabel")
@@ -24,6 +25,14 @@ noButton = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton")
 nosCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/NoCost")
 charPort = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharPort")
 charDialogue = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharText")
+earningsUI = NodePath("DayEndUI")
+dayCompleteLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/EarningHeader")
+timeMoneyBonus = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/HoursLeftLabel")
+energyMoneyBonus = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/SpareEnergyLabel")
+noMoneyBonus = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/UnusedNosLabel")
+dailyWageLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DailyWageLabel")
+dayEndTotalLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/TotalEarnings")
+dayEndUIButton = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
@@ -221,6 +230,76 @@ text = "X1"
 icon = ExtResource("4_mofsa")
 alignment = 2
 icon_alignment = 1
+
+[node name="DayEndUI" type="ColorRect" parent="." unique_id=451989664]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="DayEndVPanel" type="Panel" parent="DayEndUI" unique_id=168923225]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayEndPanelContainer" type="PanelContainer" parent="DayEndUI/DayEndVPanel" unique_id=1573027629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayEndVBox" type="VBoxContainer" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer" unique_id=1258827112]
+layout_mode = 2
+
+[node name="EarningHeader" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=826166580]
+layout_mode = 2
+text = "Day %s Complete!
+Bonuses:"
+horizontal_alignment = 1
+
+[node name="UnusedNosLabel" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=410966186]
+visible = false
+layout_mode = 2
+text = "Unused NO!s: %s$"
+horizontal_alignment = 1
+
+[node name="SpareEnergyLabel" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=1960261389]
+visible = false
+layout_mode = 2
+text = "Spare Enegry: %s$"
+horizontal_alignment = 1
+
+[node name="HoursLeftLabel" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=1426230678]
+visible = false
+layout_mode = 2
+text = "Hours Left: %s$"
+horizontal_alignment = 1
+
+[node name="DailyWageLabel" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=1844148356]
+visible = false
+layout_mode = 2
+text = "Daily Wage: %s$"
+horizontal_alignment = 1
+
+[node name="TotalEarnings" type="Label" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=629105122]
+layout_mode = 2
+text = "Total Earnings:"
+horizontal_alignment = 1
+
+[node name="DayEndContinue" type="Button" parent="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox" unique_id=1994138397]
+layout_mode = 2
+text = "Continue"
 
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
