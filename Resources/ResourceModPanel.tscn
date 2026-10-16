@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://by6nvg44u7bqr"]
+
+[ext_resource type="Script" uid="uid://bm25ucx4nov16" path="res://Scripts/ResourceModPanel.gd" id="1_uhcx7"]
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_xs7g6"]
+
+[node name="ResourcePanel" type="Panel" unique_id=158322431 node_paths=PackedStringArray("icon", "label")]
+size_flags_horizontal = 3
+script = ExtResource("1_uhcx7")
+icon = NodePath("HBox/Icon")
+label = NodePath("HBox/Text")
+
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1053328114]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="HBox" unique_id=2117836708]
+layout_mode = 2
+texture = ExtResource("1_xs7g6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="HBox" unique_id=853625813]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "%s Hours"
+horizontal_alignment = 1
