@@ -7,8 +7,7 @@
 script = ExtResource("2_l4cht")
 dialogueEn = "This is an example."
 energyCost = 10
-timeCost = 2
-moneyCost = 5
+moneyCost = 1
 charWagon = ExtResource("1_4e7qp")
 charProfile = ExtResource("1_4e7qp")
 charYes = ExtResource("1_4e7qp")

@@ -312,6 +312,7 @@ func spawn_next_wagon() -> void:
 	var nextWagon : TrainWagon
 	if wagonsLeft > 0:
 		nextWagon = wagonPrefab.instantiate()
+		nextWagon.request = load("res://Resources/Requests/ExampleRequest.tres")
 		nextWagon.name = "Wagon"+str(wagonsLeft)
 	elif wagonsLeft == 0:
 		nextWagon = wagonPrefab.instantiate()
@@ -347,7 +348,10 @@ func render_request():
 		return
 	moneyCost.update_vis(curRequest.moneyCost)
 	energyCost.update_vis(curRequest.energyCost)
-	timeCost.update_vis(curRequest.timeCost)
+	var totalTimeCost = curRequest.timeCost
+	if energy <= 0:
+		totalTimeCost += 1
+	timeCost.update_vis(totalTimeCost)
 	nosCost.update_vis(curRequest.noCost)
 
 ##Set the day UI
@@ -382,19 +386,25 @@ func update_nos_vis():
 	noButton.text = "x" + str(nos)
 
 func yes_pressed() -> void:
-	#Yes pressed
-	for eachItem in ownedItems:
-		eachItem.on_yes(self)
 	if curRequest != null:
+		var totalTimeCost = curRequest.timeCost
+		if energy <= 0:
+			totalTimeCost += 1
 		charPort.texture = curRequest.charYes
 		money -= curRequest.moneyCost
 		energy -= curRequest.energyCost
-		time -= curRequest.timeCost
+		time += totalTimeCost
 		nos -= curRequest.noCost
 		for eachTag in curRequest.yesTags:
 			if not eachTag in tags:
 				tags.append(eachTag)
-	spawn_next_wagon()
+	#Yes pressed
+	for eachItem in ownedItems:
+		eachItem.on_yes(self)
+	if time > endingTime:
+		game_over()
+	else:
+		spawn_next_wagon()
 
 func no_pressed() -> void:
 	#No pressed
@@ -470,6 +480,11 @@ func try_buy(shopItem : ShopItem) -> void:
 	money -= shopItem.curItem.itemCost
 	shopItem.curItem = null
 	shopItem.set_purchased()
+
+##Game over
+func game_over() -> void:
+	mainUI.hide()
+	gameOverUI.show()
 
 ##Adds an item to your inventory
 func aquire_item(newItem : ItemBase) -> void:
