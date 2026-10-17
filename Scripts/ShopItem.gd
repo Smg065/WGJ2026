@@ -6,6 +6,7 @@ var curItem : ItemBase
 signal try_buy(shopItem : ShopItem)
 @export var itemInfo : VBoxContainer
 @export var itemNameLabel : Label
+@export var itemIcon : TextureRect
 @export var itemQualityLabel : Label
 @export var itemDescriptionLabel : RichTextLabel
 @export var itemBuyButton : Button
@@ -15,7 +16,9 @@ func setup_item(gameplay : Gameplay, newItem : ItemBase):
 	itemInfo.show()
 	curItem = newItem
 	#Item text
-	itemNameLabel.text = curItem.itemName
+	itemNameLabel.text = curItem.
+	#Item icon
+	itemIcon.texture = curItem.itemIcon
 	#Item Quality
 	match curItem.rarity:
 		ItemBase.RARITIES.COMMON:

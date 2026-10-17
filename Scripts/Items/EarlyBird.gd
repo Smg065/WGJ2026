@@ -6,6 +6,7 @@ func setup_item() -> void:
 	rarity = ItemBase.RARITIES.RARE
 	itemCost = 25
 	itemDescription = "Wake up 2 [color=teal]hours[/color] earlier."
+	itemIcon = load("res://Sprites/Items/Early_Brid.png")
 
 func can_appear(gameplay : Gameplay, previousItems : Array[ItemBase]) -> bool:
 	var minTime : int = 7
