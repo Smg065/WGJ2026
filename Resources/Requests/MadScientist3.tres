@@ -6,7 +6,9 @@
 script = ExtResource("1_nswni")
 dialogueEn = "\"My pet Zombie bit a [i]lot[/i] of people. Help me catch them, will you?\""
 tagWhitelist = Array[String](["MadScience2"])
-energyCost = 40
+tagBlacklist = Array[String](["MadScience3"])
+yesTags = Array[String](["MadScience3"])
+energyCost = 30
 timeCost = 2
 minDay = 3
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"

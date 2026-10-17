@@ -331,6 +331,7 @@ func spawn_next_wagon() -> void:
 	if wagonsLeft > 0:
 		nextWagon = wagonPrefab.instantiate()
 		nextWagon.request = get_request()
+		nextWagon.set_train(randi_range(0, 1))
 		nextWagon.name = "Wagon"+str(wagonsLeft)
 	elif wagonsLeft == 0:
 		nextWagon = wagonPrefab.instantiate()

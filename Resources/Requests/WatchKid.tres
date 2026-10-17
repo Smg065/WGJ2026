@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cfmtv4iusetqk"]
+
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_d3g7k"]
+
+[resource]
+script = ExtResource("1_d3g7k")
+dialogueEn = "\"May you please watch my kid for me?\""
+timeCost = 3
+moneyCost = -10
+minDay = 3
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bnl5huj5mq0me"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_wxtgj"]
+[ext_resource type="Texture2D" uid="uid://duppf2fp7arfq" path="res://Sprites/UI/Star.png" id="2_fwpw0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
+font_size = 10
+
+[node name="OwnedItemRend" type="TextureRect" unique_id=1166380306]
+texture = ExtResource("1_wxtgj")
+expand_mode = 3
+
+[node name="CountLabel" type="Label" parent="." unique_id=81534108]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x1"
+label_settings = SubResource("LabelSettings_kbjx8")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="QualityStar" type="TextureRect" parent="." unique_id=797306339]
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_fwpw0")
+stretch_mode = 2

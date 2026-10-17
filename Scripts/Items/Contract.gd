@@ -6,6 +6,7 @@ func setup_item() -> void:
 	rarity = ItemBase.RARITIES.RARE
 	itemCost = 15
 	itemDescription = "-[color=green]$5[/color] in wages. +1 [color=red]NO![/color]"
+	itemIcon = load("res://Sprites/Items/Contract.png")
 
 func on_purchase(gameplay : Gameplay) -> void:
 	gameplay.startingNos += 1
