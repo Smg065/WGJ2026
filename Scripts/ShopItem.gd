@@ -16,7 +16,7 @@ func setup_item(gameplay : Gameplay, newItem : ItemBase):
 	itemInfo.show()
 	curItem = newItem
 	#Item text
-	itemNameLabel.text = curItem.
+	itemNameLabel.text = curItem.itemName
 	#Item icon
 	itemIcon.texture = curItem.itemIcon
 	#Item Quality
