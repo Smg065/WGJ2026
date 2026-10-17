@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cwmv3oifqxrd3"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_jt25w"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_kbu34"]
+
+[resource]
+script = ExtResource("2_kbu34")
+dialogueEn = "\"I've refined the expirimental coffee recipe! Care to try?\""
+energyCost = -50
+timeCost = 0
+moneyCost = 10
+minDay = 4
+charWagon = ExtResource("1_jt25w")
+charProfile = ExtResource("1_jt25w")
+charYes = ExtResource("1_jt25w")
+charNo = ExtResource("1_jt25w")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

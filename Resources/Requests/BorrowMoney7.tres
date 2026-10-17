@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("2_ttqgg")
-dialogueEn = "\"I need 50 50 dollars. Please.\""
+dialogueEn = "\"I need 50 dollars. Please.\""
 tagWhitelist = Array[String](["Borrow6"])
 tagBlacklist = Array[String](["Borrow7"])
 yesTags = Array[String](["Borrow7"])
 timeCost = 0
-moneyCost = -50
+moneyCost = 50
 charWagon = ExtResource("1_6owbm")
 charProfile = ExtResource("1_6owbm")
 charYes = ExtResource("1_6owbm")

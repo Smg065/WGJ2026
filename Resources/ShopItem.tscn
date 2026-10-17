@@ -8,7 +8,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
-font_size = 8
+font_size = 12
 
 [node name="ItemPanel1" type="Panel" unique_id=1699948921 node_paths=PackedStringArray("itemInfo", "itemNameLabel", "itemIcon", "itemQualityLabel", "itemDescriptionLabel", "itemBuyButton")]
 size_flags_horizontal = 3
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ItemHeader" type="HBoxContainer" parent="ItemInfo" unique_id=1175461902]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 
 [node name="ItemIcon" type="TextureRect" parent="ItemInfo/ItemHeader" unique_id=1970256392]

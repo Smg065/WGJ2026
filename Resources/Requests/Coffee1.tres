@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cpo5nnwjvepxs"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_w4eds"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_xwoym"]
+
+[resource]
+script = ExtResource("2_xwoym")
+dialogueEn = "\"Would you care for some expirimental coffee?\""
+energyCost = -25
+timeCost = 0
+moneyCost = 5
+maxDay = 3
+charWagon = ExtResource("1_w4eds")
+charProfile = ExtResource("1_w4eds")
+charYes = ExtResource("1_w4eds")
+charNo = ExtResource("1_w4eds")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"
