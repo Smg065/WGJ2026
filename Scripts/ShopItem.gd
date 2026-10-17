@@ -38,7 +38,9 @@ func setup_item(gameplay : Gameplay, newItem : ItemBase):
 
 ##If you can use the buy button or not
 func update_buy_button(_changeVal : int, gameplay : Gameplay):
-	itemBuyButton.disabled = gameplay.money > curItem.itemCost
+	if curItem == null:
+		return
+	itemBuyButton.disabled = gameplay.money < curItem.itemCost
 
 func buy_pressed() -> void:
 	try_buy.emit(self)

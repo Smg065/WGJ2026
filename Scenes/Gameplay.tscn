@@ -17,7 +17,7 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_68abm"]
 font_size = 64
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "victoryUI", "gameOverUI")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "victoryUI", "gameOverUI")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
@@ -53,6 +53,7 @@ startingEnergyLabel = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/Shop
 rerollButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton")
 nextDayButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton")
 itemsHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
+shopItemSlots = [NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel1"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel2"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel3"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel4")]
 victoryUI = NodePath("VictoryUI")
 gameOverUI = NodePath("GameOverUI")
 
@@ -144,6 +145,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
+allow_greater = true
 
 [node name="MoneyHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox" unique_id=1292793173]
 layout_mode = 2

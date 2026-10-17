@@ -141,6 +141,8 @@ var baseRerollCost = 5
 		rerollCost = newCost
 		update_reroll_vis()
 		update_reroll_disabled()
+##How likely you are to see good items
+var luck : int = 0
 
 func _ready() -> void:
 	setup_items()
@@ -158,6 +160,12 @@ func _ready() -> void:
 
 ##Sets up all items
 func setup_items():
+	allItems = {
+		ItemBase.RARITIES.COMMON : [],
+		ItemBase.RARITIES.UNCOMMON : [],
+		ItemBase.RARITIES.RARE : [],
+		ItemBase.RARITIES.LEGENDARY : []
+		}
 	var itemFolder := ResourceLoader.list_directory("res://Scripts/Items/")
 	for eachScript in itemFolder:
 		var scriptFile := ResourceLoader.load("res://Scripts/Items/" + eachScript)
@@ -170,11 +178,11 @@ func get_valid_item(prevItems : Array[ItemBase]) -> ItemBase:
 	#Pick a rarity
 	var rarityRoll := randi_range(1, 100)
 	var rarity : ItemBase.RARITIES
-	if rarityRoll == 100:
+	if rarityRoll == 100 - luck:
 		rarity = ItemBase.RARITIES.LEGENDARY
-	elif rarityRoll >= 95:
+	elif rarityRoll >= 95 - (luck * 3):
 		rarity = ItemBase.RARITIES.RARE
-	elif rarityRoll >= 62:
+	elif rarityRoll >= 62 - (luck * 7):
 		rarity = ItemBase.RARITIES.UNCOMMON
 	else:
 		rarity = ItemBase.RARITIES.COMMON
@@ -195,6 +203,7 @@ func start_new_day():
 	trainRoot.global_position = Vector3.ZERO
 	trainGoalPos = 0
 	day += 1
+	time = startingTime
 	nos = startingNos
 	energy = startingEnergy
 	totalWagons = 5 + day
@@ -243,7 +252,7 @@ func end_day(victoryOverride = false):
 				earningMods[eachEntry] = itemEarningMods[eachEntry]
 	dayCompleteLabel.text = "Day %s Complete!\n" % str(day)
 	#Each unused no is worth 5 dollars by default
-	var nosBonus : int = (nos * earningMods["nosAdd"]) * "nosMulti"
+	var nosBonus : int = (nos * earningMods["nosAdd"]) * earningMods["nosMulti"]
 	nos = 0
 	#20% of your energy is worth 1 dollar
 	var energyBonus := floori((earningMods["energyAdd"] * energy) * earningMods["energyMulti"])
@@ -458,8 +467,8 @@ func try_buy(shopItem : ShopItem) -> void:
 	for eachItem in ownedItems:
 		eachItem.on_purchase_any(self)
 	aquire_item(shopItem.curItem)
-	shopItem.curItem = null
 	money -= shopItem.curItem.itemCost
+	shopItem.curItem = null
 	shopItem.set_purchased()
 
 ##Adds an item to your inventory
