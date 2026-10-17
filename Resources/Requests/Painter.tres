@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dgh7gh3w7dqct"]
 
+[ext_resource type="Texture2D" uid="uid://bcd0n5ce4r5w0" path="res://Sprites/Characters/NPC_5.png" id="1_2tgxq"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_m4lqm"]
 
 [resource]
@@ -7,4 +8,8 @@ script = ExtResource("1_m4lqm")
 dialogueEn = "\"I could use help watching this paint dry.\""
 timeCost = 4
 minDay = 4
+charWagon = ExtResource("1_2tgxq")
+charProfile = ExtResource("1_2tgxq")
+charYes = ExtResource("1_2tgxq")
+charNo = ExtResource("1_2tgxq")
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"

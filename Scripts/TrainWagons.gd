@@ -6,13 +6,14 @@ var request : CharacterRequest
 @export var wagonOrigin : Node3D
 @export var wagonChar : Sprite3D
 
-var wagonModels : Array[PackedScene] = [
+static var WAGON_MODELS : Array[PackedScene] = [
 	load("res://Models/Wagon_01.glb"),
-	load("res://Models/Wagon_02.glb")
+	load("res://Models/Wagon_02.glb"),
+	load("res://Models/Wagon_03.glb")
 ]
 
 func set_train(wagonNum : int) -> void:
-	var wagonVis : Node3D = wagonModels[wagonNum].instantiate()
+	var wagonVis : Node3D = WAGON_MODELS[wagonNum].instantiate()
 	wagonOrigin.add_child(wagonVis)
 	wagonVis.position = Vector3.ZERO
 	wagonVis.rotation = Vector3.ZERO

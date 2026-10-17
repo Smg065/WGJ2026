@@ -6,7 +6,9 @@ class_name OwnedItemRend
 
 func setup(itemData : ItemBase):
 	name = itemData.itemName
-	tooltip_text = itemData.itemDescription
+	tooltip_text = itemData.itemName + "\n"
+	for eachSubstring in itemData.itemDescription.split("]"):
+		tooltip_text += eachSubstring.split("[")[0]
 	texture = itemData.itemIcon
 	match itemData.rarity:
 		ItemBase.RARITIES.COMMON:

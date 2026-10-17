@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bg6oy73j8ajgj"]
 
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_nswni"]
+[ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_p71n0"]
 
 [resource]
 script = ExtResource("1_nswni")
@@ -11,4 +12,8 @@ yesTags = Array[String](["MadScience3"])
 energyCost = 30
 timeCost = 2
 minDay = 3
+charWagon = ExtResource("1_p71n0")
+charProfile = ExtResource("1_p71n0")
+charYes = ExtResource("1_p71n0")
+charNo = ExtResource("1_p71n0")
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bi8bo05we0gxx"]
 
+[ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_1nh2u"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_opq0m"]
 
 [resource]
@@ -7,4 +8,8 @@ script = ExtResource("1_opq0m")
 dialogueEn = "\"Excuse me! I would like help storing my anvils.\""
 energyCost = 40
 minDay = 4
+charWagon = ExtResource("1_1nh2u")
+charProfile = ExtResource("1_1nh2u")
+charYes = ExtResource("1_1nh2u")
+charNo = ExtResource("1_1nh2u")
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"

@@ -1,9 +1,6 @@
 extends Node
 class_name MainMenu
 
-##The play scene
-@export var playScene : PackedScene
-
 ##The sliders being used
 var activeSliders : Array[int]
 

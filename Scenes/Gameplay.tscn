@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
 
+[sub_resource type="Environment" id="Environment_cgcre"]
+background_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 48
 
@@ -65,6 +68,7 @@ gameOverUI = NodePath("GameOverUI")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
+environment = SubResource("Environment_cgcre")
 
 [node name="MainScene" type="Node3D" parent="." unique_id=1850959170]
 
@@ -72,6 +76,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainScene" unique_id=448671764]
 transform = Transform3D(0.6123724, -0.70710677, 0.35355338, 0.6123724, 0.70710677, 0.35355338, -0.5, 0, 0.8660254, 0, 0, 0)
+light_color = Color(1, 1, 0.9490196, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="MainScene" unique_id=1146567096]
+transform = Transform3D(-0.6048447, -0.47672677, -0.6378827, 0.64145666, 0.1830128, -0.7450099, 0.47190702, -0.85978955, 0.19510533, 0, 0, 0)
+light_color = Color(1, 1, 0.93333334, 1)
+light_energy = 0.2
+sky_mode = 1
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
 visible = false

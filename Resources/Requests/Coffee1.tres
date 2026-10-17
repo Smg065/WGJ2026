@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cpo5nnwjvepxs"]
 
-[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_w4eds"]
+[ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_w4eds"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_xwoym"]
 
 [resource]
 script = ExtResource("2_xwoym")
-dialogueEn = "\"Hey there, [font_size=24]mate[/font_size]. You look tired… I make my own coffee. Just buy me a cup and you'll be full of energy in no time. Don't ask me what's in it. Just sayin'...\""
+dialogueEn = "\"Seems you're tired… Look, I make my own coffee. Just buy me a cup and you'll be full of energy in no time. Don't ask me what's in it.\""
 energyCost = -25
 timeCost = 0
 moneyCost = 5

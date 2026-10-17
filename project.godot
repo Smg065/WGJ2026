@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="WGJ2026"
+config/name="No Training"
 run/main_scene="uid://omcdkcc7cmn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.16, 0.09933334, 0.056, 1)
 config/icon="res://icon.svg"
 
 [audio]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cwssdq3uj27ju"]
 
-[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_cs78q"]
+[ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_cs78q"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_0ux28"]
 
 [resource]
