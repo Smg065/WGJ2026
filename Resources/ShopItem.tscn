@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1nxvpsgns2r4"]
 
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_pdfwj"]
+[ext_resource type="Script" uid="uid://11lrr16801cl" path="res://Scripts/ShopItem.gd" id="1_trydi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mbr2"]
 outline_size = 6
@@ -9,10 +10,17 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
 font_size = 8
 
-[node name="ItemPanel1" type="Panel" unique_id=1699948921]
+[node name="ItemPanel1" type="Panel" unique_id=1699948921 node_paths=PackedStringArray("itemInfo", "itemNameLabel", "itemQualityLabel", "itemDescriptionLabel", "itemBuyButton")]
 size_flags_horizontal = 3
+script = ExtResource("1_trydi")
+itemInfo = NodePath("ItemInfo")
+itemNameLabel = NodePath("ItemInfo/ItemHeader/ItemLabel")
+itemQualityLabel = NodePath("ItemInfo/QualityLabel")
+itemDescriptionLabel = NodePath("ItemInfo/ItemDescription")
+itemBuyButton = NodePath("ItemInfo/BuyButton")
 
 [node name="ItemInfo" type="VBoxContainer" parent="." unique_id=1921279176]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,3 +65,5 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Buy: %s$"
+
+[connection signal="pressed" from="ItemInfo/BuyButton" to="." method="buy_pressed"]

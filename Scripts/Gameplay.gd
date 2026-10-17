@@ -9,6 +9,8 @@ var trainLastPos : float
 var slideProgress : float = 0
 @export var wagonPrefab : PackedScene
 const WAGON_SPACE : float = 7
+var ownedItems : Array[ItemBase]
+var allItems : Dictionary[ItemBase.RARITIES, Array]
 
 @export var mainScene : Node3D
 
@@ -59,6 +61,7 @@ var moveTrain : bool
 @export var rerollButton : Button
 @export var nextDayButton : Button
 @export var itemsHBox : HBoxContainer
+@export var shopItemSlots : Array[ShopItem]
 
 @export_category("Misc UI")
 @export var victoryUI : Control
@@ -119,11 +122,14 @@ var dailyWage : int = 5:
 	set(newDailyWage):
 		dailyWage = newDailyWage
 		update_daily_wage_vis()
+signal money_changed(changeVal : int)
 @export var money : int = 10:
 	get:
 		return money
 	set(newMoney):
+		var moneyChangeVal = newMoney - money
 		money = newMoney
+		money_changed.emit(moneyChangeVal)
 		update_money_vis()
 		update_reroll_disabled()
 @export var rerollCost : int = 1:
@@ -135,6 +141,7 @@ var dailyWage : int = 5:
 		update_reroll_disabled()
 
 func _ready() -> void:
+	setup_items()
 	start_new_day()
 	update_time_vis()
 	update_energy_vis()
@@ -143,6 +150,39 @@ func _ready() -> void:
 	update_work_hours_vis()
 	update_starting_energy_vis()
 	update_starting_nos_vis()
+	for eachItemSlot in shopItemSlots:
+		money_changed.connect(eachItemSlot.update_buy_button.bind(self))
+		eachItemSlot.try_buy.connect(try_buy)
+
+##Sets up all items
+func setup_items():
+	var itemFolder := ResourceLoader.list_directory("res://Scripts/Items/")
+	for eachScript in itemFolder:
+		var scriptFile := ResourceLoader.load("res://Scripts/Items/" + eachScript)
+		var newItem : ItemBase = scriptFile.new()
+		newItem.setup_item()
+		allItems[newItem.rarity].append(newItem)
+
+##Picks a valid item
+func get_valid_item(prevItems : Array[ItemBase]) -> ItemBase:
+	#Pick a rarity
+	var rarityRoll := randi_range(1, 100)
+	var rarity : ItemBase.RARITIES
+	if rarityRoll == 100:
+		rarity = ItemBase.RARITIES.LEGENDARY
+	elif rarityRoll >= 95:
+		rarity = ItemBase.RARITIES.RARE
+	elif rarityRoll >= 62:
+		rarity = ItemBase.RARITIES.UNCOMMON
+	else:
+		rarity = ItemBase.RARITIES.COMMON
+	#Pick only valid items
+	var validItems : Array[ItemBase]
+	for eachItem in allItems[rarity]:
+		if eachItem.can_appear(self, prevItems):
+			validItems.append(eachItem)
+	#Pick randomly from there
+	return validItems.pick_random()
 
 ##Starts a new day
 func start_new_day():
@@ -171,6 +211,7 @@ func start_new_day():
 
 ##Ends the current day
 func end_day(victoryOverride = false):
+	#Day 7 victory
 	if day == 7:
 		if victoryOverride != true:
 			mainUI.hide()
@@ -180,16 +221,35 @@ func end_day(victoryOverride = false):
 			victoryUI.hide()
 	mainUI.hide()
 	earningsUI.show()
+	#Money items
+	var earningMods : Dictionary = {
+		"nosMulti" : 1,
+		"nosAdd" : 5,
+		"energyAdd" : 0.05,
+		"energyMulti" : 1,
+		"timeAdd" : 1,
+		"timeMulti" : 1,
+		"wageAdd" : 0,
+		"wageMulti" : 1
+	}
+	for eachItem in ownedItems:
+		var itemEarningMods := eachItem.on_day_end(self)
+		for eachEntry in itemEarningMods.keys():
+			if eachEntry in earningMods:
+				earningMods[eachEntry] += itemEarningMods[eachEntry]
+			else:
+				earningMods[eachEntry] = itemEarningMods[eachEntry]
 	dayCompleteLabel.text = "Day %s Complete!\n" % str(day)
-	#Each unused no is worth 5 dollars
-	var nosBonus : int = nos * 5
+	#Each unused no is worth 5 dollars by default
+	var nosBonus : int = (nos * earningMods["nosAdd"]) * "nosMulti"
 	nos = 0
 	#20% of your energy is worth 1 dollar
-	var energyBonus := floori(0.05 * energy)
+	var energyBonus := floori((earningMods["energyAdd"] * energy) * earningMods["energyMulti"])
 	energy = 0
 	#1 hour is worth a dollar
-	var timeBonus : int = endingTime - time
-	var earnedMoney = nosBonus + energyBonus + timeBonus
+	var timeBonus : int = ((endingTime - time) * earningMods["timeAdd"]) * earningMods["timeMulti"]
+	var appliedDailyWage : int = (dailyWage + earningMods["wageAdd"]) * earningMods["wageMulti"]
+	var earnedMoney = nosBonus + energyBonus + timeBonus + appliedDailyWage
 	money += earnedMoney
 	if timeBonus != 0:
 		timeMoneyBonus.show()
@@ -206,9 +266,9 @@ func end_day(victoryOverride = false):
 		noMoneyBonus.text = "Unused NO!s Bonus: %s$" % nosBonus
 	else:
 		noMoneyBonus.hide()
-	if dailyWage != 0:
+	if appliedDailyWage != 0:
 		dailyWageLabel.show()
-		dailyWageLabel.text = "Daily Wage: %s$" % dailyWage
+		dailyWageLabel.text = "Daily Wage: %s$" % appliedDailyWage
 	else:
 		dailyWageLabel.hide()
 	dayEndTotalLabel.text = "Total Earnings: %s$" % earnedMoney
@@ -311,6 +371,9 @@ func update_nos_vis():
 	noButton.text = "x" + str(nos)
 
 func yes_pressed() -> void:
+	#Yes pressed
+	for eachItem in ownedItems:
+		eachItem.on_yes(self)
 	if curRequest != null:
 		charPort.texture = curRequest.charYes
 		money -= curRequest.moneyCost
@@ -323,6 +386,9 @@ func yes_pressed() -> void:
 	spawn_next_wagon()
 
 func no_pressed() -> void:
+	#No pressed
+	for eachItem in ownedItems:
+		eachItem.on_no(self)
 	if curRequest != null:
 		charPort.texture = curRequest.charNo
 	nos -= 1
@@ -367,3 +433,20 @@ func main_menu() -> void:
 
 func retry_pressed() -> void:
 	get_tree().reload_current_scene()
+
+##Tries to buy the given shop item
+func try_buy(shopItem : ShopItem) -> void:
+	if shopItem.curItem == null:
+		return
+	if shopItem.curItem.itemCost > money:
+		return
+	aquire_item(shopItem.curItem)
+	shopItem.curItem = null
+	money -= shopItem.curItem.itemCost
+	shopItem.set_purchased()
+
+##Adds an item to your inventory
+func aquire_item(newItem : ItemBase) -> void:
+	var boughtItem : ItemBase = newItem.duplicate_deep()
+	ownedItems.append(boughtItem)
+	boughtItem.on_purchase(self)

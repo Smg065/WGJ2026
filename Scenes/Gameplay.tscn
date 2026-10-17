@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://nbdomxpui5yx" path="res://Resources/TrainWagon.tscn" id="2_tdndw"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_mofsa"]
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
-[ext_resource type="PackedScene" uid="uid://omcdkcc7cmn" path="res://Scenes/MainMenu.tscn" id="3_rhmiw"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
@@ -56,7 +55,6 @@ nextDayButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPane
 itemsHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
 victoryUI = NodePath("VictoryUI")
 gameOverUI = NodePath("GameOverUI")
-mainMenu = ExtResource("3_rhmiw")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 
