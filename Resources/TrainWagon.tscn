@@ -2,32 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cfe72chy6dlk8" path="res://Scripts/TrainWagons.gd" id="1_ndcw0"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_svd6f"]
+[ext_resource type="PackedScene" uid="uid://juo30sccnyb0" path="res://Models/Wagon_01.glb" id="3_veiph"]
 
 [node name="TrainWagon" type="Node3D" unique_id=747017349]
 script = ExtResource("1_ndcw0")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1458888110]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -4)
-size = Vector3(4, 4, 6)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=955040334]
-operation = 2
-size = Vector3(3.5, 3.5, 4.5)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D" unique_id=1834840546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4416504, -0.25, 0.25)
-operation = 2
-size = Vector3(1.6166992, 5, 7)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=1974654810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0947876, -0.888916, 0.23144531)
-operation = 2
-size = Vector3(1.55896, 1.722168, 7)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1050331215]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8828301, 0)
-size = Vector3(1, 0.18766016, 7)
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGBox3D" unique_id=1046716043]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.2, -1, -1)
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1046716043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.63932574, -3.7043266)
 texture = ExtResource("1_svd6f")
+
+[node name="WagonOrigin" type="Node3D" parent="." unique_id=1512111614]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.05, 0, -3)
+
+[node name="Wagon_01" parent="WagonOrigin" unique_id=267968282 instance=ExtResource("3_veiph")]

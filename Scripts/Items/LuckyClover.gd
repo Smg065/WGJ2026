@@ -6,6 +6,7 @@ func setup_item() -> void:
 	rarity = ItemBase.RARITIES.UNCOMMON
 	itemCost = 20
 	itemDescription = "Gives 1 [color=green]Luck[/color]."
+	itemIcon = load("res://Sprites/Items/Lucky_Clover.png")
 
 func on_purchase(gameplay : Gameplay) -> void:
 	gameplay.luck += 1

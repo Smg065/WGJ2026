@@ -17,25 +17,27 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_68abm"]
 font_size = 64
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "victoryUI", "gameOverUI")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "dayEndLabel", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "noButtonLabel", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "victoryUI", "gameOverUI")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
 mainScene = NodePath("MainScene")
 mainUI = NodePath("MainUI")
-dayLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/DayLabel")
-wagonLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/WagonLabel")
+dayLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/DayLabel")
+wagonLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/WagonLabel")
 timeLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/TimeHBox/TimeLabel")
-timeCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/TimeCost")
+timeCost = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox/TimeCost")
+dayEndLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/ShiftEndHBox/ShiftEndLabel")
 energyBar = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/EnergyHBox/EnergyBar")
-energyCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/EnergyCost")
+energyCost = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox/EnergyCost")
 moneyLabel = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/MoneyHBox/MoneyLabel")
-moneyCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/MoneyCost")
-yesButton = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton")
-noButton = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton")
-nosCost = NodePath("MainUI/UIVBox/TopVBox/CostsHBox/NoCost")
+moneyCost = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox/MoneyCost")
+yesButton = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesButton")
+noButton = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton")
+noButtonLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton/NoCount")
+nosCost = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox/NoCost")
 charPort = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharPort")
-charDialogue = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharText")
+charDialogue = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CharText")
 earningsUI = NodePath("DayEndUI")
 dayCompleteLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/EarningHeader")
 timeMoneyBonus = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/HoursLeftLabel")
@@ -58,6 +60,7 @@ victoryUI = NodePath("VictoryUI")
 gameOverUI = NodePath("GameOverUI")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
 
 [node name="MainScene" type="Node3D" parent="." unique_id=1850959170]
 
@@ -67,7 +70,6 @@ gameOverUI = NodePath("GameOverUI")
 transform = Transform3D(0.6123724, -0.70710677, 0.35355338, 0.6123724, 0.70710677, 0.35355338, -0.5, 0, 0.8660254, 0, 0, 0)
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +93,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="TopPanel" type="Panel" parent="MainUI/UIVBox/TopVBox" unique_id=880485453]
-custom_minimum_size = Vector2(0, 96)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
 [node name="TopHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel" unique_id=1616947112]
@@ -125,6 +127,23 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="TimeLabel" type="Label" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/TimeHBox" unique_id=458092009]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "timeerr"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShiftEndHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox" unique_id=1654349293]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShiftEndIcon" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/ShiftEndHBox" unique_id=1022443180]
+layout_mode = 2
+texture = ExtResource("3_mofsa")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ShiftEndLabel" type="Label" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/ShiftEndHBox" unique_id=1704714828]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "timeerr"
@@ -175,52 +194,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="CharPort" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox" unique_id=1309747447]
 layout_mode = 2
 texture = ExtResource("3_mofsa")
 expand_mode = 3
 
-[node name="CharText" type="RichTextLabel" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox" unique_id=94070010]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox" unique_id=93981725]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "ERR:NO TEXT FOUND!"
+
+[node name="CharText" type="RichTextLabel" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer" unique_id=94070010]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "\"What a stupid suitcase! I swear...\"
+The old lady looks like she needs help."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CostsHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox" unique_id=1419342397]
+[node name="CostsHBox" type="HBoxContainer" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer" unique_id=1419342397]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+alignment = 1
 
-[node name="TimeCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=158322431 instance=ExtResource("4_u8j7u")]
+[node name="TimeCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=158322431 instance=ExtResource("4_u8j7u")]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 gainIcon = ExtResource("3_mofsa")
-defaultText = "%s Hours"
+defaultText = "%s:00"
 
-[node name="EnergyCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=489055750 instance=ExtResource("4_u8j7u")]
+[node name="EnergyCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=489055750 instance=ExtResource("4_u8j7u")]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 gainIcon = ExtResource("3_mofsa")
-defaultText = "%s%% Energy"
+defaultText = "%s%%"
 
-[node name="MoneyCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=1529150854 instance=ExtResource("4_u8j7u")]
+[node name="MoneyCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=1529150854 instance=ExtResource("4_u8j7u")]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 gainIcon = ExtResource("3_mofsa")
 defaultText = "%s$"
 
-[node name="NoCost" parent="MainUI/UIVBox/TopVBox/CostsHBox" unique_id=229806842 instance=ExtResource("4_u8j7u")]
+[node name="NoCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=229806842 instance=ExtResource("4_u8j7u")]
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 gainIcon = ExtResource("3_mofsa")
+loseIcon = ExtResource("3_mofsa")
 defaultText = "%s NO!s"
 
 [node name="Control" type="Control" parent="MainUI/UIVBox" unique_id=1653157402]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BottomPanel" type="Panel" parent="MainUI/UIVBox" unique_id=364155643]
-custom_minimum_size = Vector2(0, 100)
+[node name="BottomUI" type="HBoxContainer" parent="MainUI/UIVBox" unique_id=1935282666]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="BottomVBox" type="VBoxContainer" parent="MainUI/UIVBox/BottomPanel" unique_id=27418760]
+[node name="YesNoPanel" type="Panel" parent="MainUI/UIVBox/BottomUI" unique_id=364155643]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomVBox" type="VBoxContainer" parent="MainUI/UIVBox/BottomUI/YesNoPanel" unique_id=27418760]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,37 +269,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DayWagonHBox" type="HBoxContainer" parent="MainUI/UIVBox/BottomPanel/BottomVBox" unique_id=191217932]
+[node name="DayWagonHBox" type="HBoxContainer" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox" unique_id=191217932]
 layout_mode = 2
 
-[node name="DayLabel" type="Label" parent="MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox" unique_id=1719896878]
+[node name="DayLabel" type="Label" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox" unique_id=1719896878]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "noday"
 horizontal_alignment = 2
 
-[node name="WagonLabel" type="Label" parent="MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox" unique_id=420805848]
+[node name="WagonLabel" type="Label" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox" unique_id=420805848]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "nowagon"
 
-[node name="Buttons" type="HBoxContainer" parent="MainUI/UIVBox/BottomPanel/BottomVBox" unique_id=1589236549]
+[node name="Buttons" type="HBoxContainer" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox" unique_id=1589236549]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="YesButton" type="Button" parent="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons" unique_id=1682347071]
+[node name="YesButton" type="Button" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons" unique_id=1682347071]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("3_ovofm")
 alignment = 2
 icon_alignment = 1
+expand_icon = true
 
-[node name="NoButton" type="Button" parent="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons" unique_id=148650834]
+[node name="NoButton" type="Button" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons" unique_id=148650834]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "X1"
 icon = ExtResource("4_mofsa")
 alignment = 2
 icon_alignment = 1
+expand_icon = true
+
+[node name="NoCount" type="Label" parent="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton" unique_id=1466469737]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "x1"
+horizontal_alignment = 2
+
+[node name="ItemsBox" type="VBoxContainer" parent="MainUI/UIVBox/BottomUI" unique_id=120767268]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemsLabel" type="Label" parent="MainUI/UIVBox/BottomUI/ItemsBox" unique_id=1659997082]
+layout_mode = 2
+text = "Items"
+horizontal_alignment = 1
+
+[node name="ItemsPanel" type="Panel" parent="MainUI/UIVBox/BottomUI/ItemsBox" unique_id=1377712746]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsScroll" type="ScrollContainer" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel" unique_id=713746057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="OwnedItemsHBox" type="HBoxContainer" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll" unique_id=1904225173]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="DayEndUI" type="ColorRect" parent="." unique_id=451989664]
 visible = false
@@ -593,8 +673,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Main Menu"
 
-[connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
-[connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
+[connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
+[connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
 [connection signal="pressed" from="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue" to="." method="to_shop"]
 [connection signal="pressed" from="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton" to="." method="reroll_pressed"]
 [connection signal="pressed" from="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton" to="." method="next_day_pressed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cpo5nnwjvepxs"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_salvg"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_0d7on"]
+
+[resource]
+script = ExtResource("2_0d7on")
+dialogueEn = "\"Give me 5 bucks. Why? 'Cause you have 5 bucks, and I want it.\""
+energyCost = 10
+moneyCost = 5
+noCost = -1
+charWagon = ExtResource("1_salvg")
+charProfile = ExtResource("1_salvg")
+charYes = ExtResource("1_salvg")
+charNo = ExtResource("1_salvg")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

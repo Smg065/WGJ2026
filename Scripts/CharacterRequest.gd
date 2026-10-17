@@ -19,6 +19,10 @@ class_name CharacterRequest
 @export var moneyCost : int
 ##How many nos it costs/earns
 @export var noCost : int
+##Minimum Day
+@export var minDay : int
+##Maximum Day
+@export var maxDay : int
 ##If it shows what you'd gain/lose
 @export var displayResult : bool = true
 
@@ -27,3 +31,27 @@ class_name CharacterRequest
 @export var charProfile : Texture2D
 @export var charYes : Texture2D
 @export var charNo : Texture2D
+
+##If this request can be selected
+func can_select(curDay : int, allTrains : Array[TrainWagon], inTags : Array[String]) -> bool:
+	if curDay < minDay:
+		return false
+	if maxDay < curDay and maxDay != 0:
+		return false
+	#No direct duplicates
+	for eachTrain in allTrains:
+		if eachTrain == null:
+			continue
+		if eachTrain.request == null:
+			continue
+		if eachTrain.request == self:
+			return false
+	#Blacklist
+	for eachTag in inTags:
+		if eachTag in tagBlacklist:
+			return false
+	#Whitelist
+	for eachTag in tagWhitelist:
+		if not eachTag in inTags:
+			return false
+	return true

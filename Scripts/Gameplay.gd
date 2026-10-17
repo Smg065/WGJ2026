@@ -8,9 +8,10 @@ var trainGoalPos : float
 var trainLastPos : float
 var slideProgress : float = 0
 @export var wagonPrefab : PackedScene
-const WAGON_SPACE : float = 7
+const WAGON_SPACE : float = 6.1
 var ownedItems : Array[ItemBase]
 var allItems : Dictionary[ItemBase.RARITIES, Array]
+var allRequests : Array[CharacterRequest]
 
 @export var mainScene : Node3D
 
@@ -30,12 +31,14 @@ var moveTrain : bool
 @export var wagonLabel : Label
 @export var timeLabel : Label
 @export var timeCost : ResourceModPanel
+@export var dayEndLabel : Label
 @export var energyBar : ProgressBar
 @export var energyCost : ResourceModPanel
 @export var moneyLabel : Label
 @export var moneyCost : ResourceModPanel
 @export var yesButton : Button
 @export var noButton : Button
+@export var noButtonLabel : Label
 @export var nosCost : ResourceModPanel
 
 @export var charPort : TextureRect
@@ -146,6 +149,7 @@ var luck : int = 0
 
 func _ready() -> void:
 	setup_items()
+	setup_requests()
 	start_new_day()
 	update_time_vis()
 	update_energy_vis()
@@ -172,6 +176,13 @@ func setup_items():
 		var newItem : ItemBase = scriptFile.new()
 		newItem.setup_item()
 		allItems[newItem.rarity].append(newItem)
+
+##Sets up all events
+func setup_requests():
+	var itemFolder := ResourceLoader.list_directory("res://Resources/Requests/")
+	for eachEvent in itemFolder:
+		var eachRequest : CharacterRequest = ResourceLoader.load("res://Resources/Requests/" + eachEvent)
+		allRequests.append(eachRequest)
 
 ##Picks a valid item
 func get_valid_item(prevItems : Array[ItemBase]) -> ItemBase:
@@ -312,7 +323,7 @@ func spawn_next_wagon() -> void:
 	var nextWagon : TrainWagon
 	if wagonsLeft > 0:
 		nextWagon = wagonPrefab.instantiate()
-		nextWagon.request = load("res://Resources/Requests/ExampleRequest.tres")
+		nextWagon.request = allRequests.pick_random()
 		nextWagon.name = "Wagon"+str(wagonsLeft)
 	elif wagonsLeft == 0:
 		nextWagon = wagonPrefab.instantiate()
@@ -366,11 +377,11 @@ func update_wagon_vis():
 ##Set the time UI
 func update_time_vis():
 	var renderTime : int = time
-	var suffix : String = "AM"
+	var suffix : String = "am"
 	if time > 12:
 		renderTime -= 12
-		suffix = "PM"
-	timeLabel.text = "%s:00 %s" % [renderTime, suffix]
+		suffix = "pm"
+	timeLabel.text = "%s:00%s" % [renderTime, suffix]
 ##Set the energy UI
 func update_energy_vis():
 	energyBar.value = energy
@@ -383,7 +394,7 @@ func update_reroll_vis():
 	rerollButton.text = "Reroll: %s$" % str(rerollCost)
 ##Set the nos UI
 func update_nos_vis():
-	noButton.text = "x" + str(nos)
+	noButtonLabel.text = "x" + str(nos)
 
 func yes_pressed() -> void:
 	if curRequest != null:
@@ -449,6 +460,7 @@ func update_starting_nos_vis():
 
 func update_work_hours_vis():
 	workHoursLabel.text = "Work Hours: %sam-%spm" % [startingTime, endingTime - 12]
+	dayEndLabel.text = "%s:00pm" % (endingTime - 12)
 
 func update_starting_energy_vis():
 	startingEnergyLabel.text = "Starting Energy: %s%%" % startingEnergy

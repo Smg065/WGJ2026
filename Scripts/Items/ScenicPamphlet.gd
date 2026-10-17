@@ -6,6 +6,7 @@ func setup_item() -> void:
 	rarity = ItemBase.RARITIES.RARE
 	itemCost = 20
 	itemDescription = "End 1 [color=teal]hour[/color] later."
+	itemIcon = load("res://Sprites/Items/Scenic_Pamphlet.png")
 
 func can_appear(gameplay : Gameplay, previousItems : Array[ItemBase]) -> bool:
 	if gameplay.endingTime >= 23:

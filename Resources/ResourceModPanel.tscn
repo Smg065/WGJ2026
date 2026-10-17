@@ -27,5 +27,5 @@ stretch_mode = 5
 [node name="Text" type="Label" parent="HBox" unique_id=853625813]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "%s Hours"
+text = "ERR"
 horizontal_alignment = 1
