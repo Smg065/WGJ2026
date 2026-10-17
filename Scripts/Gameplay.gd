@@ -63,7 +63,6 @@ var moveTrain : bool
 @export_category("Misc UI")
 @export var victoryUI : Control
 @export var gameOverUI : Control
-@export var mainMenu : PackedScene
 
 @export_category("Resources")
 @export var day : int = 0:
@@ -364,7 +363,7 @@ func endless_mode_pressed() -> void:
 	end_day(true)
 
 func main_menu() -> void:
-	get_tree().change_scene_to_packed(mainMenu)
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func retry_pressed() -> void:
 	get_tree().reload_current_scene()

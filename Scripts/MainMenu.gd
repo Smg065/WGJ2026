@@ -26,4 +26,4 @@ func quit_pressed() -> void:
 
 ##Play pressed
 func play_pressed() -> void:
-	get_tree().change_scene_to_packed(playScene)
+	get_tree().change_scene_to_file("res://Scenes/Gameplay.tscn")
