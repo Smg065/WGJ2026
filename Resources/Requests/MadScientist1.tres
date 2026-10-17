@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://b64e2fx2rudq3"]
+
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_8pai0"]
+
+[resource]
+script = ExtResource("1_8pai0")
+dialogueEn = "\"My pet Zombie broke loose. Help me find him, will you?\""
+tagBlacklist = Array[String](["MadScience1"])
+yesTags = Array[String](["MadScience1"])
+energyCost = 10
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

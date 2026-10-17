@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bi8bo05we0gxx"]
+
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_opq0m"]
+
+[resource]
+script = ExtResource("1_opq0m")
+dialogueEn = "\"Excuse me! I would like help storing my anvils.\""
+energyCost = 40
+minDay = 3
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

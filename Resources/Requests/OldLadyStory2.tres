@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://tpxj62v1lcw1"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_5n5p7"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_nj2k5"]
+
+[resource]
+script = ExtResource("2_nj2k5")
+dialogueEn = "\"Hello, sweetie. I'm visiting my grandchildren in the Swiss mountains. I promise you it's quite the interesting story...\""
+tagWhitelist = Array[String](["GrandmaStory"])
+tagBlacklist = Array[String](["GrandmaStory2"])
+yesTags = Array[String](["GrandmaStory2"])
+energyCost = 30
+timeCost = 3
+charWagon = ExtResource("1_5n5p7")
+charProfile = ExtResource("1_5n5p7")
+charYes = ExtResource("1_5n5p7")
+charNo = ExtResource("1_5n5p7")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

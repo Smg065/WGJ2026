@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://c2r87h3ffvc3t"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_mm8ba"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_jy67g"]
+
+[resource]
+script = ExtResource("2_jy67g")
+dialogueEn = "\"May you please give feedback to the story I just wrote? Money is no object to me...\""
+energyCost = 20
+timeCost = 2
+moneyCost = -10
+maxDay = 2
+charWagon = ExtResource("1_mm8ba")
+charProfile = ExtResource("1_mm8ba")
+charYes = ExtResource("1_mm8ba")
+charNo = ExtResource("1_mm8ba")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://boku6cvm5lt0i"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_o2rgp"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_goqml"]
+
+[resource]
+script = ExtResource("2_goqml")
+dialogueEn = "\"Hello, sweetie. Thank you for listening to my stories... I want you to have this!\""
+tagWhitelist = Array[String](["GrandmaStory3"])
+tagBlacklist = Array[String](["GrandmaStory4"])
+yesTags = Array[String](["GrandmaStory4"])
+timeCost = 0
+moneyCost = -20
+charWagon = ExtResource("1_o2rgp")
+charProfile = ExtResource("1_o2rgp")
+charYes = ExtResource("1_o2rgp")
+charNo = ExtResource("1_o2rgp")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"
