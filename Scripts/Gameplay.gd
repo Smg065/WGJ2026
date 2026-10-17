@@ -132,7 +132,9 @@ signal money_changed(changeVal : int)
 		money_changed.emit(moneyChangeVal)
 		update_money_vis()
 		update_reroll_disabled()
-@export var rerollCost : int = 1:
+##How much it costs to reroll at the start of a shop
+var baseRerollCost = 5
+@export var rerollCost : int = 5:
 	get:
 		return rerollCost
 	set(newCost):
@@ -398,7 +400,8 @@ func to_shop() -> void:
 	earningsUI.hide()
 	shopUI.show()
 	mainScene.hide()
-	rerollCost = 5
+	stock_shop()
+	rerollCost = baseRerollCost
 
 func update_reroll_disabled() -> void:
 	rerollButton.disabled = money < rerollCost
@@ -406,6 +409,18 @@ func update_reroll_disabled() -> void:
 func reroll_pressed() -> void:
 	money -= rerollCost
 	rerollCost += 1
+	stock_shop()
+	for eachItem in ownedItems:
+		eachItem.on_reroll(self)
+
+func stock_shop() -> void:
+	var prevItems : Array[ItemBase]
+	for eachSlot in shopItemSlots:
+		#Get a valid item and note it as one you've already seen
+		var nextItem := get_valid_item(prevItems)
+		prevItems.append(nextItem)
+		#Setup the shop slot
+		eachSlot.setup_item(self, nextItem)
 
 func update_starting_nos_vis():
 	var noSuffix := "s"
@@ -440,6 +455,8 @@ func try_buy(shopItem : ShopItem) -> void:
 		return
 	if shopItem.curItem.itemCost > money:
 		return
+	for eachItem in ownedItems:
+		eachItem.on_purchase_any(self)
 	aquire_item(shopItem.curItem)
 	shopItem.curItem = null
 	money -= shopItem.curItem.itemCost
