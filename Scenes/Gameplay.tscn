@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://nbdomxpui5yx" path="res://Resources/TrainWagon.tscn" id="2_tdndw"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_mofsa"]
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
+[ext_resource type="PackedScene" uid="uid://omcdkcc7cmn" path="res://Scenes/MainMenu.tscn" id="3_rhmiw"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
@@ -14,7 +15,10 @@ font_size = 48
 [sub_resource type="LabelSettings" id="LabelSettings_u8j7u"]
 font_size = 12
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox")]
+[sub_resource type="LabelSettings" id="LabelSettings_68abm"]
+font_size = 64
+
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "victoryUI", "gameOverUI")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
@@ -50,6 +54,9 @@ startingEnergyLabel = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/Shop
 rerollButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton")
 nextDayButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton")
 itemsHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
+victoryUI = NodePath("VictoryUI")
+gameOverUI = NodePath("GameOverUI")
+mainMenu = ExtResource("3_rhmiw")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 
@@ -324,6 +331,7 @@ layout_mode = 2
 text = "Continue"
 
 [node name="ShopUI" type="Control" parent="." unique_id=776344173]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -495,7 +503,102 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="VictoryUI" type="ColorRect" parent="." unique_id=473069850]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="VictoryVBox" type="VBoxContainer" parent="VictoryUI" unique_id=256195519]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryLabel" type="Label" parent="VictoryUI/VictoryVBox" unique_id=435041139]
+layout_mode = 2
+text = "Victory!"
+label_settings = SubResource("LabelSettings_68abm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictoryInfo" type="Control" parent="VictoryUI/VictoryVBox" unique_id=81928013]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VictoryButtons" type="HBoxContainer" parent="VictoryUI/VictoryVBox" unique_id=1470417739]
+layout_mode = 2
+
+[node name="EndlessModeButton" type="Button" parent="VictoryUI/VictoryVBox/VictoryButtons" unique_id=925905738]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Endless"
+
+[node name="MainMenu" type="Button" parent="VictoryUI/VictoryVBox/VictoryButtons" unique_id=1381104624]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Main Menu"
+
+[node name="GameOverUI" type="ColorRect" parent="." unique_id=946537232]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="GameOverVBox" type="VBoxContainer" parent="GameOverUI" unique_id=284700166]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="GameOverUI/GameOverVBox" unique_id=1977854904]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_68abm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverInfo" type="Control" parent="GameOverUI/GameOverVBox" unique_id=250850116]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameOverButtons" type="HBoxContainer" parent="GameOverUI/GameOverVBox" unique_id=1968979678]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="GameOverUI/GameOverVBox/GameOverButtons" unique_id=1930897813]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Retry"
+
+[node name="MainMenu" type="Button" parent="GameOverUI/GameOverVBox/GameOverButtons" unique_id=1735822375]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Main Menu"
+
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
 [connection signal="pressed" from="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue" to="." method="to_shop"]
 [connection signal="pressed" from="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton" to="." method="reroll_pressed"]
+[connection signal="pressed" from="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton" to="." method="next_day_pressed"]
+[connection signal="pressed" from="VictoryUI/VictoryVBox/VictoryButtons/EndlessModeButton" to="." method="endless_mode_pressed"]
+[connection signal="pressed" from="VictoryUI/VictoryVBox/VictoryButtons/MainMenu" to="." method="main_menu"]
+[connection signal="pressed" from="GameOverUI/GameOverVBox/GameOverButtons/RetryButton" to="." method="retry_pressed"]
+[connection signal="pressed" from="GameOverUI/GameOverVBox/GameOverButtons/MainMenu" to="." method="main_menu"]

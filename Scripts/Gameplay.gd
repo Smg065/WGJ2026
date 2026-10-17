@@ -60,6 +60,11 @@ var moveTrain : bool
 @export var nextDayButton : Button
 @export var itemsHBox : HBoxContainer
 
+@export_category("Misc UI")
+@export var victoryUI : Control
+@export var gameOverUI : Control
+@export var mainMenu : PackedScene
+
 @export_category("Resources")
 @export var day : int = 0:
 	get:
@@ -67,6 +72,12 @@ var moveTrain : bool
 	set(newDay):
 		day = newDay
 		update_day_vis()
+var startingNos : int = 1:
+	get:
+		return startingNos
+	set(newStartingNos):
+		startingNos = newStartingNos
+		update_starting_nos_vis()
 @export var nos : int = 1:
 	get:
 		return nos
@@ -132,12 +143,18 @@ func _ready() -> void:
 	update_reroll_vis()
 	update_work_hours_vis()
 	update_starting_energy_vis()
+	update_starting_nos_vis()
 
 ##Starts a new day
 func start_new_day():
+	shopUI.hide()
+	earningsUI.hide()
+	mainUI.show()
 	mainScene.show()
+	trainRoot.global_position = Vector3.ZERO
+	trainGoalPos = 0
 	day += 1
-	nos = day
+	nos = startingNos
 	energy = startingEnergy
 	totalWagons = 5 + day
 	wagonsLeft = totalWagons
@@ -154,7 +171,14 @@ func start_new_day():
 	update_wagon_vis()
 
 ##Ends the current day
-func end_day():
+func end_day(victoryOverride = false):
+	if day == 7:
+		if victoryOverride != true:
+			mainUI.hide()
+			victoryUI.show()
+			return
+		else:
+			victoryUI.hide()
 	mainUI.hide()
 	earningsUI.show()
 	dayCompleteLabel.text = "Day %s Complete!\n" % str(day)
@@ -286,10 +310,6 @@ func update_reroll_vis():
 ##Set the nos UI
 func update_nos_vis():
 	noButton.text = "x" + str(nos)
-	var noSuffix := "s"
-	if nos == 1:
-		noSuffix = ""
-	nosLabelShop.text = "%s NO!%s" % [str(nos), noSuffix]
 
 func yes_pressed() -> void:
 	if curRequest != null:
@@ -322,6 +342,12 @@ func reroll_pressed() -> void:
 	money -= rerollCost
 	rerollCost += 1
 
+func update_starting_nos_vis():
+	var noSuffix := "s"
+	if startingNos == 1:
+		noSuffix = ""
+	nosLabelShop.text = "%s NO!%s" % [str(startingNos), noSuffix]
+
 func update_work_hours_vis():
 	workHoursLabel.text = "Work Hours: %sam-%spm" % [startingTime, endingTime - 12]
 
@@ -330,3 +356,15 @@ func update_starting_energy_vis():
 
 func update_daily_wage_vis():
 	dailyWageLabel.text = "Daily Wage: %s" % dailyWage
+
+func next_day_pressed() -> void:
+	start_new_day()
+
+func endless_mode_pressed() -> void:
+	end_day(true)
+
+func main_menu() -> void:
+	get_tree().change_scene_to_packed(mainMenu)
+
+func retry_pressed() -> void:
+	get_tree().reload_current_scene()

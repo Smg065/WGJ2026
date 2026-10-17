@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://latfd4nk00rj" path="res://Scripts/MainMenu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_tt5f1"]
-[ext_resource type="PackedScene" uid="uid://5ic7ywarmlh7" path="res://Scenes/Gameplay.tscn" id="2_8saeu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 32
@@ -18,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_853f1")
-playScene = ExtResource("2_8saeu")
 
 [node name="TitleScreen" type="Control" parent="." unique_id=453448449]
 layout_mode = 1
