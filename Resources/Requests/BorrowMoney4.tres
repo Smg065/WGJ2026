@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bf1o40asdj7tk"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_bbatb"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_a27yy"]
+
+[resource]
+script = ExtResource("2_a27yy")
+dialogueEn = "\"I've got your 10 dollars I borrowed, but one of the passangers took my wallet. Could you help me?\""
+tagWhitelist = Array[String](["Borrow3"])
+tagBlacklist = Array[String](["Borrow4"])
+yesTags = Array[String](["Borrow4"])
+energyCost = 20
+timeCost = 3
+moneyCost = -10
+charWagon = ExtResource("1_bbatb")
+charProfile = ExtResource("1_bbatb")
+charYes = ExtResource("1_bbatb")
+charNo = ExtResource("1_bbatb")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

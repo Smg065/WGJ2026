@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dc058cmgwr6kn"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_iu4h2"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1euat"]
+
+[resource]
+script = ExtResource("2_1euat")
+dialogueEn = "\"Hello, sweetie. My first husband and I met in the Swiss mountains. I promise you it's quite the interesting story...\""
+tagWhitelist = Array[String](["GrandmaStory2"])
+tagBlacklist = Array[String](["GrandmaStory3"])
+yesTags = Array[String](["GrandmaStory3"])
+energyCost = 40
+timeCost = 4
+charWagon = ExtResource("1_iu4h2")
+charProfile = ExtResource("1_iu4h2")
+charYes = ExtResource("1_iu4h2")
+charNo = ExtResource("1_iu4h2")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

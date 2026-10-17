@@ -318,12 +318,19 @@ func move_train(delta):
 		else:
 			end_day()
 
+func get_request() -> CharacterRequest:
+	var validRequests : Array[CharacterRequest]
+	for eachRequest in allRequests:
+		if eachRequest.can_select(day, renderedWagons, tags):
+			validRequests.append(eachRequest)
+	return validRequests.pick_random()
+
 func spawn_next_wagon() -> void:
 	wagonsLeft -= 1
 	var nextWagon : TrainWagon
 	if wagonsLeft > 0:
 		nextWagon = wagonPrefab.instantiate()
-		nextWagon.request = allRequests.pick_random()
+		nextWagon.request = get_request()
 		nextWagon.name = "Wagon"+str(wagonsLeft)
 	elif wagonsLeft == 0:
 		nextWagon = wagonPrefab.instantiate()

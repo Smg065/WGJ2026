@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cwb0bha1mjja1"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_vbcep"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_h8fsd"]
+
+[resource]
+script = ExtResource("2_h8fsd")
+dialogueEn = "\"Hate to ask again, can I borrow 20 dollars? And help me find my wallet again?\""
+tagWhitelist = Array[String](["Borrow4"])
+tagBlacklist = Array[String](["Borrow5"])
+yesTags = Array[String](["Borrow5"])
+moneyCost = 20
+charWagon = ExtResource("1_vbcep")
+charProfile = ExtResource("1_vbcep")
+charYes = ExtResource("1_vbcep")
+charNo = ExtResource("1_vbcep")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

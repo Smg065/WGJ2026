@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://ydy7tut73310"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_osk7s"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_fwakd"]
+
+[resource]
+script = ExtResource("2_fwakd")
+dialogueEn = "\"I have your money. I just can't figure out where I left it... Will you help me find it?\""
+tagWhitelist = Array[String](["Borrow1"])
+tagBlacklist = Array[String](["Borrow2"])
+yesTags = Array[String](["Borrow2"])
+energyCost = 15
+timeCost = 2
+moneyCost = -5
+charWagon = ExtResource("1_osk7s")
+charProfile = ExtResource("1_osk7s")
+charYes = ExtResource("1_osk7s")
+charNo = ExtResource("1_osk7s")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

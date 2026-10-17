@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bkbgwoqu8hher"]
+
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_uasqi"]
+
+[resource]
+script = ExtResource("1_uasqi")
+dialogueEn = "\"My pet Zombie bit someone. Help me catch them, will you?\""
+tagWhitelist = Array[String](["MadScience1"])
+tagBlacklist = Array[String](["MadScience2"])
+yesTags = Array[String](["MadScience2"])
+energyCost = 30
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

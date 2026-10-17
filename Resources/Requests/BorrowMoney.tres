@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cg0m5rkw0g00p"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_faa7q"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_6iikf"]
+
+[resource]
+script = ExtResource("2_6iikf")
+dialogueEn = "\"Could I borrow 5 dollars?\""
+tagBlacklist = Array[String](["Borrow1"])
+yesTags = Array[String](["Borrow1"])
+timeCost = 0
+moneyCost = 5
+charWagon = ExtResource("1_faa7q")
+charProfile = ExtResource("1_faa7q")
+charYes = ExtResource("1_faa7q")
+charNo = ExtResource("1_faa7q")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

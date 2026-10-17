@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://xe5o7lfyrue2"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_oy5h8"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_8x2bb"]
+
+[resource]
+script = ExtResource("2_8x2bb")
+dialogueEn = "\"They're adapting my books into a film! Would you care to read the screenplay for me?\""
+energyCost = 50
+timeCost = 3
+moneyCost = -15
+minDay = 5
+charWagon = ExtResource("1_oy5h8")
+charProfile = ExtResource("1_oy5h8")
+charYes = ExtResource("1_oy5h8")
+charNo = ExtResource("1_oy5h8")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"
