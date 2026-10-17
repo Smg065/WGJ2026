@@ -1,5 +1,5 @@
 extends ItemBase
-class_name ItemShelves
+class_name ItemHalo
 
 func setup_item() -> void:
 	itemName = "Halo"

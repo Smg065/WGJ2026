@@ -14,4 +14,4 @@ func can_appear(gameplay : Gameplay, previousItems : Array[ItemBase]) -> bool:
 
 func on_purchase(gameplay : Gameplay) -> void:
 	gameplay.startingTime += 1
-	gameplay.startingEnergy += 50
+	gameplay.startingEnergy += 25

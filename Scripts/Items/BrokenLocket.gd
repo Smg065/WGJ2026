@@ -9,4 +9,4 @@ func setup_item() -> void:
 
 func on_purchase(gameplay : Gameplay) -> void:
 	gameplay.luck -= 1
-	gameplay.nos += 1
+	gameplay.startingNos += 1

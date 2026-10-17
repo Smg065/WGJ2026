@@ -17,7 +17,7 @@ func setup_item(gameplay : Gameplay, newItem : ItemBase):
 	#Item text
 	itemNameLabel.text = curItem.itemName
 	#Item Quality
-	match ItemBase.RARITIES:
+	match curItem.rarity:
 		ItemBase.RARITIES.COMMON:
 			itemQualityLabel.text = "Common"
 			itemQualityLabel.modulate = Color.WHITE
