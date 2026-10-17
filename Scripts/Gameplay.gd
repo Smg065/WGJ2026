@@ -14,6 +14,7 @@ var allItems : Dictionary[ItemBase.RARITIES, Array]
 var allRequests : Array[CharacterRequest]
 
 @export var mainScene : Node3D
+@export var ownedItemPrefab : PackedScene
 
 var moveTrain : bool
 @export var totalWagons : int = 6
@@ -40,6 +41,7 @@ var moveTrain : bool
 @export var noButton : Button
 @export var noButtonLabel : Label
 @export var nosCost : ResourceModPanel
+@export var ownedItemsHBox : HBoxContainer
 
 @export var charPort : TextureRect
 @export var charDialogue : RichTextLabel
@@ -65,6 +67,7 @@ var moveTrain : bool
 @export var nextDayButton : Button
 @export var itemsHBox : HBoxContainer
 @export var shopItemSlots : Array[ShopItem]
+@export var ownedItemsShopHBox : HBoxContainer
 
 @export_category("Misc UI")
 @export var victoryUI : Control
@@ -509,5 +512,22 @@ func game_over() -> void:
 ##Adds an item to your inventory
 func aquire_item(newItem : ItemBase) -> void:
 	var boughtItem : ItemBase = newItem.duplicate_deep()
+	var isCopy : bool = false
+	for eachItem in ownedItems:
+		if eachItem.itemName == boughtItem.itemName:
+			isCopy = true
+			break
 	ownedItems.append(boughtItem)
+	if isCopy:
+		var display1 : OwnedItemRend = ownedItemsHBox.get_node_or_null(newItem.itemName)
+		var display2 : OwnedItemRend = ownedItemsShopHBox.get_node_or_null(newItem.itemName)
+		display1.up_count()
+		display2.up_count()
+	else:
+		var display1 : OwnedItemRend = ownedItemPrefab.instantiate()
+		var display2 : OwnedItemRend = ownedItemPrefab.instantiate()
+		ownedItemsHBox.add_child(display1)
+		ownedItemsShopHBox.add_child(display2)
+		display1.setup(newItem)
+		display2.setup(newItem)
 	boughtItem.on_purchase(self)

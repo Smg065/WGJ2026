@@ -4,13 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://nbdomxpui5yx" path="res://Resources/TrainWagon.tscn" id="2_tdndw"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_mofsa"]
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
+[ext_resource type="PackedScene" uid="uid://bnl5huj5mq0me" path="res://Resources/OwnedItemRend.tscn" id="3_rhmiw"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
-[ext_resource type="Texture2D" uid="uid://duppf2fp7arfq" path="res://Sprites/UI/Star.png" id="7_rhmiw"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
-font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 48
@@ -21,14 +18,12 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_68abm"]
 font_size = 64
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "renderedWagons", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "dayEndLabel", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "noButtonLabel", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "victoryUI", "gameOverUI")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "dayEndLabel", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "noButtonLabel", "nosCost", "ownedItemsHBox", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "ownedItemsShopHBox", "victoryUI", "gameOverUI")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
 mainScene = NodePath("MainScene")
-totalWagons = null
-wagonsLeft = null
-renderedWagons = []
+ownedItemPrefab = ExtResource("3_rhmiw")
 mainUI = NodePath("MainUI")
 dayLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/DayLabel")
 wagonLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/WagonLabel")
@@ -43,6 +38,7 @@ yesButton = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesBu
 noButton = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton")
 noButtonLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton/NoCount")
 nosCost = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox/NoCost")
+ownedItemsHBox = NodePath("MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll/OwnedItemsHBox")
 charPort = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/CharPort")
 charDialogue = NodePath("MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CharText")
 earningsUI = NodePath("DayEndUI")
@@ -63,14 +59,9 @@ rerollButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel
 nextDayButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton")
 itemsHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
 shopItemSlots = [NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel1"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel2"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel3"), NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox/ItemPanel4")]
+ownedItemsShopHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
 victoryUI = NodePath("VictoryUI")
 gameOverUI = NodePath("GameOverUI")
-day = null
-nos = null
-time = null
-energy = null
-money = null
-rerollCost = null
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
@@ -83,6 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
 transform = Transform3D(0.6123724, -0.70710677, 0.35355338, 0.6123724, 0.70710677, 0.35355338, -0.5, 0, 0.8660254, 0, 0, 0)
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -223,8 +215,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "\"What a stupid suitcase! I swear...\"
-The old lady looks like she needs help."
+text = "*The veretan looks out of the window, lost in his own thoughts.* It was Christmas Eve, 1914. Across the trenches, we heard men singing carols. The next morning, we climbed out of the mud and shook hands with our enemies. We shared food, buried our dead together, the French and the Germans. We were no more foes, just... human. Then Christmas ended… and we went back to killing each other. *He remains silent, a tear rolling down his cheek.*"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -352,34 +343,6 @@ size_flags_vertical = 3
 [node name="OwnedItemsHBox" type="HBoxContainer" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll" unique_id=1904225173]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="TextureRect2" type="TextureRect" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll/OwnedItemsHBox" unique_id=1198463169]
-layout_mode = 2
-texture = ExtResource("3_mofsa")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll/OwnedItemsHBox/TextureRect2" unique_id=1981222358]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "x1"
-label_settings = SubResource("LabelSettings_kbjx8")
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="MainUI/UIVBox/BottomUI/ItemsBox/ItemsPanel/ItemsScroll/OwnedItemsHBox/TextureRect2" unique_id=1996392275]
-layout_mode = 1
-offset_right = 16.0
-offset_bottom = 16.0
-texture = ExtResource("7_rhmiw")
-stretch_mode = 2
 
 [node name="DayEndUI" type="ColorRect" parent="." unique_id=451989664]
 visible = false

@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://bnl5huj5mq0me"]
 
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_wxtgj"]
+[ext_resource type="Script" uid="uid://eqyea55jd7a3" path="res://Scripts/OwnedItemRend.gd" id="2_7kd2u"]
 [ext_resource type="Texture2D" uid="uid://duppf2fp7arfq" path="res://Sprites/UI/Star.png" id="2_fwpw0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
 font_size = 10
 
-[node name="OwnedItemRend" type="TextureRect" unique_id=1166380306]
+[node name="OwnedItemRend" type="TextureRect" unique_id=1166380306 node_paths=PackedStringArray("starIcon", "itemCount")]
 texture = ExtResource("1_wxtgj")
 expand_mode = 3
+script = ExtResource("2_7kd2u")
+starIcon = NodePath("QualityStar")
+itemCount = NodePath("CountLabel")
 
 [node name="CountLabel" type="Label" parent="." unique_id=81534108]
 layout_mode = 1

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_xwoym")
-dialogueEn = "\"Would you care for some expirimental coffee?\""
+dialogueEn = "\"Hey there, [font_size=24]mate[/font_size]. You look tired… I make my own coffee. Just buy me a cup and you'll be full of energy in no time. Don't ask me what's in it. Just sayin'...\""
 energyCost = -25
 timeCost = 0
 moneyCost = 5

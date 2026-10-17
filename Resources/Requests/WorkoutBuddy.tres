@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dld7wmvy0nckt"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_4kwxe"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1nsxc"]
+
+[resource]
+script = ExtResource("2_1nsxc")
+dialogueEn = "\"Yo! Could you spot for me? If you do I'd TOTALLY help you out.\""
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_4kwxe")
+charProfile = ExtResource("1_4kwxe")
+charYes = ExtResource("1_4kwxe")
+charNo = ExtResource("1_4kwxe")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

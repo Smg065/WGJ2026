@@ -1,11 +1,24 @@
 extends TextureRect
+class_name OwnedItemRend
 
+@export var starIcon : TextureRect
+@export var itemCount : Label
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func setup(itemData : ItemBase):
+	name = itemData.itemName
+	tooltip_text = itemData.itemDescription
+	texture = itemData.itemIcon
+	match itemData.rarity:
+		ItemBase.RARITIES.COMMON:
+			starIcon.modulate = Color.WHITE
+		ItemBase.RARITIES.UNCOMMON:
+			starIcon.modulate = Color.AQUAMARINE
+		ItemBase.RARITIES.RARE:
+			starIcon.modulate = Color.ORANGE
+		ItemBase.RARITIES.LEGENDARY:
+			starIcon.modulate = Color.MEDIUM_PURPLE
+	itemCount.text = "x1"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func up_count():
+	get_parent().move_child(self, -1)
+	itemCount.text = "x" + str(itemCount.text.trim_prefix("x").to_int() + 1)

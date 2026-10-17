@@ -6,5 +6,5 @@
 script = ExtResource("1_opq0m")
 dialogueEn = "\"Excuse me! I would like help storing my anvils.\""
 energyCost = 40
-minDay = 3
+minDay = 4
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"
