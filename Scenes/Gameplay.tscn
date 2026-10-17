@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
+[ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 48
@@ -13,7 +14,7 @@ font_size = 48
 [sub_resource type="LabelSettings" id="LabelSettings_u8j7u"]
 font_size = 12
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
@@ -41,6 +42,14 @@ dailyWageLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox
 dayEndTotalLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/TotalEarnings")
 dayEndUIButton = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue")
 shopUI = NodePath("ShopUI")
+moneyLabelShop = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/MoneyPanelBack/MoneyLabelShop")
+nosLabelShop = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/NoPanel/NoLabel")
+workHoursLabel = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/HoursLabel")
+dailyWageShopLabel = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/WageLabel")
+startingEnergyLabel = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/StartingEnergy")
+rerollButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton")
+nextDayButton = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/NextDayButton")
+itemsHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer/ItemsHBox")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 
@@ -373,6 +382,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ItemPanel1" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox" unique_id=1699948921 instance=ExtResource("7_xwjbm")]
+layout_mode = 2
+
+[node name="ItemPanel2" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox" unique_id=414548877 instance=ExtResource("7_xwjbm")]
+layout_mode = 2
+
+[node name="ItemPanel3" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox" unique_id=1787226623 instance=ExtResource("7_xwjbm")]
+layout_mode = 2
+
+[node name="ItemPanel4" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel/ForSaleHBox" unique_id=2104846711 instance=ExtResource("7_xwjbm")]
+layout_mode = 2
+
 [node name="Stats" type="VBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox" unique_id=652844875]
 layout_mode = 2
 alignment = 1
@@ -477,3 +498,4 @@ size_flags_vertical = 3
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
 [connection signal="pressed" from="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue" to="." method="to_shop"]
+[connection signal="pressed" from="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons/RerollButton" to="." method="reroll_pressed"]

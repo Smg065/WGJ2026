@@ -51,6 +51,14 @@ var moveTrain : bool
 
 @export_category("Shop UI")
 @export var shopUI : Control
+@export var moneyLabelShop : Label
+@export var nosLabelShop : Label
+@export var workHoursLabel : Label
+@export var dailyWageShopLabel : Label
+@export var startingEnergyLabel : Label
+@export var rerollButton : Button
+@export var nextDayButton : Button
+@export var itemsHBox : HBoxContainer
 
 @export_category("Resources")
 @export var day : int = 0:
@@ -65,39 +73,72 @@ var moveTrain : bool
 	set(newNos):
 		nos = newNos
 		update_nos_vis()
-var startingTime: int = 9
-var endingTime : int = 18
+var startingTime: int = 9:
+	get:
+		return startingTime
+	set(newStartingTime):
+		startingTime = newStartingTime
+		update_work_hours_vis()
+var endingTime : int = 18:
+	get:
+		return endingTime
+	set(newEndingTime):
+		endingTime = newEndingTime
+		update_work_hours_vis()
 @export var time : int = 9:
 	get:
 		return time
 	set(newTime):
 		time = newTime
 		update_time_vis()
+var startingEnergy : int = 100:
+	get:
+		return startingEnergy
+	set(newStartingEnergy):
+		startingEnergy = newStartingEnergy
+		update_starting_energy_vis()
 @export var energy : int = 100:
 	get:
 		return energy
 	set(newEnergy):
-		energy = clampi(newEnergy, 0, 100)
+		energy = clampi(newEnergy, 0, 999)
 		update_energy_vis()
+var dailyWage : int = 5:
+	get:
+		return dailyWage
+	set(newDailyWage):
+		dailyWage = newDailyWage
+		update_daily_wage_vis()
 @export var money : int = 10:
 	get:
 		return money
 	set(newMoney):
 		money = newMoney
 		update_money_vis()
+		update_reroll_disabled()
+@export var rerollCost : int = 1:
+	get:
+		return rerollCost
+	set(newCost):
+		rerollCost = newCost
+		update_reroll_vis()
+		update_reroll_disabled()
 
 func _ready() -> void:
 	start_new_day()
 	update_time_vis()
 	update_energy_vis()
 	update_money_vis()
+	update_reroll_vis()
+	update_work_hours_vis()
+	update_starting_energy_vis()
 
 ##Starts a new day
 func start_new_day():
 	mainScene.show()
 	day += 1
 	nos = day
-	energy = 100
+	energy = startingEnergy
 	totalWagons = 5 + day
 	wagonsLeft = totalWagons
 	#Remove previous train wagons
@@ -125,8 +166,6 @@ func end_day():
 	energy = 0
 	#1 hour is worth a dollar
 	var timeBonus : int = endingTime - time
-	#Daily Wage
-	var dailyWage : int = 5
 	var earnedMoney = nosBonus + energyBonus + timeBonus
 	money += earnedMoney
 	if timeBonus != 0:
@@ -220,6 +259,7 @@ func render_request():
 ##Set the day UI
 func update_day_vis():
 	dayLabel.text = "Day %s," % str(day)
+	nextDayButton.text = "Start Day %s" % str(day + 1)
 
 ##Set the wagon UI
 func update_wagon_vis():
@@ -239,9 +279,17 @@ func update_energy_vis():
 ##Set the money UI
 func update_money_vis():
 	moneyLabel.text = str(money) + "$"
+	moneyLabelShop.text = str(money) + "$"
+##Set the reroll UI
+func update_reroll_vis():
+	rerollButton.text = "Reroll: %s$" % str(rerollCost)
 ##Set the nos UI
 func update_nos_vis():
 	noButton.text = "x" + str(nos)
+	var noSuffix := "s"
+	if nos == 1:
+		noSuffix = ""
+	nosLabelShop.text = "%s NO!%s" % [str(nos), noSuffix]
 
 func yes_pressed() -> void:
 	if curRequest != null:
@@ -265,3 +313,20 @@ func to_shop() -> void:
 	earningsUI.hide()
 	shopUI.show()
 	mainScene.hide()
+	rerollCost = 5
+
+func update_reroll_disabled() -> void:
+	rerollButton.disabled = money < rerollCost
+
+func reroll_pressed() -> void:
+	money -= rerollCost
+	rerollCost += 1
+
+func update_work_hours_vis():
+	workHoursLabel.text = "Work Hours: %sam-%spm" % [startingTime, endingTime - 12]
+
+func update_starting_energy_vis():
+	startingEnergyLabel.text = "Starting Energy: %s%%" % startingEnergy
+
+func update_daily_wage_vis():
+	dailyWageLabel.text = "Daily Wage: %s" % dailyWage

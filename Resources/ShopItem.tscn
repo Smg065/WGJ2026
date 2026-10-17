@@ -2,37 +2,58 @@
 
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_pdfwj"]
 
-[node name="TextureRect" type="Panel" unique_id=944179756]
+[sub_resource type="LabelSettings" id="LabelSettings_3mbr2"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbjx8"]
+font_size = 8
+
+[node name="ItemPanel1" type="Panel" unique_id=1699948921]
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=566434338]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ItemInfo" type="VBoxContainer" parent="." unique_id=1921279176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=774116543]
+[node name="ItemHeader" type="HBoxContainer" parent="ItemInfo" unique_id=1175461902]
+layout_mode = 2
+
+[node name="ItemIcon" type="TextureRect" parent="ItemInfo/ItemHeader" unique_id=1970256392]
 layout_mode = 2
 texture = ExtResource("1_pdfwj")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=581304622]
+[node name="ItemLabel" type="Label" parent="ItemInfo/ItemHeader" unique_id=2107144079]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=432185165]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1378189219]
-layout_mode = 2
-text = "ITEMNAME"
+text = "Item Name"
+label_settings = SubResource("LabelSettings_3mbr2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=459363266]
+[node name="QualityLabel" type="Label" parent="ItemInfo" unique_id=433582900]
 layout_mode = 2
-text = "Buy: %s$"
+text = "Quality"
+label_settings = SubResource("LabelSettings_kbjx8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1370113908]
+[node name="ItemDescription" type="RichTextLabel" parent="ItemInfo" unique_id=980228955]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "This is an [color=orange]example[/color] of an item."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="ItemInfo" unique_id=1745424680]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Buy: %s$"
