@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dgh7gh3w7dqct"]
+
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_m4lqm"]
+
+[resource]
+script = ExtResource("1_m4lqm")
+dialogueEn = "\"I could use help watching this paint dry.\""
+timeCost = 4
+minDay = 3
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

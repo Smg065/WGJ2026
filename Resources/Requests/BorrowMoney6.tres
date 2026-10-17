@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cq4alfyx0bfqq"]
+
+[ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_3262p"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_riomx"]
+
+[resource]
+script = ExtResource("2_riomx")
+dialogueEn = "\"I have your 20 dollars!.. Yes, I DID lose my wallet again, how did you know?\""
+tagWhitelist = Array[String](["Borrow5"])
+tagBlacklist = Array[String](["Borrow6"])
+yesTags = Array[String](["Borrow6"])
+energyCost = 15
+timeCost = 3
+moneyCost = -20
+charWagon = ExtResource("1_3262p")
+charProfile = ExtResource("1_3262p")
+charYes = ExtResource("1_3262p")
+charNo = ExtResource("1_3262p")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

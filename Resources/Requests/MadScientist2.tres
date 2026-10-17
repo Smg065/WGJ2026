@@ -9,4 +9,5 @@ tagWhitelist = Array[String](["MadScience1"])
 tagBlacklist = Array[String](["MadScience2"])
 yesTags = Array[String](["MadScience2"])
 energyCost = 30
+minDay = 2
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"

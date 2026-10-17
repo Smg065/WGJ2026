@@ -8,4 +8,5 @@ dialogueEn = "\"My pet Zombie bit a [i]lot[/i] of people. Help me catch them, wi
 tagWhitelist = Array[String](["MadScience2"])
 energyCost = 40
 timeCost = 2
+minDay = 3
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"
