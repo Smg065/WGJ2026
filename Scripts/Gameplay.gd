@@ -10,6 +10,8 @@ var slideProgress : float = 0
 @export var wagonPrefab : PackedScene
 const WAGON_SPACE : float = 7
 
+@export var mainScene : Node3D
+
 var moveTrain : bool
 @export var totalWagons : int = 6
 @export var wagonsLeft : int = 6:
@@ -47,6 +49,10 @@ var moveTrain : bool
 @export var dayEndTotalLabel : Label
 @export var dayEndUIButton : Button
 
+@export_category("Shop UI")
+@export var shopUI : Control
+
+@export_category("Resources")
 @export var day : int = 0:
 	get:
 		return day
@@ -73,7 +79,7 @@ var endingTime : int = 18
 	set(newEnergy):
 		energy = clampi(newEnergy, 0, 100)
 		update_energy_vis()
-@export var money : int = 100:
+@export var money : int = 10:
 	get:
 		return money
 	set(newMoney):
@@ -86,7 +92,9 @@ func _ready() -> void:
 	update_energy_vis()
 	update_money_vis()
 
+##Starts a new day
 func start_new_day():
+	mainScene.show()
 	day += 1
 	nos = day
 	energy = 100
@@ -99,11 +107,12 @@ func start_new_day():
 	#Setup the back wagon
 	spawn_next_wagon()
 	spawn_next_wagon()
-	slideProgress = 1
+	move_train(1)
 	#Update UIs
 	update_day_vis()
 	update_wagon_vis()
 
+##Ends the current day
 func end_day():
 	mainUI.hide()
 	earningsUI.show()
@@ -251,3 +260,8 @@ func no_pressed() -> void:
 		charPort.texture = curRequest.charNo
 	nos -= 1
 	spawn_next_wagon()
+
+func to_shop() -> void:
+	earningsUI.hide()
+	shopUI.show()
+	mainScene.hide()

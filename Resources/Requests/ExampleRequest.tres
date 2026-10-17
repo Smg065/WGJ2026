@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_l4cht")
-dialogueEn = "This is an example"
+dialogueEn = "This is an example."
 energyCost = 10
 timeCost = 2
 moneyCost = 5

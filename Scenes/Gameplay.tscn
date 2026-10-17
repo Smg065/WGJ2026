@@ -7,10 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton")]
+[sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8j7u"]
+font_size = 12
+
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "nosCost", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI")]
 script = ExtResource("1_r5ka5")
-trainRoot = NodePath("TrainRoot")
+trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
+mainScene = NodePath("MainScene")
 mainUI = NodePath("MainUI")
 dayLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/DayLabel")
 wagonLabel = NodePath("MainUI/UIVBox/BottomPanel/BottomVBox/DayWagonHBox/WagonLabel")
@@ -33,13 +40,19 @@ noMoneyBonus = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/U
 dailyWageLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DailyWageLabel")
 dayEndTotalLabel = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/TotalEarnings")
 dayEndUIButton = NodePath("DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue")
+shopUI = NodePath("ShopUI")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="TrainRoot" type="Node3D" parent="." unique_id=815444279]
+[node name="MainScene" type="Node3D" parent="." unique_id=1850959170]
+
+[node name="TrainRoot" type="Node3D" parent="MainScene" unique_id=815444279]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainScene" unique_id=448671764]
+transform = Transform3D(0.6123724, -0.70710677, 0.35355338, 0.6123724, 0.70710677, 0.35355338, -0.5, 0, 0.8660254, 0, 0, 0)
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -301,5 +314,166 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Continue"
 
+[node name="ShopUI" type="Control" parent="." unique_id=776344173]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopLabel" type="Label" parent="ShopUI" unique_id=1713642362]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_ir5nv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainShop" type="Panel" parent="ShopUI" unique_id=442694603]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="ShopUI/MainShop" unique_id=835867877]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ShopMainVBox" type="VBoxContainer" parent="ShopUI/MainShop/PanelContainer" unique_id=1718408469]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopHBox" type="HBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox" unique_id=748578248]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopPanel" type="Panel" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox" unique_id=501271864]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ForSaleHBox" type="HBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/ShopPanel" unique_id=708288558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats" type="VBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox" unique_id=652844875]
+layout_mode = 2
+alignment = 1
+
+[node name="MoneyPanelBack" type="Panel" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats" unique_id=68121168]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="MoneyLabelShop" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/MoneyPanelBack" unique_id=1132460559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoPanel" type="Panel" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats" unique_id=68943314]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="NoLabel" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats/NoPanel" unique_id=130294654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1 NO!(s)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoursLabel" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats" unique_id=2029189624]
+layout_mode = 2
+text = "Hours: 9am - 6pm"
+label_settings = SubResource("LabelSettings_u8j7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WageLabel" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats" unique_id=15184132]
+layout_mode = 2
+text = "Daily Wage: 5$"
+label_settings = SubResource("LabelSettings_u8j7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartingEnergy" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/ShopHBox/Stats" unique_id=1732230516]
+layout_mode = 2
+text = "Starting Energy: 100%"
+label_settings = SubResource("LabelSettings_u8j7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomPanel" type="HBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox" unique_id=113858148]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ProgressButtons" type="VBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel" unique_id=606901371]
+layout_mode = 2
+
+[node name="RerollButton" type="Button" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons" unique_id=2106221979]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Reroll: %s$"
+
+[node name="NextDayButton" type="Button" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ProgressButtons" unique_id=457285688]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Day %s"
+
+[node name="ItemsInfo" type="VBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel" unique_id=1496230075]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemsLabel" type="Label" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo" unique_id=1960439303]
+layout_mode = 2
+text = "Items:"
+label_settings = SubResource("LabelSettings_u8j7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemsPanel" type="Panel" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo" unique_id=1951414216]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsScrollContainer" type="ScrollContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel" unique_id=1152922319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemsHBox" type="HBoxContainer" parent="ShopUI/MainShop/PanelContainer/ShopMainVBox/BottomPanel/ItemsInfo/ItemsPanel/ItemsScrollContainer" unique_id=1221653540]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]
+[connection signal="pressed" from="DayEndUI/DayEndVPanel/DayEndPanelContainer/DayEndVBox/DayEndContinue" to="." method="to_shop"]
