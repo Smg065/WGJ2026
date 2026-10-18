@@ -42,7 +42,7 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "Wagon_01": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://Materials/Wagon_01.tres",
 "use_external/path": "uid://ckotqb2hawmlo"
 }
