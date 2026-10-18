@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_18aqf"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1ylvj"]
+[ext_resource type="AudioStream" uid="uid://cqh3rauxmevdt" path="res://SFX/dialogue-01.wav" id="2_36nkh"]
 
 [resource]
 script = ExtResource("2_1ylvj")
 dialogueEn = "You think you're fighting for your country, but you're really dying for industrialists. Greedy leaders in their golden palaces send you to kill in a war that isn't yours…"
 dialogueFr = "Vous croyez mourir pour votre pays, mais en réalité, vous mourez pour des industriels. Des dirigeants cupides, du fond de leurs palais dorés, vous envoient à la mort dans une guerre qui n’est pas la vôtre…"
+dialogueSound = ExtResource("2_36nkh")
 tagWhitelist = Array[String](["WarVeteran3"])
 tagBlacklist = Array[String](["WarVeteran4"])
 yesTags = Array[String](["WarVeteran4"])

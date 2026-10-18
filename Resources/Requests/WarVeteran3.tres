@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_crcsb"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_jqoxq"]
+[ext_resource type="AudioStream" uid="uid://bex8tb6t80dnd" path="res://SFX/dialogue-02.wav" id="2_rcw1m"]
 
 [resource]
 script = ExtResource("2_jqoxq")
 dialogueEn = "We shared food and buried our dead together, Frenchmen and Germans alike. For a moment, we weren't enemies. Just… human. Then Christmas ended, and we went back to killing each other."
 dialogueFr = "Nous avons partagé notre nourriture et enterré nos morts ensemble, Français et Allemands. Pendant un temps, nous n’étions plus des ennemis. Juste… des humains. Puis Noël a pris fin, et nous avons recommencé à nous entretuer."
+dialogueSound = ExtResource("2_rcw1m")
 tagWhitelist = Array[String](["WarVeteran2"])
 tagBlacklist = Array[String](["WarVeteran3"])
 yesTags = Array[String](["WarVeteran3"])

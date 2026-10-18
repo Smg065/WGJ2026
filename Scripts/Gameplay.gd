@@ -378,6 +378,7 @@ func render_request():
 		return
 	charDialogue.text = curRequest.dialogueEn
 	charPort.texture = curRequest.charProfile
+	sfx_stream(curRequest.dialogueSound)
 	if not curRequest.displayResult:
 		hide_costs()
 		return

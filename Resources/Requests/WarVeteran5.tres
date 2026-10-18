@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_qlfqi"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_j7er3"]
+[ext_resource type="AudioStream" uid="uid://cjy0pqwt2e2kh" path="res://SFX/dialogue-03.wav" id="2_l50vh"]
 
 [resource]
 script = ExtResource("2_j7er3")
 dialogueEn = "Anyway, thanks for listening. The screams, the bodies… they still haunt me every night. I just hope it really was the war to end all wars, like they promised…"
 dialogueFr = "Bref, merci de m’avoir écouté. Les cris, les corps… ils continuent de me hanter chaque nuit. J’espère simplement qu’il s’agissait vraiment de la « der des der », comme ils l’avaient promis…"
+dialogueSound = ExtResource("2_l50vh")
 tagWhitelist = Array[String](["WarVeteran4"])
 tagBlacklist = Array[String](["WarVeteran5"])
 yesTags = Array[String](["WarVeteran5"])

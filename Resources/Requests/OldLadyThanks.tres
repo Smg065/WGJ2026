@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://boku6cvm5lt0i"]
 
 [ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_o2rgp"]
+[ext_resource type="AudioStream" uid="uid://cqh3rauxmevdt" path="res://SFX/dialogue-01.wav" id="2_eibod"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_goqml"]
 
 [resource]
 script = ExtResource("2_goqml")
 dialogueEn = "You're back, sweetie! Thank you for listening to all my stories. Here, take this. The world needs more kind people like you!"
 dialogueFr = "Tu es revenue ma puce ! Merci d'avoir écouté mes histoires. Tiens, prends ça. Le monde a besoin de plus de personnes adorables comme toi !"
+dialogueSound = ExtResource("2_eibod")
 tagWhitelist = Array[String](["GrandmaStory3"])
 tagBlacklist = Array[String](["GrandmaStory4"])
 yesTags = Array[String](["GrandmaStory4"])

@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_1nh2u"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_opq0m"]
+[ext_resource type="AudioStream" uid="uid://cjy0pqwt2e2kh" path="res://SFX/dialogue-03.wav" id="2_b7lgr"]
 
 [resource]
 script = ExtResource("1_opq0m")
 dialogueEn = "Stupid suitcase! I'm travelling with gifts for my nephews. Cute little anvils! But it's way too heavy for me to lift onto the luggage rack. Give me a hand?"
 dialogueFr = "Je voyage avec des cadeaux pour mes neveux. Des p'tites enclumes trop mignonnes ! Mais c'est bien trop lourd pour pouvoir les mettre seul dans le porte-bagage. Un coup de main ? "
+dialogueSound = ExtResource("2_b7lgr")
 energyCost = 40
 timeCost = 2
 moneyCost = -10

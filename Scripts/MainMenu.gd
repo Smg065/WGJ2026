@@ -7,7 +7,6 @@ var activeSliders : Array[int]
 @export var allSliders : Array[HSlider]
 
 @export var sfxStream : AudioStreamPlayer
-@export var clickSfx : AudioStreamWAV
 
 func _ready() -> void:
 	for soundBus in allSliders.size():

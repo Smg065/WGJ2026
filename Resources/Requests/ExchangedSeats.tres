@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://xykhswhl8lqr"]
 
 [ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_kr5al"]
+[ext_resource type="AudioStream" uid="uid://bspr4eca8wqll" path="res://SFX/dialogue-vnr.wav" id="2_iosu3"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_sw5er"]
 
 [resource]
 script = ExtResource("2_sw5er")
 dialogueEn = "GET YOUR FILTHY ASS OFF MY SEAT!!! Hey, hello, Miss Ticket Inspector! This disgusting old man stole my seat! GET HIM OUT!"
 dialogueFr = "BOUGE TES SALES FESSES DE MA PLACE ! Hé, bonjour m'dame la contrôleuse ! Ce vieux dégoûtant a volé ma place ! DÉGAGEZ-LE !"
+dialogueSound = ExtResource("2_iosu3")
 tagBlacklist = Array[String](["ExchangedSeats"])
 yesTags = Array[String](["ExchangedSeats"])
 energyCost = 30

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://eodyfnqu3ccn"]
 
 [ext_resource type="Texture2D" uid="uid://bcd0n5ce4r5w0" path="res://Sprites/Characters/NPC_5.png" id="1_4vy1b"]
+[ext_resource type="AudioStream" uid="uid://cqh3rauxmevdt" path="res://SFX/dialogue-01.wav" id="2_bv2gs"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_oi8i8"]
 
 [resource]
 script = ExtResource("2_oi8i8")
 dialogueEn = "Oh… Um… Hello… I've got a slimy problem. My dog ate my ticket, but I swear I bought one! Are you still going to fine me?"
 dialogueFr = "Oh... Hum.. Bonjour... J'ai un problème gluant. Mon chien à mangé mon ticket, mais je vous jure que je l'avais acheté ! Vous allez quand même me mettre une amende ?"
+dialogueSound = ExtResource("2_bv2gs")
 moneyCost = -8
 charWagon = ExtResource("1_4vy1b")
 charProfile = ExtResource("1_4vy1b")

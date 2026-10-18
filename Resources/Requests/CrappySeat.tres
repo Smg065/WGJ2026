@@ -1,15 +1,18 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://vsgfrrdm6teo"]
 
 [ext_resource type="Texture2D" uid="uid://cm8y2mx30ucgk" path="res://Sprites/Characters/NPC_8.png" id="1_oott1"]
+[ext_resource type="AudioStream" uid="uid://cjy0pqwt2e2kh" path="res://SFX/dialogue-03.wav" id="2_ikw56"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_yexop"]
 
 [resource]
 script = ExtResource("2_yexop")
 dialogueEn = "Hello, I, uh… accidentally crapped on the seat while I was asleep. Here's some money. Clean up that mess, and I'll quietly disappear out of shame."
 dialogueFr = "Bonjour, je… euh… j’ai accidentellement fait caca sur le siège pendant que je dormais. Tenez, voici de l’argent. Nettoyez ce désastre, et je m’éclipserai discrètement de honte."
+dialogueSound = ExtResource("2_ikw56")
 energyCost = 40
 timeCost = 3
 moneyCost = -20
+minDay = 4
 charWagon = ExtResource("1_oott1")
 charProfile = ExtResource("1_oott1")
 charYes = ExtResource("1_oott1")

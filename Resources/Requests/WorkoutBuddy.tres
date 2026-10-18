@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bblf4acwurjdt" path="res://Sprites/Characters/80_Gym_teacher.png" id="1_4kwxe"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1nsxc"]
+[ext_resource type="AudioStream" uid="uid://bspr4eca8wqll" path="res://SFX/dialogue-vnr.wav" id="2_j5ukd"]
 
 [resource]
 script = ExtResource("2_1nsxc")
 dialogueEn = "ALRIGHT, PEOPLE! LET'S MOVE IT! You wanna be a CHAMPION? THEN GIVE ME EVERYTHING YOU'VE GOT! Come on, time for your daily workout!"
 dialogueFr = "ALLEZ TOUT LE MONDE ON SE BOUGE ! Vous voulez être une CHAMPIONNE ? ALORS DONNEZ-MOI TOUT CE QUE VOUS AVEZ ! C'est l'heure du sport !"
+dialogueSound = ExtResource("2_j5ukd")
 tagBlacklist = Array[String](["WorkoutBuddy"])
 yesTags = Array[String](["WorkoutBuddy"])
 energyCost = 60

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://15xxsuu23fln"]
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_6owbm"]
+[ext_resource type="AudioStream" uid="uid://bex8tb6t80dnd" path="res://SFX/dialogue-02.wav" id="2_mnm1l"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_ttqgg"]
 
 [resource]
 script = ExtResource("2_ttqgg")
 dialogueEn = "HELP! I need fifty dollars! Please, it's a matter of life and death! Debt collectors are after me, and… Meh, you don't need to know. Please!"
 dialogueFr = "À l’aide ! Il me faut cinquante dollars ! Vite ! Des collecteurs de dette sont à mes trousses, et… enfin, inutile que vous sachiez pourquoi. S’il vous plaît !"
+dialogueSound = ExtResource("2_mnm1l")
 tagWhitelist = Array[String](["BorrowMoney6"])
 tagBlacklist = Array[String](["BorrowMoney7"])
 yesTags = Array[String](["BorrowMoney7"])

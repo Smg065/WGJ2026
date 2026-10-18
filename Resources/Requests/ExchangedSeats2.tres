@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_iambi"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_3gce3"]
+[ext_resource type="AudioStream" uid="uid://bex8tb6t80dnd" path="res://SFX/dialogue-02.wav" id="2_p6gfk"]
 
 [resource]
 script = ExtResource("2_3gce3")
 dialogueEn = "Remember me? Someone stole my seat earlier. Turns out I was in the wrong carriage! Here, take this little something… to forget the whole thing."
 dialogueFr = "Vous vous souvenez de moi ? Quelqu'un m'a volé ma place tout à l'heure. En fait j'étais dans le mauvais wagon... Tenez, prenez ça... et oubliez tout."
+dialogueSound = ExtResource("2_p6gfk")
 tagWhitelist = Array[String](["ExchangedSeats"])
 tagBlacklist = Array[String](["ExchangedSeats2"])
 yesTags = Array[String](["ExchangedSeats2"])

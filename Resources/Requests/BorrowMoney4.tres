@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_bbatb"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_a27yy"]
+[ext_resource type="AudioStream" uid="uid://buxrk4kgk6ng8" path="res://SFX/dialogue-04.wav" id="2_blifc"]
 
 [resource]
 script = ExtResource("2_a27yy")
 dialogueEn = "Hello, my dear. I still haven't found my wallet. You wouldn't happen to know where it is, would you? Could you please return it to me?"
 dialogueFr = "Bonjour, ma chère. Je n'ai toujours pas retrouvé mon portefeuille. Tu ne saurais pas par hasard où il se trouve ? Pourrais-tu me le rendre ?"
+dialogueSound = ExtResource("2_blifc")
 tagWhitelist = Array[String](["BorrowMoney3"])
 tagBlacklist = Array[String](["BorrowMoney4"])
 yesTags = Array[String](["BorrowMoney4"])

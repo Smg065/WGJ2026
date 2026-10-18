@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_mvgt8"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_8i4sw"]
+[ext_resource type="AudioStream" uid="uid://buxrk4kgk6ng8" path="res://SFX/dialogue-04.wav" id="2_j1hm7"]
 
 [resource]
 script = ExtResource("2_8i4sw")
 dialogueEn = "Hey, you! Gimme all your gold, or I'll mug ya! Name's Bernard. Bernard the Bandit. Mugging people is what I do. It's a living, you know!"
 dialogueFr = "Ouais, toi ! Donne-moi ton fric, sinon je te dépouille ! Moi c'est Bernard. Bernard le Bandit. Mon truc, c'est de détrousser les gens. Faut bien gagner sa vie, tu sais !"
+dialogueSound = ExtResource("2_j1hm7")
 tagBlacklist = Array[String](["Mugger"])
 yesTags = Array[String](["Mugger"])
 energyCost = 10

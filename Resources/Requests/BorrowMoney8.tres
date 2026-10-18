@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://b8h6fxo78ak3q"]
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_354vm"]
+[ext_resource type="AudioStream" uid="uid://njjrm8rvkraj" path="res://SFX/dialogue-06.wav" id="2_q7ed7"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_r7ebh"]
 
 [resource]
 script = ExtResource("2_r7ebh")
 dialogueEn = "Hey, uh… I managed to sort out my financial situation. Don't ask me how, but those debt collectors won't bother me anymore. Here's $200 for all your trouble!"
 dialogueFr = "Salut, euh… j’ai réussi à régler ma situation financière. Ne me demande pas comment, mais ces collecteurs ne m’embêteront plus. Tiens, voilà 200$ pour tout le dérangement."
+dialogueSound = ExtResource("2_q7ed7")
 tagWhitelist = Array[String](["BorrowMoney7"])
 tagBlacklist = Array[String](["BorrowMoney8"])
 yesTags = Array[String](["BorrowMoney8"])

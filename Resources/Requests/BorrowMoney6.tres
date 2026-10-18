@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cq4alfyx0bfqq"]
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_3262p"]
+[ext_resource type="AudioStream" uid="uid://cqh3rauxmevdt" path="res://SFX/dialogue-01.wav" id="2_164lk"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_riomx"]
 
 [resource]
 script = ExtResource("2_riomx")
 dialogueEn = "My saviour! I've lost my wallet again. How did you know? Anyway, could I borrow some more money? I swear this is the last time!"
 dialogueFr = "Ma sauveuse ! Oui, j'ai encore perdu mon portefeuille, comment t'as su ? Bref, est-ce que je pourrais t'emprunter encore un peu d'argent ? Je te jure que c'est la dernière fois !"
+dialogueSound = ExtResource("2_164lk")
 tagWhitelist = Array[String](["BorrowMoney5"])
 tagBlacklist = Array[String](["BorrowMoney6"])
 yesTags = Array[String](["BorrowMoney6"])
