@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://01lf4lbam8a2"]
 
-[ext_resource type="Texture2D" uid="uid://bblf4acwurjdt" path="res://Sprites/Characters/80_Gym_teacher.png" id="1_y7jt4"]
+[ext_resource type="Texture2D" uid="uid://cj4obqfpi5fvr" path="res://Sprites/Characters/People_Crying.png" id="1_y7jt4"]
 [ext_resource type="AudioStream" uid="uid://dk3du50iyqrw7" path="res://SFX/dialogue-cry.wav" id="2_y7jt4"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="3_35a0k"]
 

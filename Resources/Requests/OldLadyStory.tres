@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cqwimqdgptmes"]
 
-[ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_j88ck"]
+[ext_resource type="Texture2D" uid="uid://d17g6miet0i71" path="res://Sprites/Characters/Old.png" id="1_6uffv"]
 [ext_resource type="AudioStream" uid="uid://cjy0pqwt2e2kh" path="res://SFX/dialogue-03.wav" id="2_2t8wt"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_6uffv"]
 
@@ -13,8 +13,8 @@ tagBlacklist = Array[String](["GrandmaStory"])
 yesTags = Array[String](["GrandmaStory"])
 energyCost = 20
 timeCost = 2
-charWagon = ExtResource("1_j88ck")
-charProfile = ExtResource("1_j88ck")
-charYes = ExtResource("1_j88ck")
-charNo = ExtResource("1_j88ck")
+charWagon = ExtResource("1_6uffv")
+charProfile = ExtResource("1_6uffv")
+charYes = ExtResource("1_6uffv")
+charNo = ExtResource("1_6uffv")
 metadata/_custom_type_script = "uid://crmyuhxtt7onq"
