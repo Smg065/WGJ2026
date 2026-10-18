@@ -5,10 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="3_mofsa"]
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
 [ext_resource type="PackedScene" uid="uid://bnl5huj5mq0me" path="res://Resources/OwnedItemRend.tscn" id="3_rhmiw"]
+[ext_resource type="AudioStream" uid="uid://ctgok3nkwgqru" path="res://SFX/ui-button-click.wav" id="4_mfkkv"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
 [ext_resource type="Texture2D" uid="uid://dnxvsg147lh8f" path="res://Sprites/UI/Time.png" id="4_qaqk3"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
+[ext_resource type="ArrayMesh" uid="uid://cg7bl2mwwujaf" path="res://Models/low_main_character.obj" id="4_upsvf"]
+[ext_resource type="AudioStream" uid="uid://t3mpwunbpcgq" path="res://SFX/day-complete.wav" id="5_7kt2i"]
+[ext_resource type="AudioStream" uid="uid://cyasvdcsooa22" path="res://SFX/coin.wav" id="5_laq5j"]
 [ext_resource type="Texture2D" uid="uid://c72dwciwebiqy" path="res://Sprites/UI/DayEnd.png" id="5_rbnsi"]
+[ext_resource type="AudioStream" uid="uid://cf8265ifkbfqf" path="res://SFX/gameover.wav" id="6_laq5j"]
 [ext_resource type="Texture2D" uid="uid://4jqvxbdki1c7" path="res://Sprites/UI/Energy.png" id="6_upsvf"]
 [ext_resource type="Texture2D" uid="uid://rmj8bqqba0gu" path="res://Sprites/UI/Money.png" id="7_24v7v"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
@@ -32,12 +37,18 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_68abm"]
 font_size = 64
 
-[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "dayEndLabel", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "noButtonLabel", "nosCost", "ownedItemsHBox", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "ownedItemsShopHBox", "victoryUI", "gameOverUI")]
+[node name="Gameplay" type="Node3D" unique_id=636112707 node_paths=PackedStringArray("trainRoot", "mainScene", "musicStream", "sfxStream", "mainUI", "dayLabel", "wagonLabel", "timeLabel", "timeCost", "dayEndLabel", "energyBar", "energyCost", "moneyLabel", "moneyCost", "yesButton", "noButton", "noButtonLabel", "nosCost", "ownedItemsHBox", "charPort", "charDialogue", "earningsUI", "dayCompleteLabel", "timeMoneyBonus", "energyMoneyBonus", "noMoneyBonus", "dailyWageLabel", "dayEndTotalLabel", "dayEndUIButton", "shopUI", "moneyLabelShop", "nosLabelShop", "workHoursLabel", "dailyWageShopLabel", "startingEnergyLabel", "rerollButton", "nextDayButton", "itemsHBox", "shopItemSlots", "ownedItemsShopHBox", "victoryUI", "gameOverUI")]
 script = ExtResource("1_r5ka5")
 trainRoot = NodePath("MainScene/TrainRoot")
 wagonPrefab = ExtResource("2_tdndw")
 mainScene = NodePath("MainScene")
 ownedItemPrefab = ExtResource("3_rhmiw")
+musicStream = NodePath("Music")
+sfxStream = NodePath("SFX")
+clickSfx = ExtResource("4_mfkkv")
+buySfx = ExtResource("5_laq5j")
+dayWinSfx = ExtResource("5_7kt2i")
+gameOver = ExtResource("6_laq5j")
 mainUI = NodePath("MainUI")
 dayLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/DayLabel")
 wagonLabel = NodePath("MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/DayWagonHBox/WagonLabel")
@@ -94,6 +105,10 @@ transform = Transform3D(-0.6048447, -0.47672677, -0.6378827, 0.64145666, 0.18301
 light_color = Color(1, 1, 0.93333334, 1)
 light_energy = 0.2
 sky_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainScene" unique_id=1177224625]
+transform = Transform3D(-9.616506e-09, 0, 0.22, 0, 0.22, 0, -0.22, 0, -9.616506e-09, -1, 0.43, -3.2)
+mesh = ExtResource("4_upsvf")
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
 layout_mode = 3
@@ -701,10 +716,14 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Main Menu"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=420275887]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=420275887]
 stream = ExtResource("19_rbnsi")
 autoplay = true
 bus = &"Music"
+playback_type = 1
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=580162686]
+bus = &"SFX"
 playback_type = 1
 
 [connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]

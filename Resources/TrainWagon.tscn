@@ -9,8 +9,8 @@ wagonOrigin = NodePath("WagonOrigin")
 wagonChar = NodePath("WagonChar")
 
 [node name="WagonChar" type="Sprite3D" parent="." unique_id=1046716043]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.63932574, -3.7043266)
-pixel_size = 0.0008
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.475, -3.525)
+pixel_size = 0.0006
 texture = ExtResource("2_s3clx")
 
 [node name="WagonOrigin" type="Node3D" parent="." unique_id=1512111614]

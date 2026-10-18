@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1dqh6vaf5aei"
-path="res://.godot/imported/TempMenu.png-2d3c204f1aaedaa64162ae5b8f710c60.ctex"
+uid="uid://jhgkya1wccie"
+path="res://.godot/imported/Merchantlowpoly_1_Height.png-badaa3db752c5937c0231abf9a3d4c23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/TempMenu.png"
-dest_files=["res://.godot/imported/TempMenu.png-2d3c204f1aaedaa64162ae5b8f710c60.ctex"]
+source_file="res://Textures/Merchant/Merchantlowpoly_1_Height.png"
+dest_files=["res://.godot/imported/Merchantlowpoly_1_Height.png-badaa3db752c5937c0231abf9a3d4c23.ctex"]
 
 [params]
 
