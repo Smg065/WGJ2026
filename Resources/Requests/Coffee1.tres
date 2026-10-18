@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("2_xwoym")
-dialogueEn = "\"Seems you're tired… Look, I make my own coffee. Just buy me a cup and you'll be full of energy in no time. Don't ask me what's in it.\""
+dialogueEn = "Seems you're tired… Look, I make my own coffee. Buy me a cup, and you'll be full of energy in no time. Don't ask what's in it."
+tagBlacklist = Array[String](["Coffee1"])
+yesTags = Array[String](["Coffee1"])
 energyCost = -25
 timeCost = 0
 moneyCost = 5

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dld7wmvy0nckt"]
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://c63rr0phe24ao"]
 
 [ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_4kwxe"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1nsxc"]
 
 [resource]
 script = ExtResource("2_1nsxc")
-dialogueEn = "\"Yo! Could you spot for me? If you do I'd TOTALLY help you out.\""
+dialogueEn = "ALRIGHT, PEOPLE! LET'S MOVE IT! You wanna be a CHAMPION? THEN GIVE ME EVERYTHING YOU'VE GOT! Come on, time for your daily workout!"
+tagBlacklist = Array[String](["WorkoutBuddy"])
+yesTags = Array[String](["WorkoutBuddy"])
 energyCost = 30
 noCost = -1
 minDay = 3

@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_8pai0")
-dialogueEn = "\"My pet Zombie broke loose. Help me find him, will you?\""
-tagBlacklist = Array[String](["MadScience1"])
-yesTags = Array[String](["MadScience1"])
+dialogueEn = "Help! Billy, my pet zombie, has escaped from his cage! I can't find him anywhere. Could you help me look for him?"
+tagBlacklist = Array[String](["MadScientist1"])
+yesTags = Array[String](["MadScientist1"])
 energyCost = 10
 charWagon = ExtResource("1_k3oh7")
 charProfile = ExtResource("1_k3oh7")

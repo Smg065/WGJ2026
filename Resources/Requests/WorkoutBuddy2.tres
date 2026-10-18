@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dld7wmvy0nckt"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_664l5"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_g2woc"]
+
+[resource]
+script = ExtResource("2_g2woc")
+dialogueEn = "NO REST 'TIL YOU'RE DEAD! You didn't finish your workout last time. Come on, push harder! ONE! TWO! FEEL THAT BURN! NO PAIN, NO GAIN!"
+tagWhitelist = Array[String](["WorkoutBuddy"])
+tagBlacklist = Array[String](["WorkoutBuddy2"])
+yesTags = Array[String](["WorkoutBuddy2"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_664l5")
+charProfile = ExtResource("1_664l5")
+charYes = ExtResource("1_664l5")
+charNo = ExtResource("1_664l5")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

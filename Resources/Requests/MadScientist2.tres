@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_uasqi")
-dialogueEn = "\"My pet Zombie bit someone. Help me catch them, will you?\""
-tagWhitelist = Array[String](["MadScience1"])
-tagBlacklist = Array[String](["MadScience2"])
-yesTags = Array[String](["MadScience2"])
+dialogueEn = "It's me again. Billy bit my neighbour! I hope he didn't break his little teeth… Could you help me get him back?"
+tagWhitelist = Array[String](["MadScientist1"])
+tagBlacklist = Array[String](["MadScientist2"])
+yesTags = Array[String](["MadScientist2"])
 energyCost = 30
 minDay = 2
 charWagon = ExtResource("1_2gnw3")

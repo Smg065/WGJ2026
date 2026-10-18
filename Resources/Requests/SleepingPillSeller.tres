@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://b8jhgjjkoeng1"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_fanxc"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_ovcmr"]
+
+[resource]
+script = ExtResource("2_ovcmr")
+dialogueEn = "Hey there, mate. Looking a bit knackered, are we? I've got some very special pills that'll have you bursting with energy… eventually. So, what do you say, mate?"
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_fanxc")
+charProfile = ExtResource("1_fanxc")
+charYes = ExtResource("1_fanxc")
+charNo = ExtResource("1_fanxc")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

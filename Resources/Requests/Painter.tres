@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_m4lqm")
-dialogueEn = "\"I could use help watching this paint dry.\""
+dialogueEn = "Hello, my darling! I'm working on my next masterpiece: a portrait of a living wonder. And I'm talking about you, darling! Would you pose for me?"
+tagBlacklist = Array[String](["Painter"])
+yesTags = Array[String](["Painter"])
 timeCost = 4
 minDay = 4
 charWagon = ExtResource("1_2tgxq")

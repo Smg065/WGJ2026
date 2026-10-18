@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_fwakd")
-dialogueEn = "\"I have your money. I just can't figure out where I left it... Will you help me find it?\""
-tagWhitelist = Array[String](["Borrow1"])
-tagBlacklist = Array[String](["Borrow2"])
-yesTags = Array[String](["Borrow2"])
+dialogueEn = "Good morning, I… kinda lost my wallet. Do you have any money to spare? I'll pay you back as soon as I find it. Promise!"
+tagWhitelist = Array[String](["BorrowMoney1"])
+tagBlacklist = Array[String](["BorrowMoney2"])
+yesTags = Array[String](["BorrowMoney2"])
 energyCost = 15
 timeCost = 2
 moneyCost = -5

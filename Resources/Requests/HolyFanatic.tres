@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://e7papkmmi1fm"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_0o3qx"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_pevvt"]
+
+[resource]
+script = ExtResource("2_pevvt")
+dialogueEn = "You there! Make a donation to the Holy Church of His Holiness Sylvain Durif, the Cosmic Christ, the Great Monarch himself! He shall SAVE US ALL!"
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_0o3qx")
+charProfile = ExtResource("1_0o3qx")
+charYes = ExtResource("1_0o3qx")
+charNo = ExtResource("1_0o3qx")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

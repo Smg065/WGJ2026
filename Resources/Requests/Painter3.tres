@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://codxx3snhujwr"]
+
+[ext_resource type="Texture2D" uid="uid://bcd0n5ce4r5w0" path="res://Sprites/Characters/NPC_5.png" id="1_q5syd"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_xw5sg"]
+
+[resource]
+script = ExtResource("2_xw5sg")
+dialogueEn = "Darling, you're here! Don't worry, I don't need you to pose this time. I just need you to watch my painting dry with me. For the sake of art!"
+tagWhitelist = Array[String](["Painter2"])
+tagBlacklist = Array[String](["Painter3"])
+yesTags = Array[String](["Painter3"])
+timeCost = 4
+minDay = 4
+charWagon = ExtResource("1_q5syd")
+charProfile = ExtResource("1_q5syd")
+charYes = ExtResource("1_q5syd")
+charNo = ExtResource("1_q5syd")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

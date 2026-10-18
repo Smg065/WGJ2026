@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_nswni")
-dialogueEn = "\"My pet Zombie bit a [i]lot[/i] of people. Help me catch them, will you?\""
-tagWhitelist = Array[String](["MadScience2"])
-tagBlacklist = Array[String](["MadScience3"])
-yesTags = Array[String](["MadScience3"])
+dialogueEn = "Billy! BILLY! Oh, you again. I told Billy to keep an eye on my neighbour… He took it literally and lost it! Damn Billy. Now I need help finding his eye."
+tagWhitelist = Array[String](["MadScientist2"])
+tagBlacklist = Array[String](["MadScientist3"])
+yesTags = Array[String](["MadScientist3"])
 energyCost = 30
 timeCost = 2
 minDay = 3

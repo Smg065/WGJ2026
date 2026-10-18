@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_riomx")
-dialogueEn = "\"I have your 20 dollars!.. Yes, I DID lose my wallet again, how did you know?\""
-tagWhitelist = Array[String](["Borrow5"])
-tagBlacklist = Array[String](["Borrow6"])
-yesTags = Array[String](["Borrow6"])
+dialogueEn = "My saviour! I've lost my wallet again. How did you know? Anyway, could I borrow some more money? I swear this is the last time!"
+tagWhitelist = Array[String](["BorrowMoney5"])
+tagBlacklist = Array[String](["BorrowMoney6"])
+yesTags = Array[String](["BorrowMoney6"])
 energyCost = 15
 timeCost = 3
 moneyCost = -20

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bt7rd2vuhc1u0"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_4hp4h"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_akw4y"]
+
+[resource]
+script = ExtResource("2_akw4y")
+dialogueEn = "It's kind of you to spend time with a poor veteran like me. I've lived through so many horrors of war… Would you care to hear my stories?"
+tagBlacklist = Array[String](["WarVeteran"])
+yesTags = Array[String](["WarVeteran"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_4hp4h")
+charProfile = ExtResource("1_4hp4h")
+charYes = ExtResource("1_4hp4h")
+charNo = ExtResource("1_4hp4h")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

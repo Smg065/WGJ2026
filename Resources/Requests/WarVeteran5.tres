@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://2yc1nqraxs1l"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_qlfqi"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_j7er3"]
+
+[resource]
+script = ExtResource("2_j7er3")
+dialogueEn = "Anyway, thanks for listening. The screams, the bodies… they still haunt me every night. I just hope it really was the war to end all wars, like they promised…"
+tagWhitelist = Array[String](["WarVeteran4"])
+tagBlacklist = Array[String](["WarVeteran5"])
+yesTags = Array[String](["WarVeteran5"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_qlfqi")
+charProfile = ExtResource("1_qlfqi")
+charYes = ExtResource("1_qlfqi")
+charNo = ExtResource("1_qlfqi")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dtcc83fcwy3k7"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_y1jlf"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_frt4j"]
+
+[resource]
+script = ExtResource("2_frt4j")
+dialogueEn = "Let me tell you about Christmas Eve, 1914. Amid the bombs and the bodies, we heard men singing carols from the other trench. We climbed out and shook hands with our enemies…"
+tagWhitelist = Array[String](["WarVeteran"])
+tagBlacklist = Array[String](["WarVeteran2"])
+yesTags = Array[String](["WarVeteran2"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_y1jlf")
+charProfile = ExtResource("1_y1jlf")
+charYes = ExtResource("1_y1jlf")
+charNo = ExtResource("1_y1jlf")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

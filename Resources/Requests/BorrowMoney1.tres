@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_pcc42")
-dialogueEn = "\"Could I borrow 5 dollars?\""
-tagBlacklist = Array[String](["Borrow1"])
-yesTags = Array[String](["Borrow1"])
+dialogueEn = "Someone seems to have dropped their wallet on the floor. Maybe I could help myself to a few bills before returning it to its rightful owner…"
+tagBlacklist = Array[String](["BorrowMoney1"])
+yesTags = Array[String](["BorrowMoney1"])
 timeCost = 0
 moneyCost = 5
 charWagon = ExtResource("1_f6ask")

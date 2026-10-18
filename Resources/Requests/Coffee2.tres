@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("2_kbu34")
-dialogueEn = "\"I've refined the expirimental coffee recipe! Care to try?\""
+dialogueEn = "Remember my coffee from last time? I've improved the recipe with some… Hey, you still don't wanna know. Dare to try it again?"
+tagWhitelist = Array[String](["Coffee1"])
+yesTags = Array[String](["Coffee2"])
 energyCost = -50
 timeCost = 0
 moneyCost = 10

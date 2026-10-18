@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://xfo5c4wgahij"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_iambi"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_3gce3"]
+
+[resource]
+script = ExtResource("2_3gce3")
+dialogueEn = "Remember me? Someone stole my seat earlier. Turns out I was in the wrong carriage! Here, take this little something… to forget the whole thing."
+tagWhitelist = Array[String](["ExchangedSeats"])
+tagBlacklist = Array[String](["ExchangedSeats2"])
+yesTags = Array[String](["ExchangedSeats2"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_iambi")
+charProfile = ExtResource("1_iambi")
+charYes = ExtResource("1_iambi")
+charNo = ExtResource("1_iambi")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

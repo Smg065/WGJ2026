@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://kuu85vmv8wkx"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_18aqf"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1ylvj"]
+
+[resource]
+script = ExtResource("2_1ylvj")
+dialogueEn = "You think you're fighting for your country, but you're really dying for industrialists. Greedy leaders in their golden palaces send you to kill in a war that isn't yours…"
+tagWhitelist = Array[String](["WarVeteran3"])
+tagBlacklist = Array[String](["WarVeteran4"])
+yesTags = Array[String](["WarVeteran4"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_18aqf")
+charProfile = ExtResource("1_18aqf")
+charYes = ExtResource("1_18aqf")
+charNo = ExtResource("1_18aqf")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

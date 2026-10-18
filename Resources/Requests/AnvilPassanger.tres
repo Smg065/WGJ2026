@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_opq0m")
-dialogueEn = "\"Excuse me! I would like help storing my anvils.\""
+dialogueEn = "Stupid suitcase! I'm travelling with gifts for my nephews. Cute little anvils! But it's way too heavy for me to lift onto the luggage rack. Give me a hand?"
 energyCost = 40
 minDay = 4
 charWagon = ExtResource("1_1nh2u")

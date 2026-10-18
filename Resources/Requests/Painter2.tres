@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://nnngakoybt5c"]
+
+[ext_resource type="Texture2D" uid="uid://bcd0n5ce4r5w0" path="res://Sprites/Characters/NPC_5.png" id="1_420wt"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_av08f"]
+
+[resource]
+script = ExtResource("2_av08f")
+dialogueEn = "Hello again, darling! I need you to pose for me again so I can finish my masterpiece. I'm still searching for those bold, vibrant colours!"
+tagWhitelist = Array[String](["Painter"])
+tagBlacklist = Array[String](["Painter2"])
+yesTags = Array[String](["Painter2"])
+timeCost = 4
+minDay = 4
+charWagon = ExtResource("1_420wt")
+charProfile = ExtResource("1_420wt")
+charYes = ExtResource("1_420wt")
+charNo = ExtResource("1_420wt")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

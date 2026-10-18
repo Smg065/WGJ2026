@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_0ux28")
-dialogueEn = "\"Could I borrow 10 dollars?\""
-tagWhitelist = Array[String](["Borrow2"])
-tagBlacklist = Array[String](["Borrow3"])
-yesTags = Array[String](["Borrow3"])
+dialogueEn = "Hey! I've got your money back! But a gust of wind snatched it right out of my hand. It can't have gone far! Could you help me find it?"
+tagWhitelist = Array[String](["BorrowMoney2"])
+tagBlacklist = Array[String](["BorrowMoney3"])
+yesTags = Array[String](["BorrowMoney3"])
 timeCost = 0
 moneyCost = 10
 charWagon = ExtResource("1_cs78q")

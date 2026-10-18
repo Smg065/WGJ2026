@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dq84y50dcmakd"]
+
+[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_crcsb"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_jqoxq"]
+
+[resource]
+script = ExtResource("2_jqoxq")
+dialogueEn = "We shared food and buried our dead together, Frenchmen and Germans alike. For a moment, we weren't enemies. Just… human. Then Christmas ended, and we went back to killing each other."
+tagWhitelist = Array[String](["WarVeteran2"])
+tagBlacklist = Array[String](["WarVeteran3"])
+yesTags = Array[String](["WarVeteran3"])
+energyCost = 30
+noCost = -1
+minDay = 3
+charWagon = ExtResource("1_crcsb")
+charProfile = ExtResource("1_crcsb")
+charYes = ExtResource("1_crcsb")
+charNo = ExtResource("1_crcsb")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"
