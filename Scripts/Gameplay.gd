@@ -15,6 +15,7 @@ var allRequests : Array[CharacterRequest]
 
 @export var mainScene : Node3D
 @export var ownedItemPrefab : PackedScene
+@export var merchantModel : Node3D
 
 var moveTrain : bool
 @export var totalWagons : int = 6
@@ -225,6 +226,7 @@ func start_new_day():
 	earningsUI.hide()
 	mainUI.show()
 	mainScene.show()
+	merchantModel.hide()
 	trainRoot.global_position = Vector3.ZERO
 	trainGoalPos = 0
 	day += 1
@@ -457,6 +459,7 @@ func to_shop() -> void:
 	earningsUI.hide()
 	shopUI.show()
 	mainScene.hide()
+	merchantModel.show()
 	stock_shop()
 	rerollCost = baseRerollCost
 

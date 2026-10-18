@@ -12,6 +12,7 @@ dialogueSound = ExtResource("2_5226j")
 energyCost = -80
 timeCost = 4
 moneyCost = 5
+minDay = 4
 charWagon = ExtResource("1_ovcmr")
 charProfile = ExtResource("1_ovcmr")
 charYes = ExtResource("1_ovcmr")
