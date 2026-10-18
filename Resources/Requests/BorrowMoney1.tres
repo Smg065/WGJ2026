@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cg0m5rkw0g00p"]
 
-[ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_f6ask"]
+[ext_resource type="Texture2D" uid="uid://dg08i8h3gf710" path="res://Sprites/Characters/Abandonned_wallet.png" id="1_f6ask"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_pcc42"]
 
 [resource]
