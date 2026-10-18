@@ -6,8 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://m6hkwlqxkkec" path="res://Sprites/UI/Yes.png" id="3_ovofm"]
 [ext_resource type="PackedScene" uid="uid://bnl5huj5mq0me" path="res://Resources/OwnedItemRend.tscn" id="3_rhmiw"]
 [ext_resource type="Texture2D" uid="uid://dsdhfod08xkcd" path="res://Sprites/UI/No.png" id="4_mofsa"]
+[ext_resource type="Texture2D" uid="uid://dnxvsg147lh8f" path="res://Sprites/UI/Time.png" id="4_qaqk3"]
 [ext_resource type="PackedScene" uid="uid://by6nvg44u7bqr" path="res://Resources/ResourceModPanel.tscn" id="4_u8j7u"]
+[ext_resource type="Texture2D" uid="uid://c72dwciwebiqy" path="res://Sprites/UI/DayEnd.png" id="5_rbnsi"]
+[ext_resource type="Texture2D" uid="uid://4jqvxbdki1c7" path="res://Sprites/UI/Energy.png" id="6_upsvf"]
+[ext_resource type="Texture2D" uid="uid://rmj8bqqba0gu" path="res://Sprites/UI/Money.png" id="7_24v7v"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
+[ext_resource type="Texture2D" uid="uid://coi115nkym816" path="res://Sprites/UI/TimeLoss.png" id="10_k2tjh"]
+[ext_resource type="Texture2D" uid="uid://gm2njp4a86c5" path="res://Sprites/UI/TimeGain.png" id="11_mfkkv"]
+[ext_resource type="Texture2D" uid="uid://cvcw31x2ubllv" path="res://Sprites/UI/EnergyGain.png" id="12_7kt2i"]
+[ext_resource type="Texture2D" uid="uid://cg7onv1f4gyxa" path="res://Sprites/UI/EnergyLoss.png" id="13_laq5j"]
+[ext_resource type="Texture2D" uid="uid://c6t6g41ylfjuj" path="res://Sprites/UI/MoneyGain.png" id="14_gck77"]
+[ext_resource type="Texture2D" uid="uid://cy1nh0kyehnba" path="res://Sprites/UI/MoneyLoss.png" id="15_h7a8g"]
+[ext_resource type="AudioStream" uid="uid://dfkt58bjva0la" path="res://Music/DreamersTrain.wav" id="19_rbnsi"]
 
 [sub_resource type="Environment" id="Environment_cgcre"]
 background_mode = 1
@@ -85,7 +96,6 @@ light_energy = 0.2
 sky_mode = 1
 
 [node name="MainUI" type="Control" parent="." unique_id=1406061247]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,7 +148,7 @@ size_flags_vertical = 3
 
 [node name="TimeIcon" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/TimeHBox" unique_id=1456915412]
 layout_mode = 2
-texture = ExtResource("3_mofsa")
+texture = ExtResource("4_qaqk3")
 expand_mode = 3
 stretch_mode = 5
 
@@ -155,7 +165,7 @@ size_flags_vertical = 3
 
 [node name="ShiftEndIcon" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/ShiftEndHBox" unique_id=1022443180]
 layout_mode = 2
-texture = ExtResource("3_mofsa")
+texture = ExtResource("5_rbnsi")
 expand_mode = 3
 stretch_mode = 5
 
@@ -172,7 +182,7 @@ size_flags_vertical = 3
 
 [node name="EnergyIcon" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/EnergyHBox" unique_id=1154263273]
 layout_mode = 2
-texture = ExtResource("3_mofsa")
+texture = ExtResource("6_upsvf")
 expand_mode = 3
 stretch_mode = 5
 
@@ -188,7 +198,7 @@ size_flags_vertical = 3
 
 [node name="MoneyIcon" type="TextureRect" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/ResourcesPanel/ResourceVBox/MoneyHBox" unique_id=1468489981]
 layout_mode = 2
-texture = ExtResource("3_mofsa")
+texture = ExtResource("7_24v7v")
 expand_mode = 3
 stretch_mode = 5
 
@@ -239,29 +249,32 @@ alignment = 1
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 1
-gainIcon = ExtResource("3_mofsa")
+gainIcon = ExtResource("10_k2tjh")
+loseIcon = ExtResource("11_mfkkv")
 defaultText = "%s:00"
 
 [node name="EnergyCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=489055750 instance=ExtResource("4_u8j7u")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 1
-gainIcon = ExtResource("3_mofsa")
+gainIcon = ExtResource("12_7kt2i")
+loseIcon = ExtResource("13_laq5j")
 defaultText = "%s%%"
 
 [node name="MoneyCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=1529150854 instance=ExtResource("4_u8j7u")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 1
-gainIcon = ExtResource("3_mofsa")
+gainIcon = ExtResource("14_gck77")
+loseIcon = ExtResource("15_h7a8g")
 defaultText = "%s$"
 
 [node name="NoCost" parent="MainUI/UIVBox/TopVBox/TopPanel/TopHBox/CharPanel/CharHBox/VBoxContainer/CostsHBox" unique_id=229806842 instance=ExtResource("4_u8j7u")]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 size_flags_horizontal = 1
-gainIcon = ExtResource("3_mofsa")
-loseIcon = ExtResource("3_mofsa")
+gainIcon = ExtResource("4_mofsa")
+loseIcon = ExtResource("4_mofsa")
 defaultText = "%s NO!s"
 
 [node name="Control" type="Control" parent="MainUI/UIVBox" unique_id=1653157402]
@@ -687,6 +700,11 @@ text = "Retry"
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=420275887]
+stream = ExtResource("19_rbnsi")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]

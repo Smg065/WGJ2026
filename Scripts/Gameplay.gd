@@ -369,8 +369,8 @@ func render_request():
 	if not curRequest.displayResult:
 		hide_costs()
 		return
-	moneyCost.update_vis(curRequest.moneyCost)
-	energyCost.update_vis(curRequest.energyCost)
+	moneyCost.update_vis(-curRequest.moneyCost)
+	energyCost.update_vis(-curRequest.energyCost)
 	var totalTimeCost = curRequest.timeCost
 	if energy <= 0:
 		totalTimeCost += 1

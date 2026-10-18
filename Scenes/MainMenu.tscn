@@ -1,15 +1,8 @@
 [gd_scene format=3 uid="uid://omcdkcc7cmn"]
 
+[ext_resource type="Texture2D" uid="uid://b1dqh6vaf5aei" path="res://Sprites/TempMenu.png" id="1_8saeu"]
 [ext_resource type="Script" uid="uid://latfd4nk00rj" path="res://Scripts/MainMenu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_tt5f1"]
-
-[sub_resource type="Gradient" id="Gradient_853f1"]
-offsets = PackedFloat32Array(0, 0.5043732, 1)
-colors = PackedColorArray(0.19, 0.11020001, 0.11020001, 1, 0.17, 0.15164, 0.1088, 1, 0.22, 0.1606, 0.1606, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir5nv"]
-gradient = SubResource("Gradient_853f1")
-fill_to = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 32
@@ -21,12 +14,15 @@ font_size = 24
 font_size = 18
 
 [node name="MainMenu" type="TextureRect" unique_id=331756483]
+self_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_ir5nv")
+texture = ExtResource("1_8saeu")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("1_853f1")
 
 [node name="TitleScreen" type="Control" parent="." unique_id=453448449]
@@ -188,7 +184,7 @@ horizontal_alignment = 1
 
 [node name="Smg065" type="Label" parent="Credits/CreditVBox" unique_id=1192669570]
 layout_mode = 2
-text = "Smg065: Programming, Playtesting & Game Design"
+text = "Smg065: Programming, UI Spites, Playtesting & Game Design"
 label_settings = SubResource("LabelSettings_853f1")
 horizontal_alignment = 1
 
