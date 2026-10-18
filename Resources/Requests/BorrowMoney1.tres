@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_pcc42")
 dialogueEn = "Someone seems to have dropped their wallet on the floor. Maybe I could help myself to a few bills before returning it to its rightful owner…"
+dialogueFr = "Quelqu’un semble avoir laissé tomber son portefeuille par terre. Peut-être pourrais-je emprunter quelques billets avant de le rendre à son propriétaire…"
 tagBlacklist = Array[String](["BorrowMoney1"])
 yesTags = Array[String](["BorrowMoney1"])
 timeCost = 0

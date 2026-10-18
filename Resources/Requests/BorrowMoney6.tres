@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_riomx")
 dialogueEn = "My saviour! I've lost my wallet again. How did you know? Anyway, could I borrow some more money? I swear this is the last time!"
+dialogueFr = "Ma sauveuse ! Oui, j'ai encore perdu mon portefeuille, comment t'as su ? Bref, est-ce que je pourrais t'emprunter encore un peu d'argent ? Je te jure que c'est la dernière fois !"
 tagWhitelist = Array[String](["BorrowMoney5"])
 tagBlacklist = Array[String](["BorrowMoney6"])
 yesTags = Array[String](["BorrowMoney6"])

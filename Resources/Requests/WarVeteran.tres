@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_akw4y")
 dialogueEn = "It's kind of you to spend time with a poor veteran like me. I've lived through so many horrors of war… Would you care to hear my stories?"
+dialogueFr = "C’est bien aimable à vous de consacrer du temps à un ancien combattant comme moi. J’ai vécu tant d’horreurs durant la guerre… Voudriez-vous entendre mes récits ?"
 tagBlacklist = Array[String](["WarVeteran"])
 yesTags = Array[String](["WarVeteran"])
 energyCost = 10

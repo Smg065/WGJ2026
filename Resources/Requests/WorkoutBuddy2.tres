@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("2_g2woc")
-dialogueEn = "NO REST 'TIL YOU'RE DEAD! You didn't finish your workout last time. Come on, push harder! ONE! TWO! FEEL THAT BURN! NO PAIN, NO GAIN!"
+dialogueEn = "NO REST 'TILL YOU'RE DEAD! You didn't finish your workout last time. Come on, push harder! ONE! TWO! FEEL THAT BURN! NO PAIN, NO GAIN!"
+dialogueFr = "PAS DE REPOS POUR LES BRAVES ! Vous avez pas fini votre séance la dernière fois. Allez, c'est reparti ! UNE ! DEUX ! SENTEZ VOS MUSCLES BRÛLER ! ON N'A RIEN SANS RIEN !"
 tagWhitelist = Array[String](["WorkoutBuddy"])
 tagBlacklist = Array[String](["WorkoutBuddy2"])
 yesTags = Array[String](["WorkoutBuddy2"])

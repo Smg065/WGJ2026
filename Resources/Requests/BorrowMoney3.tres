@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_0ux28")
 dialogueEn = "Hey! I've got your money back! But a gust of wind snatched it right out of my hand. It can't have gone far! Could you help me find it?"
+dialogueFr = "Salut ! J'ai récupéré ton argent ! Mais une rafale de vent me l'a arraché des mains. Ça n'a pas pu aller bien loin ! Tu pourrais m'aider à le retrouver ?"
 tagWhitelist = Array[String](["BorrowMoney2"])
 tagBlacklist = Array[String](["BorrowMoney3"])
 yesTags = Array[String](["BorrowMoney3"])

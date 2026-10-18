@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_jqoxq")
 dialogueEn = "We shared food and buried our dead together, Frenchmen and Germans alike. For a moment, we weren't enemies. Just… human. Then Christmas ended, and we went back to killing each other."
+dialogueFr = "Nous avons partagé notre nourriture et enterré nos morts ensemble, Français et Allemands. Pendant un temps, nous n’étions plus des ennemis. Juste… des humains. Puis Noël a pris fin, et nous avons recommencé à nous entretuer."
 tagWhitelist = Array[String](["WarVeteran2"])
 tagBlacklist = Array[String](["WarVeteran3"])
 yesTags = Array[String](["WarVeteran3"])

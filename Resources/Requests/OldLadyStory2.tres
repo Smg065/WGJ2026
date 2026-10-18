@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_nj2k5")
 dialogueEn = "Did I tell you? I spent my holidays in the Swiss mountains! What a lovely trip for an old lady like me. Now, let me show you all my photos!"
+dialogueFr = "Oh, je ne t'ai pas dit, j'ai passé mes vacances dans les montagnes en Suisse ! Quel voyage agréable pour une vieille dame comme moi. Je vais te montrer toutes mes photos !"
 tagWhitelist = Array[String](["GrandmaStory"])
 tagBlacklist = Array[String](["GrandmaStory2"])
 yesTags = Array[String](["GrandmaStory2"])

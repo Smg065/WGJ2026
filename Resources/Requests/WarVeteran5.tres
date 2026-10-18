@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_j7er3")
 dialogueEn = "Anyway, thanks for listening. The screams, the bodies… they still haunt me every night. I just hope it really was the war to end all wars, like they promised…"
+dialogueFr = "Bref, merci de m’avoir écouté. Les cris, les corps… ils continuent de me hanter chaque nuit. J’espère simplement qu’il s’agissait vraiment de la « der des der », comme ils l’avaient promis…"
 tagWhitelist = Array[String](["WarVeteran4"])
 tagBlacklist = Array[String](["WarVeteran5"])
 yesTags = Array[String](["WarVeteran5"])

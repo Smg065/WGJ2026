@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_fwakd")
 dialogueEn = "Good morning, I… kinda lost my wallet. Do you have any money to spare? I'll pay you back as soon as I find it. Promise!"
+dialogueFr = "Bonjour, j’ai… enfin, j’ai perdu mon portefeuille. Auriez-vous un peu d’argent à me dépanner ? Je vous rembourserai dès que je l’aurai retrouvé. Promis !"
 tagWhitelist = Array[String](["BorrowMoney1"])
 tagBlacklist = Array[String](["BorrowMoney2"])
 yesTags = Array[String](["BorrowMoney2"])

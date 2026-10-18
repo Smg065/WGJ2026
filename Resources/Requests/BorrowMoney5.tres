@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_h8fsd")
 dialogueEn = "Thank you for finding my wallet, but… why is it empty? I guess someone must've robbed me. I still need money to live, though. Please?"
+dialogueFr = "Merci d’avoir retrouvé mon portefeuille, mais… pourquoi il est vide ? J’imagine que quelqu’un a dû me voler. Du coup, il me faut un peu d’argent pour vivre. S’il vous plaît ?"
 tagWhitelist = Array[String](["BorrowMoney4"])
 tagBlacklist = Array[String](["BorrowMoney5"])
 yesTags = Array[String](["BorrowMoney5"])

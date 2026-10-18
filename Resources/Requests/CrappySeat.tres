@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("2_yexop")
 dialogueEn = "Hello, I, uh… accidentally crapped on the seat while I was asleep. Here's some money. Clean up that mess, and I'll quietly disappear out of shame."
+dialogueFr = "Bonjour, je… euh… j’ai accidentellement fait caca sur le siège pendant que je dormais. Tenez, voici de l’argent. Nettoyez ce désastre, et je m’éclipserai discrètement de honte."
 energyCost = 40
 timeCost = 3
 moneyCost = -15
-noCost = -1
 charWagon = ExtResource("1_oott1")
 charProfile = ExtResource("1_oott1")
 charYes = ExtResource("1_oott1")

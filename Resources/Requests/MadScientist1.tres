@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_8pai0")
 dialogueEn = "Help! Billy, my pet zombie, has escaped from his cage! I can't find him anywhere. Could you help me look for him?"
+dialogueFr = "Au secours ! Mon zombie de compagnie s'est échappé ! Je le trouve nulle part. Vous pourriez m'aider à le chercher ?"
 tagBlacklist = Array[String](["MadScientist1"])
 yesTags = Array[String](["MadScientist1"])
 energyCost = 20

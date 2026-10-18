@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_a27yy")
 dialogueEn = "Hello, my dear. I still haven't found my wallet. You wouldn't happen to know where it is, would you? Could you please return it to me?"
+dialogueFr = "Bonjour, ma chère. Je n'ai toujours pas retrouvé mon portefeuille. Tu ne saurais pas par hasard où il se trouve ? Pourrais-tu me le rendre ?"
 tagWhitelist = Array[String](["BorrowMoney3"])
 tagBlacklist = Array[String](["BorrowMoney4"])
 yesTags = Array[String](["BorrowMoney4"])

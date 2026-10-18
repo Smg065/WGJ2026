@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_xwoym")
 dialogueEn = "Seems you're tired… Look, I make my own coffee. Buy me a cup, and you'll be full of energy in no time. Don't ask what's in it."
+dialogueFr = "Dis donc, t'as l'air crevée toi. Regarde, je fais mon propre café... Achètes-moi une tasse, et tu pèteras le feu en deux deux. Me demande pas ce qu'il y a dedans, par contre."
 tagBlacklist = Array[String](["Coffee1"])
 yesTags = Array[String](["Coffee1"])
 energyCost = -30

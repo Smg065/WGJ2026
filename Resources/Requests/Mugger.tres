@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_8i4sw")
 dialogueEn = "Hey, you! Gimme all your gold, or I'll mug ya! Name's Bernard. Bernard the Bandit. Mugging people is what I do. It's a living, you know!"
+dialogueFr = "Ouais, toi ! Donne-moi ton fric, sinon je te dépouille ! Moi c'est Bernard. Bernard le Bandit. Mon truc, c'est de détrousser les gens. Faut bien gagner sa vie, tu sais !"
 energyCost = 10
 moneyCost = 80
 noCost = -1

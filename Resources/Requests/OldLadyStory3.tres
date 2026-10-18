@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_1euat")
 dialogueEn = "You left in such a hurry last time! I've found some more photos since then. Come on, have a look with your old grandma!"
+dialogueFr = "Tu es partie tellement vite la dernière fois ! J'ai retrouvé d'autres photos. Allez, viens les regarder avec ta vieille grand-mère !"
 tagWhitelist = Array[String](["GrandmaStory2"])
 tagBlacklist = Array[String](["GrandmaStory3"])
 yesTags = Array[String](["GrandmaStory3"])

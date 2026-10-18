@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_m4lqm")
 dialogueEn = "Hello, my darling! I'm working on my next masterpiece: a portrait of a living wonder. And I'm talking about you, darling! Would you pose for me?"
+dialogueFr = "Bonjour, mon trésor ! Je travaille sur mon prochain chef-d’œuvre : le portrait d’une merveille vivante. Et je parle de toi, trésor ! Accepterais-tu de poser pour moi ?"
 tagBlacklist = Array[String](["Painter"])
 yesTags = Array[String](["Painter"])
 timeCost = 4

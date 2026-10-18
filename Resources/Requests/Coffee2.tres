@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_kbu34")
 dialogueEn = "Remember my coffee from last time? I've improved the recipe with some… Hey, you still don't wanna know. Dare to try it again?"
+dialogueFr = "Tu te souviens de mon café de l'autre fois ? J'ai amélioré la recette avec du... Bref t'as pas besoin de savoir. Tu retentes le coup ?"
 tagWhitelist = Array[String](["Coffee1"])
 yesTags = Array[String](["Coffee2"])
 energyCost = -60

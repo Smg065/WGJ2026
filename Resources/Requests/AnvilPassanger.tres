@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_opq0m")
 dialogueEn = "Stupid suitcase! I'm travelling with gifts for my nephews. Cute little anvils! But it's way too heavy for me to lift onto the luggage rack. Give me a hand?"
+dialogueFr = "Je voyage avec des cadeaux pour mes neveux. Des p'tites enclumes trop mignonnes ! Mais c'est bien trop lourd pour pouvoir les mettre seul dans le porte-bagage. Un coup de main ? "
 energyCost = 40
 timeCost = 2
 minDay = 4

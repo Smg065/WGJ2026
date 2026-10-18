@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_goqml")
 dialogueEn = "You're back, sweetie! Thank you for listening to all my stories. Here, take this. The world needs more kind people like you!"
+dialogueFr = "Tu es revenue ma puce ! Merci d'avoir écouté mes histoires. Tiens, prends ça. Le monde a besoin de plus de personnes adorables comme toi !"
 tagWhitelist = Array[String](["GrandmaStory3"])
 tagBlacklist = Array[String](["GrandmaStory4"])
 yesTags = Array[String](["GrandmaStory4"])

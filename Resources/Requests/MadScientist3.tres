@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_nswni")
 dialogueEn = "Billy! BILLY! Oh, you again. I told Billy to keep an eye on my neighbour… He took it literally and lost it! Damn Billy. Now I need help finding his eye."
+dialogueFr = "Billy ! BILLY !  Oh, encore vous. J'ai dit à Billy de garder un oeil sur mon voisin... Il l'a pris au pied de la lettre ! Fichu Billy ! Maintenant j'ai besoin d'aide pour retrouver son oeil..."
 tagWhitelist = Array[String](["MadScientist2"])
 tagBlacklist = Array[String](["MadScientist3"])
 yesTags = Array[String](["MadScientist3"])

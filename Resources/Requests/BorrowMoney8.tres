@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_r7ebh")
 dialogueEn = "Hey, uh… I managed to sort out my financial situation. Don't ask me how, but those debt collectors won't bother me anymore. Here's $200 for all your trouble!"
+dialogueFr = "Salut, euh… j’ai réussi à régler ma situation financière. Ne me demande pas comment, mais ces collecteurs ne m’embêteront plus. Tiens, voilà 200$ pour tout le dérangement."
 tagWhitelist = Array[String](["BorrowMoney7"])
 tagBlacklist = Array[String](["BorrowMoney8"])
 yesTags = Array[String](["BorrowMoney8"])

@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_uasqi")
 dialogueEn = "It's me again. Billy bit my neighbour! I hope he didn't break his little teeth… Could you help me get him back?"
+dialogueFr = "C'est encore moi. Billy a mordu mon voisin ! J'espère qu'il ne s'est pas cassé ses petites dents... Vous pourriez m'aider à le ramener ?"
 tagWhitelist = Array[String](["MadScientist1"])
 tagBlacklist = Array[String](["MadScientist2"])
 yesTags = Array[String](["MadScientist2"])
