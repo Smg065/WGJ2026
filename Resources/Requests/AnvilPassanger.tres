@@ -9,6 +9,7 @@ dialogueEn = "Stupid suitcase! I'm travelling with gifts for my nephews. Cute li
 dialogueFr = "Je voyage avec des cadeaux pour mes neveux. Des p'tites enclumes trop mignonnes ! Mais c'est bien trop lourd pour pouvoir les mettre seul dans le porte-bagage. Un coup de main ? "
 energyCost = 40
 timeCost = 2
+moneyCost = -10
 minDay = 4
 charWagon = ExtResource("1_1nh2u")
 charProfile = ExtResource("1_1nh2u")

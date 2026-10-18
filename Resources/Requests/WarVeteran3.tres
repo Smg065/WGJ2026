@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://dq84y50dcmakd"]
 
-[ext_resource type="Texture2D" uid="uid://coq4w2088wgrd" path="res://Sprites/Characters/NPC_27.png" id="1_crcsb"]
+[ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_crcsb"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_jqoxq"]
 
 [resource]
@@ -11,6 +11,7 @@ tagWhitelist = Array[String](["WarVeteran2"])
 tagBlacklist = Array[String](["WarVeteran3"])
 yesTags = Array[String](["WarVeteran3"])
 energyCost = 5
+moneyCost = -5
 minDay = 3
 charWagon = ExtResource("1_crcsb")
 charProfile = ExtResource("1_crcsb")

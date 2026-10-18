@@ -10,6 +10,7 @@ dialogueFr = "Bonjour, mon trésor ! Je travaille sur mon prochain chef-d’œuv
 tagBlacklist = Array[String](["Painter"])
 yesTags = Array[String](["Painter"])
 timeCost = 4
+moneyCost = -10
 minDay = 4
 charWagon = ExtResource("1_2tgxq")
 charProfile = ExtResource("1_2tgxq")

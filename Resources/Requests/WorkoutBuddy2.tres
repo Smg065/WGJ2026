@@ -12,6 +12,7 @@ tagBlacklist = Array[String](["WorkoutBuddy2"])
 yesTags = Array[String](["WorkoutBuddy2"])
 energyCost = 60
 timeCost = 4
+moneyCost = -10
 noCost = -1
 minDay = 2
 charWagon = ExtResource("1_664l5")
