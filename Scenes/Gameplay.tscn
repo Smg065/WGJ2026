@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://rmj8bqqba0gu" path="res://Sprites/UI/Money.png" id="7_24v7v"]
 [ext_resource type="PackedScene" uid="uid://c1nxvpsgns2r4" path="res://Resources/ShopItem.tscn" id="7_xwjbm"]
 [ext_resource type="PackedScene" uid="uid://cyhx6pd8me0h7" path="res://Models/Main_character_win.glb" id="8_7kt2i"]
+[ext_resource type="PackedScene" uid="uid://bpbqjm18oa4ue" path="res://Models/Merchant.glb" id="8_laq5j"]
+[ext_resource type="PackedScene" uid="uid://2rqi2b5debcb" path="res://Models/Wagon_03.glb" id="9_gck77"]
 [ext_resource type="Texture2D" uid="uid://coi115nkym816" path="res://Sprites/UI/TimeLoss.png" id="10_k2tjh"]
 [ext_resource type="Texture2D" uid="uid://gm2njp4a86c5" path="res://Sprites/UI/TimeGain.png" id="11_mfkkv"]
 [ext_resource type="Texture2D" uid="uid://cvcw31x2ubllv" path="res://Sprites/UI/EnergyGain.png" id="12_7kt2i"]
@@ -27,6 +29,7 @@
 
 [sub_resource type="Environment" id="Environment_cgcre"]
 background_mode = 1
+background_color = Color(0.041405752, 0.48144066, 0.6895706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir5nv"]
 font_size = 48
@@ -89,25 +92,32 @@ ownedItemsShopHBox = NodePath("ShopUI/MainShop/PanelContainer/ShopMainVBox/Botto
 victoryUI = NodePath("VictoryUI")
 gameOverUI = NodePath("GameOverUI")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=448671764]
+transform = Transform3D(0.61237246, -0.7071068, 0.3535534, 0.61237246, 0.7071068, 0.3535534, -0.50000006, 0, 0.8660254, 0, 0, 0)
+light_color = Color(1, 1, 0.9490196, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1146567096]
+transform = Transform3D(-0.6048447, -0.4767269, -0.6378827, 0.64145666, 0.18301298, -0.74500984, 0.47190702, -0.8597893, 0.1951052, 0, 0, 0)
+light_color = Color(1, 1, 0.93333334, 1)
+light_energy = 0.2
+sky_mode = 1
+
 [node name="Cam" type="Camera3D" parent="." unique_id=351483388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.25)
 environment = SubResource("Environment_cgcre")
 
 [node name="Merchant" type="Node3D" parent="." unique_id=537280916]
+visible = false
+
+[node name="Merchant" parent="Merchant" unique_id=376480034 instance=ExtResource("8_laq5j")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.25, -0.045713395, -2.5)
+
+[node name="Wagon_032" parent="Merchant" unique_id=1779999105 instance=ExtResource("9_gck77")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.93, 0, -1.25)
 
 [node name="MainScene" type="Node3D" parent="." unique_id=1850959170]
 
 [node name="TrainRoot" type="Node3D" parent="MainScene" unique_id=815444279]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainScene" unique_id=448671764]
-transform = Transform3D(0.6123724, -0.70710677, 0.35355338, 0.6123724, 0.70710677, 0.35355338, -0.5, 0, 0.8660254, 0, 0, 0)
-light_color = Color(1, 1, 0.9490196, 1)
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="MainScene" unique_id=1146567096]
-transform = Transform3D(-0.6048447, -0.47672677, -0.6378827, 0.64145666, 0.1830128, -0.7450099, 0.47190702, -0.85978955, 0.19510533, 0, 0, 0)
-light_color = Color(1, 1, 0.93333334, 1)
-light_energy = 0.2
-sky_mode = 1
 
 [node name="Main_character_win" parent="MainScene" unique_id=1719762797 instance=ExtResource("8_7kt2i")]
 transform = Transform3D(-9.616506e-09, 0, 0.22, 0, 0.22, 0, -0.22, 0, -9.616506e-09, -1, -0.00045531988, -3.2)
