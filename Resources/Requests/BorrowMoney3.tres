@@ -11,7 +11,6 @@ tagWhitelist = Array[String](["BorrowMoney2"])
 tagBlacklist = Array[String](["BorrowMoney3"])
 yesTags = Array[String](["BorrowMoney3"])
 energyCost = 20
-timeCost = 0
 moneyCost = -5
 charWagon = ExtResource("1_cs78q")
 charProfile = ExtResource("1_cs78q")

@@ -10,7 +10,6 @@ dialogueFr = "Tu es revenue ma puce ! Merci d'avoir écouté mes histoires. Tien
 tagWhitelist = Array[String](["GrandmaStory3"])
 tagBlacklist = Array[String](["GrandmaStory4"])
 yesTags = Array[String](["GrandmaStory4"])
-timeCost = 0
 moneyCost = -30
 charWagon = ExtResource("1_o2rgp")
 charProfile = ExtResource("1_o2rgp")
