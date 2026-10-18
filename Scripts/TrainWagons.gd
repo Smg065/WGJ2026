@@ -9,7 +9,7 @@ var request : CharacterRequest
 static var WAGON_MODELS : Array[PackedScene] = [
 	load("res://Models/Wagon_01.glb"),
 	load("res://Models/Wagon_02.glb"),
-	load("res://Models/Wagon_03.glb")
+	#load("res://Models/Wagon_03.glb")
 ]
 
 func set_train(wagonNum : int) -> void:

@@ -705,6 +705,7 @@ text = "Main Menu"
 stream = ExtResource("19_rbnsi")
 autoplay = true
 bus = &"Music"
+playback_type = 1
 
 [connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/YesButton" to="." method="yes_pressed"]
 [connection signal="pressed" from="MainUI/UIVBox/BottomUI/YesNoPanel/BottomVBox/Buttons/NoButton" to="." method="no_pressed"]

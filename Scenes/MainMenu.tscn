@@ -239,6 +239,7 @@ text = "No"
 stream = ExtResource("4_ghw46")
 autoplay = true
 bus = &"Music"
+playback_type = 1
 
 [connection signal="pressed" from="TitleScreen/VBox/PlayButton" to="." method="play_pressed"]
 [connection signal="pressed" from="TitleScreen/VBox/SettingsButton" to="TitleScreen" method="hide"]

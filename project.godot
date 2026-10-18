@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="No Training"
+config/version="0.1.0"
 run/main_scene="uid://omcdkcc7cmn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.16, 0.09933334, 0.056, 1)
-config/icon="res://icon.svg"
+config/icon="uid://cphoiq3fvm1el"
 
 [audio]
 
@@ -22,7 +23,7 @@ buses/default_bus_layout="uid://dwrqdyyfy3x4v"
 
 [display]
 
-window/size/viewport_width=640
+window/size/viewport_width=960
 window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
