@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("2_pevvt")
 dialogueEn = "You there! Make a donation to the Holy Church of His Holiness Sylvain Durif, the Cosmic Christ, the Great Monarch himself! He shall SAVE US ALL!"
-energyCost = 30
-noCost = -1
-minDay = 3
+energyCost = 15
+moneyCost = 15
 charWagon = ExtResource("1_0o3qx")
 charProfile = ExtResource("1_0o3qx")
 charYes = ExtResource("1_0o3qx")

@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("2_8i4sw")
 dialogueEn = "Hey, you! Gimme all your gold, or I'll mug ya! Name's Bernard. Bernard the Bandit. Mugging people is what I do. It's a living, you know!"
-energyCost = 30
+energyCost = 10
+moneyCost = 80
 noCost = -1
-minDay = 3
+minDay = 5
 charWagon = ExtResource("1_mvgt8")
 charProfile = ExtResource("1_mvgt8")
 charYes = ExtResource("1_mvgt8")

@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("2_ovcmr")
 dialogueEn = "Hey there, mate. Looking a bit knackered, are we? I've got some very special pills that'll have you bursting with energy… eventually. So, what do you say, mate?"
-energyCost = 30
-noCost = -1
-minDay = 3
+energyCost = -80
+timeCost = 5
 charWagon = ExtResource("1_fanxc")
 charProfile = ExtResource("1_fanxc")
 charYes = ExtResource("1_fanxc")

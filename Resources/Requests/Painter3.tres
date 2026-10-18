@@ -10,6 +10,7 @@ tagWhitelist = Array[String](["Painter2"])
 tagBlacklist = Array[String](["Painter3"])
 yesTags = Array[String](["Painter3"])
 timeCost = 4
+moneyCost = -20
 minDay = 4
 charWagon = ExtResource("1_q5syd")
 charProfile = ExtResource("1_q5syd")
