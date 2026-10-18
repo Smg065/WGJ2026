@@ -10,7 +10,6 @@ dialogueFr = "Dis donc, t'as l'air crev√©e toi. Regarde, je fais mon propre caf√
 tagBlacklist = Array[String](["Coffee1"])
 yesTags = Array[String](["Coffee1"])
 energyCost = -30
-timeCost = 0
 moneyCost = 5
 maxDay = 3
 charWagon = ExtResource("1_w4eds")
