@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://omcdkcc7cmn"]
 
-[ext_resource type="Texture2D" uid="uid://b1dqh6vaf5aei" path="res://Sprites/TempMenu.png" id="1_8saeu"]
 [ext_resource type="Script" uid="uid://latfd4nk00rj" path="res://Scripts/MainMenu.gd" id="1_853f1"]
+[ext_resource type="Texture2D" uid="uid://csr2vo7vrai5q" path="res://Sprites/Main_Menu.png" id="1_ghw46"]
 [ext_resource type="Texture2D" uid="uid://duy0mimcue85a" path="res://icon.svg" id="1_tt5f1"]
 [ext_resource type="AudioStream" uid="uid://dfkt58bjva0la" path="res://Music/DreamersTrain.wav" id="4_ghw46"]
 
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_8saeu")
+texture = ExtResource("1_ghw46")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("1_853f1")

@@ -26,6 +26,14 @@ var moveTrain : bool
 		update_wagon_vis()
 @export var renderedWagons : Array[TrainWagon] = [null, null, null, null]
 
+@export_category("SFX")
+@export var musicStream : AudioStreamPlayer
+@export var sfxStream : AudioStreamPlayer
+@export var clickSfx : AudioStream
+@export var buySfx : AudioStream
+@export var dayWinSfx : AudioStream
+@export var gameOver : AudioStream
+
 @export_category("UI")
 @export var mainUI : Control
 @export var dayLabel : Label
@@ -190,16 +198,19 @@ func setup_requests():
 ##Picks a valid item
 func get_valid_item(prevItems : Array[ItemBase]) -> ItemBase:
 	#Pick a rarity
-	var rarityRoll := randi_range(1, 100)
-	var rarity : ItemBase.RARITIES
-	if rarityRoll == 100 - luck:
-		rarity = ItemBase.RARITIES.LEGENDARY
-	elif rarityRoll >= 95 - (luck * 3):
-		rarity = ItemBase.RARITIES.RARE
-	elif rarityRoll >= 62 - (luck * 7):
-		rarity = ItemBase.RARITIES.UNCOMMON
-	else:
-		rarity = ItemBase.RARITIES.COMMON
+	var qualityRanges : Dictionary[ItemBase.RARITIES, int] = {
+		ItemBase.RARITIES.LEGENDARY : 1 + luck,
+		ItemBase.RARITIES.RARE : 10 + (luck * 3),
+		ItemBase.RARITIES.UNCOMMON : 33 + (luck * 6),
+		ItemBase.RARITIES.COMMON : 56
+	}
+	var rarityRoll := randi_range(1, 100 + (luck * 10))
+	var rarity := ItemBase.RARITIES.COMMON
+	for eachQuality in qualityRanges.keys():
+		rarityRoll -= qualityRanges[eachQuality]
+		if rarityRoll <= 0:
+			rarity = eachQuality
+			break
 	#Pick only valid items
 	var validItems : Array[ItemBase]
 	for eachItem in allItems[rarity]:
@@ -236,6 +247,7 @@ func start_new_day():
 
 ##Ends the current day
 func end_day(victoryOverride = false):
+	sfx_stream(dayWinSfx)
 	#Day 7 victory
 	if day == 7:
 		if victoryOverride != true:
@@ -409,6 +421,7 @@ func update_nos_vis():
 	noButtonLabel.text = "x" + str(nos)
 
 func yes_pressed() -> void:
+	sfx_stream(clickSfx)
 	if curRequest != null:
 		var totalTimeCost = curRequest.timeCost
 		if energy <= 0:
@@ -430,6 +443,7 @@ func yes_pressed() -> void:
 		spawn_next_wagon()
 
 func no_pressed() -> void:
+	sfx_stream(clickSfx)
 	#No pressed
 	for eachItem in ownedItems:
 		eachItem.on_no(self)
@@ -449,6 +463,7 @@ func update_reroll_disabled() -> void:
 	rerollButton.disabled = money < rerollCost
 
 func reroll_pressed() -> void:
+	sfx_stream(buySfx)
 	money -= rerollCost
 	rerollCost += 1
 	stock_shop()
@@ -481,19 +496,24 @@ func update_daily_wage_vis():
 	dailyWageLabel.text = "Daily Wage: %s" % dailyWage
 
 func next_day_pressed() -> void:
+	sfx_stream(clickSfx)
 	start_new_day()
 
 func endless_mode_pressed() -> void:
+	sfx_stream(clickSfx)
 	end_day(true)
 
 func main_menu() -> void:
+	sfx_stream(clickSfx)
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func retry_pressed() -> void:
+	sfx_stream(clickSfx)
 	get_tree().reload_current_scene()
 
 ##Tries to buy the given shop item
 func try_buy(shopItem : ShopItem) -> void:
+	sfx_stream(buySfx)
 	if shopItem.curItem == null:
 		return
 	if shopItem.curItem.itemCost > money:
@@ -508,6 +528,7 @@ func try_buy(shopItem : ShopItem) -> void:
 ##Game over
 func game_over() -> void:
 	mainUI.hide()
+	music_play(gameOver)
 	gameOverUI.show()
 
 ##Adds an item to your inventory
@@ -532,3 +553,11 @@ func aquire_item(newItem : ItemBase) -> void:
 		display1.setup(newItem)
 		display2.setup(newItem)
 	boughtItem.on_purchase(self)
+
+func sfx_stream(inSound : AudioStream):
+	sfxStream.stream = inSound
+	sfxStream.play()
+
+func music_play(inSong : AudioStream):
+	musicStream.stream = inSong
+	musicStream.play()
