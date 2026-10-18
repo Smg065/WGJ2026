@@ -34,6 +34,7 @@ folder_colors={
 "res://Models/": "yellow",
 "res://Music/": "gray",
 "res://Resources/": "blue",
+"res://SFX/": "orange",
 "res://Scenes/": "teal",
 "res://Scripts/": "purple",
 "res://Sprites/": "green",

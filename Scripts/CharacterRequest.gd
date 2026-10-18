@@ -5,6 +5,7 @@ class_name CharacterRequest
 @export_multiline() var dialogueEn : String
 ##French dialogue
 @export_multiline() var dialogueFr : String
+@export var dialogueSound : AudioStream
 ##The tags you're required to have to get this task
 @export var tagWhitelist : Array[String]
 ##The tags you must not have to get this task
