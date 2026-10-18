@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bblf4acwurjdt" path="res://Sprites/Characters/80_Gym_teacher.png" id="1_664l5"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_g2woc"]
+[ext_resource type="AudioStream" uid="uid://bspr4eca8wqll" path="res://SFX/dialogue-vnr.wav" id="2_wh2k5"]
 
 [resource]
 script = ExtResource("2_g2woc")
 dialogueEn = "NO REST 'TILL YOU'RE DEAD! You didn't finish your workout last time. Come on, push harder! ONE! TWO! FEEL THAT BURN! NO PAIN, NO GAIN!"
 dialogueFr = "PAS DE REPOS POUR LES BRAVES ! Vous avez pas fini votre séance la dernière fois. Allez, c'est reparti ! UNE ! DEUX ! SENTEZ VOS MUSCLES BRÛLER ! ON N'A RIEN SANS RIEN !"
+dialogueSound = ExtResource("2_wh2k5")
 tagWhitelist = Array[String](["WorkoutBuddy"])
 tagBlacklist = Array[String](["WorkoutBuddy2"])
 yesTags = Array[String](["WorkoutBuddy2"])

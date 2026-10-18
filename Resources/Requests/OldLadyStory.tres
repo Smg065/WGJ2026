@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://cqwimqdgptmes"]
 
 [ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_j88ck"]
+[ext_resource type="AudioStream" uid="uid://cjy0pqwt2e2kh" path="res://SFX/dialogue-03.wav" id="2_2t8wt"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_6uffv"]
 
 [resource]
 script = ExtResource("2_6uffv")
 dialogueEn = "Hello, my sweetie! So lovely of you to visit your old grandma! You'll never guess where I've been. Come, let me tell you all about my holidays!"
 dialogueFr = "Bonjour ma puce ! C'est adorable de ta part de rendre visite à ta vieille grand-mère ! Tu ne vas jamais deviner où j'ai été. Viens, laisse moi te raconter mes vacances !"
+dialogueSound = ExtResource("2_2t8wt")
 tagBlacklist = Array[String](["GrandmaStory"])
 yesTags = Array[String](["GrandmaStory"])
 energyCost = 20

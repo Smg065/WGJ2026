@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://codxx3snhujwr"]
 
 [ext_resource type="Texture2D" uid="uid://moy2imtys6a6" path="res://Sprites/Characters/Crazy_Painter.png" id="1_q5syd"]
+[ext_resource type="AudioStream" uid="uid://njjrm8rvkraj" path="res://SFX/dialogue-06.wav" id="2_l84en"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_xw5sg"]
 
 [resource]
 script = ExtResource("2_xw5sg")
 dialogueEn = "Darling, you're here! Don't worry, I don't need you to pose this time. I just need you to watch my painting dry with me. For the sake of art!"
 dialogueFr = "Chérie, te voilà ! Ne t'inquiète pas, je n'ai pas besoin que tu poses cette fois-ci. J'ai juste besoin que tu restes avec moi à regarder mon tableau sécher. Au nom de l'art !"
+dialogueSound = ExtResource("2_l84en")
 tagWhitelist = Array[String](["Painter2"])
 tagBlacklist = Array[String](["Painter3"])
 yesTags = Array[String](["Painter3"])

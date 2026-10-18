@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://ynalccamccbw" path="res://Sprites/Characters/Weird_Merchant.png" id="1_jt25w"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_kbu34"]
+[ext_resource type="AudioStream" uid="uid://bggq6wj6yb1id" path="res://SFX/dialogue-laughter.wav" id="2_rwhv8"]
 
 [resource]
 script = ExtResource("2_kbu34")
 dialogueEn = "Remember my coffee from last time? I've improved the recipe with some… Hey, you still don't wanna know. Dare to try it again?"
 dialogueFr = "Tu te souviens de mon café de l'autre fois ? J'ai amélioré la recette avec du... Bref t'as pas besoin de savoir. Tu retentes le coup ?"
+dialogueSound = ExtResource("2_rwhv8")
 tagWhitelist = Array[String](["Coffee1"])
 yesTags = Array[String](["Coffee2"])
 energyCost = -60

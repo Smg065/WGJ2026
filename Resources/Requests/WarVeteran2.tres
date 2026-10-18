@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_y1jlf"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_frt4j"]
+[ext_resource type="AudioStream" uid="uid://buxrk4kgk6ng8" path="res://SFX/dialogue-04.wav" id="2_v38bt"]
 
 [resource]
 script = ExtResource("2_frt4j")
 dialogueEn = "Let me tell you about Christmas Eve, 1914. Amid the bombs and the bodies, we heard men singing carols from the other trench. We climbed out and shook hands with our enemies…"
 dialogueFr = "Laissez-moi vous raconter le réveillon de Noël 1914. Au milieu des bombes et des cadavres, nous avons entendu des hommes chanter des cantiques depuis la tranchée d’en face. Nous sommes alors sortis les voir..."
+dialogueSound = ExtResource("2_v38bt")
 tagWhitelist = Array[String](["WarVeteran"])
 tagBlacklist = Array[String](["WarVeteran2"])
 yesTags = Array[String](["WarVeteran2"])

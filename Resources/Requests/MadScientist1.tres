@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="1_8pai0"]
 [ext_resource type="Texture2D" uid="uid://6uuludlm2ji1" path="res://Sprites/Characters/Mad_Scientist.png" id="1_k3oh7"]
+[ext_resource type="AudioStream" uid="uid://bggq6wj6yb1id" path="res://SFX/dialogue-laughter.wav" id="2_kikkv"]
 
 [resource]
 script = ExtResource("1_8pai0")
 dialogueEn = "Help! Billy, my pet zombie, has escaped from his cage! I can't find him anywhere. Could you help me look for him?"
 dialogueFr = "Au secours ! Mon zombie de compagnie s'est échappé ! Je le trouve nulle part. Vous pourriez m'aider à le chercher ?"
+dialogueSound = ExtResource("2_kikkv")
 tagBlacklist = Array[String](["MadScientist1"])
 yesTags = Array[String](["MadScientist1"])
 energyCost = 20

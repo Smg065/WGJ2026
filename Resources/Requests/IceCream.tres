@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://01lf4lbam8a2"]
+
+[ext_resource type="Texture2D" uid="uid://bblf4acwurjdt" path="res://Sprites/Characters/80_Gym_teacher.png" id="1_y7jt4"]
+[ext_resource type="AudioStream" uid="uid://dk3du50iyqrw7" path="res://SFX/dialogue-cry.wav" id="2_y7jt4"]
+[ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="3_35a0k"]
+
+[resource]
+script = ExtResource("3_35a0k")
+dialogueEn = "I saw a ghost wandering around the bar car, eating ALL THE ICE CREAM! There's nothing sadder than a world without ice cream. Please, get my ice cream back!"
+dialogueFr = "J'ai vu un fantôme se promener dans le wagon-bar et manger TOUTE LA GLACE ! Il n'y a rien de plus triste qu'un monde sans glace. S'il vous plaît, récupérez m'en une !"
+dialogueSound = ExtResource("2_y7jt4")
+tagBlacklist = Array[String](["WorkoutBuddy"])
+yesTags = Array[String](["WorkoutBuddy"])
+energyCost = 60
+timeCost = 2
+minDay = 2
+charWagon = ExtResource("1_y7jt4")
+charProfile = ExtResource("1_y7jt4")
+charYes = ExtResource("1_y7jt4")
+charNo = ExtResource("1_y7jt4")
+metadata/_custom_type_script = "uid://crmyuhxtt7onq"

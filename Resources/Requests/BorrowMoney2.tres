@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://ydy7tut73310"]
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_osk7s"]
+[ext_resource type="AudioStream" uid="uid://bc52jk37o2cxq" path="res://SFX/dialogue-05.wav" id="2_753tl"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_fwakd"]
 
 [resource]
 script = ExtResource("2_fwakd")
 dialogueEn = "Good morning, I… kinda lost my wallet. Do you have any money to spare? I'll pay you back as soon as I find it. Promise!"
 dialogueFr = "Bonjour, j’ai… enfin, j’ai perdu mon portefeuille. Auriez-vous un peu d’argent à me dépanner ? Je vous rembourserai dès que je l’aurai retrouvé. Promis !"
+dialogueSound = ExtResource("2_753tl")
 tagWhitelist = Array[String](["BorrowMoney1"])
 tagBlacklist = Array[String](["BorrowMoney2"])
 yesTags = Array[String](["BorrowMoney2"])

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://nnngakoybt5c"]
 
 [ext_resource type="Texture2D" uid="uid://moy2imtys6a6" path="res://Sprites/Characters/Crazy_Painter.png" id="1_420wt"]
+[ext_resource type="AudioStream" uid="uid://bex8tb6t80dnd" path="res://SFX/dialogue-02.wav" id="2_5ejlc"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_av08f"]
 
 [resource]
 script = ExtResource("2_av08f")
 dialogueEn = "Hello again, darling! I need you to pose for me again so I can finish my masterpiece. I'm still searching for those bold, vibrant colours!"
 dialogueFr = "Rebonjour, mon cœur ! J'ai besoin que tu poses à nouveau pour moi, afin que je puisse terminer mon chef-d'œuvre. Je suis toujours à la recherche de ces couleurs audacieuses et éclatantes !"
+dialogueSound = ExtResource("2_5ejlc")
 tagWhitelist = Array[String](["Painter"])
 tagBlacklist = Array[String](["Painter2"])
 yesTags = Array[String](["Painter2"])

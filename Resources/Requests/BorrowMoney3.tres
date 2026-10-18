@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cphoiq3fvm1el" path="res://Sprites/Characters/NPC_15.png" id="1_cs78q"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_0ux28"]
+[ext_resource type="AudioStream" uid="uid://njjrm8rvkraj" path="res://SFX/dialogue-06.wav" id="2_miyoh"]
 
 [resource]
 script = ExtResource("2_0ux28")
 dialogueEn = "Hey! I've got your money back! But a gust of wind snatched it right out of my hand. It can't have gone far! Could you help me find it?"
 dialogueFr = "Salut ! J'ai récupéré ton argent ! Mais une rafale de vent me l'a arraché des mains. Ça n'a pas pu aller bien loin ! Tu pourrais m'aider à le retrouver ?"
+dialogueSound = ExtResource("2_miyoh")
 tagWhitelist = Array[String](["BorrowMoney2"])
 tagBlacklist = Array[String](["BorrowMoney3"])
 yesTags = Array[String](["BorrowMoney3"])

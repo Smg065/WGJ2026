@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://muff38eok5ij" path="res://Sprites/Characters/NPC_1.png" id="1_iu4h2"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_1euat"]
+[ext_resource type="AudioStream" uid="uid://bc52jk37o2cxq" path="res://SFX/dialogue-05.wav" id="2_1xxy8"]
 
 [resource]
 script = ExtResource("2_1euat")
 dialogueEn = "You left in such a hurry last time! I've found some more photos since then. Come on, have a look with your old grandma!"
 dialogueFr = "Tu es partie tellement vite la dernière fois ! J'ai retrouvé d'autres photos. Allez, viens les regarder avec ta vieille grand-mère !"
+dialogueSound = ExtResource("2_1xxy8")
 tagWhitelist = Array[String](["GrandmaStory2"])
 tagBlacklist = Array[String](["GrandmaStory3"])
 yesTags = Array[String](["GrandmaStory3"])

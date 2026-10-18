@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://bt7rd2vuhc1u0"]
 
 [ext_resource type="Texture2D" uid="uid://bdn1oyghbljke" path="res://Sprites/Characters/WW1_Veteran.png" id="1_4hp4h"]
+[ext_resource type="AudioStream" uid="uid://bc52jk37o2cxq" path="res://SFX/dialogue-05.wav" id="2_865v2"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_akw4y"]
 
 [resource]
 script = ExtResource("2_akw4y")
 dialogueEn = "It's kind of you to spend time with a poor veteran like me. I've lived through so many horrors of war… Would you care to hear my stories?"
 dialogueFr = "C’est bien aimable à vous de consacrer du temps à un ancien combattant comme moi. J’ai vécu tant d’horreurs durant la guerre… Voudriez-vous entendre mes récits ?"
+dialogueSound = ExtResource("2_865v2")
 tagBlacklist = Array[String](["WarVeteran"])
 yesTags = Array[String](["WarVeteran"])
 energyCost = 10

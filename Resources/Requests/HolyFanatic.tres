@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterRequest" format=3 uid="uid://e7papkmmi1fm"]
 
 [ext_resource type="Texture2D" uid="uid://dwdnowhy6s0qv" path="res://Sprites/Characters/Standard_Person.png" id="1_0o3qx"]
+[ext_resource type="AudioStream" uid="uid://bspr4eca8wqll" path="res://SFX/dialogue-vnr.wav" id="2_cska7"]
 [ext_resource type="Script" uid="uid://crmyuhxtt7onq" path="res://Scripts/CharacterRequest.gd" id="2_pevvt"]
 
 [resource]
 script = ExtResource("2_pevvt")
 dialogueEn = "You there! Make a donation to the Holy Church of His Holiness Sylvain Durif, the Cosmic Christ, the Great Monarch himself! He shall SAVE US ALL!"
 dialogueFr = "Hé, vous ! Faites un don à la Sainte Église de Sa Sainteté Sylvain Durif, le Christ Cosmique, le Grand Monarque en personne ! Il nous SAUVERA TOUS !"
+dialogueSound = ExtResource("2_cska7")
 energyCost = 15
 moneyCost = 20
 charWagon = ExtResource("1_0o3qx")
